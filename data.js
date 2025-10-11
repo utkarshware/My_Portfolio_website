@@ -15,6 +15,8 @@ window.PORTFOLIO_DATA = {
       "I’m a B.Tech student in Robotics & Automation. I bridge hardware and software to build reliable robotic systems, embedded firmware and ML-powered prototypes.",
     about:
       "I focus on practical robotics and automation: embedded systems (Arduino/STM32), inverse kinematics for manipulators, control systems, on-device ML and full-stack interfaces. I move quickly from prototype to demonstrable product while emphasising reliability and usability. Previously I led operations & communications at INFIDIT and served as Student Council & MUN President. Open to internships, research collaborations and product roles.",
+    photo: "assets/images/myimage.jpg",
+    photoAlt: "Utkarsh Singh smiling in front of a robotics lab setup",
   },
 
   contact: {

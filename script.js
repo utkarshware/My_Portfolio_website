@@ -22,13 +22,18 @@
   const contactEmail = document.getElementById("contact-email");
   const footerName = document.getElementById("footer-name");
   const yearEl = document.getElementById("year");
+  const heroPhotoWrapper = document.getElementById("hero-photo-wrapper");
+  const heroPhotoImg = document.getElementById("hero-photo-img");
+  const heroOrbit = document.getElementById("hero-orbit");
 
   // fill hero/profile text
   if (HAS_DATA) {
     if (heroName && D.profile?.name) heroName.textContent = D.profile.name;
-    if (heroLead && D.profile?.heroLead) heroLead.textContent = D.profile.heroLead;
+    if (heroLead && D.profile?.heroLead)
+      heroLead.textContent = D.profile.heroLead;
     if (logoText && D.profile?.name) logoText.textContent = D.profile.name;
-    if (resumeLink && D.meta?.resumeHref) resumeLink.setAttribute("href", D.meta.resumeHref);
+    if (resumeLink && D.meta?.resumeHref)
+      resumeLink.setAttribute("href", D.meta.resumeHref);
     if (contactEmail && D.contact?.email) {
       contactEmail.setAttribute("href", `mailto:${D.contact.email}`);
       contactEmail.textContent = "Email me";
@@ -36,8 +41,32 @@
     if (footerName && D.profile?.name) footerName.textContent = D.profile.name;
   }
 
+  // Hero portrait (fallback to decorative orbit if no photo provided)
+  if (heroPhotoWrapper && heroPhotoImg) {
+    if (HAS_DATA && D.profile?.photo) {
+      heroPhotoImg.src = D.profile.photo;
+      heroPhotoImg.alt =
+        D.profile.photoAlt ||
+        `Portrait of ${D.profile?.name || "portfolio owner"}`;
+      heroPhotoWrapper.removeAttribute("hidden");
+      heroPhotoWrapper.setAttribute("aria-hidden", "false");
+      if (heroOrbit) {
+        heroOrbit.setAttribute("hidden", "");
+        heroOrbit.setAttribute("aria-hidden", "true");
+      }
+    } else {
+      heroPhotoWrapper.setAttribute("hidden", "");
+      heroPhotoWrapper.setAttribute("aria-hidden", "true");
+      if (heroOrbit) {
+        heroOrbit.removeAttribute("hidden");
+        heroOrbit.setAttribute("aria-hidden", "true");
+      }
+    }
+  }
+
   // About
-  if (HAS_DATA && aboutParagraph && D.profile?.about) aboutParagraph.textContent = D.profile.about;
+  if (HAS_DATA && aboutParagraph && D.profile?.about)
+    aboutParagraph.textContent = D.profile.about;
 
   // Social links
   if (HAS_DATA && socialLinks && Array.isArray(D.socials)) {
@@ -165,7 +194,7 @@
     });
   }
 
-  // THEME toggle (uses `.light` class as in CSS)
+  // THEME toggle (uses `.light` class and data-theme on root for CSS)
   const themeToggle = document.getElementById("theme-toggle");
   const root = document.documentElement;
   const THEME_KEY = "theme";
@@ -174,16 +203,56 @@
     const stored = localStorage.getItem(THEME_KEY);
     if (stored === "light") {
       root.classList.add("light");
+      root.setAttribute("data-theme", "light");
     } else if (!stored) {
-      const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
-      if (prefersLight) root.classList.add("light");
+      const prefersLight =
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: light)").matches;
+      if (prefersLight) {
+        root.classList.add("light");
+        root.setAttribute("data-theme", "light");
+        localStorage.setItem(THEME_KEY, "light");
+      } else {
+        root.removeAttribute("data-theme");
+        localStorage.setItem(THEME_KEY, "dark");
+      }
+    } else {
+      // stored is 'dark'
+      root.classList.remove("light");
+      root.removeAttribute("data-theme");
+    }
+    // reflect toggle button state for a11y
+    if (themeToggle) {
+      const isLight = root.classList.contains("light");
+      themeToggle.setAttribute("aria-pressed", String(isLight));
+      themeToggle.setAttribute(
+        "aria-label",
+        isLight ? "Switch to dark mode" : "Switch to light mode"
+      );
+      themeToggle.title = isLight
+        ? "Switch to dark mode"
+        : "Switch to light mode";
     }
   })();
 
   if (themeToggle) {
     themeToggle.addEventListener("click", function () {
       const isLight = root.classList.toggle("light");
+      if (isLight) {
+        root.setAttribute("data-theme", "light");
+      } else {
+        root.removeAttribute("data-theme");
+      }
       localStorage.setItem(THEME_KEY, isLight ? "light" : "dark");
+      // update button state
+      themeToggle.setAttribute("aria-pressed", String(isLight));
+      themeToggle.setAttribute(
+        "aria-label",
+        isLight ? "Switch to dark mode" : "Switch to light mode"
+      );
+      themeToggle.title = isLight
+        ? "Switch to dark mode"
+        : "Switch to light mode";
     });
   }
 
@@ -192,7 +261,9 @@
   function updateScrollProgress() {
     if (!progressBar) return;
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const docHeight =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
     const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
     progressBar.style.width = pct + "%";
   }

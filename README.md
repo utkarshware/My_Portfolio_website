@@ -85,6 +85,8 @@ window.PORTFOLIO_DATA = {
     name: "Utkarsh Singh",
     heroLead: "One‑liner for the hero section",
     about: "Longer bio paragraph for the About section",
+    photo: "assets/images/myimage.jpg", // optional portrait shown in the hero
+    photoAlt: "Accessible alt text for the portrait",
   },
   contact: {
     email: "you@example.com",
@@ -134,6 +136,7 @@ window.PORTFOLIO_DATA = {
 Assets:
 
 - Place project images in `assets/images/` and reference them with relative paths (e.g., `assets/images/your-image.webp`).
+- Portraits for the hero can live in the same folder (e.g., `assets/images/myimage.jpg`) and be referenced via `profile.photo`.
 - Place icons in `assets/icons/`. The script expects file names matching social names (github.svg, linkedin.svg, twitter.svg).
 
 ---
@@ -144,6 +147,7 @@ Assets:
 - Scroll progress bar: a thin accent bar at the top that fills as you scroll.
 - Project cards: image with a subtle overlay on hover and tags in the content.
 - Social icons: simple SVGs rendered as images next to the hero content.
+- Hero portrait: loads from `profile.photo`; if omitted, a decorative orbit animation displays instead.
 
 ---
 
@@ -154,6 +158,9 @@ Assets:
   - If you previously used absolute `/assets/...` paths, they won’t load with file:// — use the relative paths provided.
   - Confirm files exist and names match exactly (Git hosts are case sensitive).
   - Open DevTools → Network and check for 404s.
+- Theme toggle stuck on one mode
+  - Press <kbd>F12</kbd> → Console and run `localStorage.removeItem('theme')`, then refresh.
+  - Ensure your custom CSS still targets both `.light` and `[data-theme="light"]` selectors on the `<html>` element.
 - Social icon colors
   - SVGs loaded as `<img>` won’t inherit link color; use lighter icons for dark themes, or inline SVG if you need `currentColor` styling.
 - Mobile nav doesn’t open/close

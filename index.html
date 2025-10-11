@@ -103,11 +103,22 @@
             <ul class="social" id="social-links" aria-label="Social links"></ul>
           </div>
 
-          <div class="hero-art reveal" aria-hidden="true">
-            <!-- decorative artwork — keep in CSS -->
-            <div class="orbit">
-              <div class="planet"></div>
-              <div class="ring"></div>
+          <div class="hero-visual reveal">
+            <figure class="hero-photo" id="hero-photo-wrapper" hidden>
+              <img
+                id="hero-photo-img"
+                src=""
+                alt="Portrait of Utkarsh Singh"
+                loading="lazy"
+              />
+            </figure>
+
+            <div class="hero-orbit" id="hero-orbit" aria-hidden="true">
+              <!-- decorative artwork fallback -->
+              <div class="orbit">
+                <div class="planet"></div>
+                <div class="ring"></div>
+              </div>
             </div>
           </div>
         </div>
