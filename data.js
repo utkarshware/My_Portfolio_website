@@ -23,11 +23,12 @@ window.PORTFOLIO_DATA = {
 
   contact: {
     email: "utkarshsingh2104@outlook.com",
+    emailLabel: "utkarshsingh2104",
     location: "Pune, Maharashtra, India",
     availability:
-      "Open to robotics internships, research collaborations, and product roles.",
-    responseTime: "Typically replies within 24 hours (IST, UTC+05:30).",
-    note: "Let's collaborate on robotics, embedded firmware, and intelligent interfaces.",
+      "Currently partnering with teams building robotics, automation, and intelligent systems.",
+    responseTime: "Responses within one business day (IST).",
+    note: "Happy to discuss robotics systems, embedded firmware, or intelligent automation initiatives.",
   },
 
   skills: [

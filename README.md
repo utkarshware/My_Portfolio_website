@@ -1,65 +1,63 @@
-# My Portfolio Website — Utkarsh Singh
+# Utkarsh Singh – Portfolio
 
-[![Repo size](https://img.shields.io/github/repo-size/utkarshware/My_Portfolio_website?style=flat-square)](https://github.com/utkarshware/My_Portfolio_website)
-[![License: MIT](https://img.shields.io/badge/license-MIT-lightgrey?style=flat-square)](#license)
-
-A clean, responsive, and accessible single‑page portfolio. Content is fully data‑driven (from `data.js`) and rendered dynamically with `script.js`. Ships as static files, with an optional Node.js dev server.
+Single-page portfolio focused on robotics, automation, and embedded systems. Ships as static assets and includes an Express server for local previews.
 
 ---
 
-## Features
+## Highlights
 
-- Data-driven content from `data.js` (hero, about, skills, projects, socials, JSON‑LD)
-- Responsive layout and theme toggle (light/dark preference stored)
-- Social icons and project visuals (SVGs in `assets/`)
-- Project image hover overlay and a scroll progress indicator
-- Accessible navigation (skip link, focusable controls)
-- Optional Node.js dev server (Express + compression) for reliable local testing
+- Data in `data.js` drives every section, including SEO metadata.
+- Responsive layout with light/dark theming and animated glassmorphism details.
+- Project grid with optional imagery, tech badges, and external links.
+- Scroll-aware navigation, progress indicator, and custom cursor for desktop.
 
 ---
 
-## Project structure
+## Stack
+
+- HTML5, CSS, vanilla JavaScript
+- Assets stored locally under `assets/icons` and `assets/images`
+- Optional Node.js tooling (`express`, `compression`, `serve-static`)
+
+---
+
+## Structure
 
 ```
 My_Portfolio_website/
-├─ assets/
-│  ├─ icons/           # svg icons (github, linkedin, twitter, favicon)
-│  └─ images/          # project visuals (svg/png/webp)
-├─ data.js             # all site content (PORTFOLIO_DATA)
-├─ index.html          # base HTML (mount points only)
-├─ script.js           # DOM rendering, theme, scroll progress, nav
-├─ styles.css          # styles and responsive layout
-├─ server.js           # optional Node dev server (Express)
-├─ package.json        # npm scripts and dependencies
-└─ README.md           # this file
+├─ assets/             # imagery and icons
+├─ data.js             # content configuration (window.PORTFOLIO_DATA)
+├─ index.html          # markup shell
+├─ script.js           # rendering logic and interactions
+├─ styles.css          # styling and responsive rules
+├─ server.js           # optional Express static server
+└─ package.json        # npm scripts and dependencies
 ```
 
 ---
 
-## Getting started
+## Quick start
 
-### Option A — Just open the file (fastest)
+### Static preview
 
-- Double‑click `index.html` to open it in your browser.
-- Paths are relative (e.g., `assets/images/...`), so images and icons load without a server.
+1. Clone or download the repository.
+2. Open `index.html` in a modern browser.
 
-### Option B — Run with Node.js (recommended for dev)
-
-From the project folder:
+### Node.js preview
 
 ```cmd
 npm install
 npm run start
 ```
 
-- Open: http://localhost:5173
-- Dev mode with auto‑reload:
+- Serves the site on http://localhost:5173 (set `PORT` to override).
+- Development mode with Nodemon:
 
 ```cmd
 npm run dev
 ```
 
-Prefer Python? This also works:
+### Lightweight alternative
 
 ```cmd
 python -m http.server 8000
@@ -68,141 +66,36 @@ start "" "http://localhost:8000"
 
 ---
 
-## Customize content (data.js)
+## Customising content
 
-All visible content lives in `data.js` under `window.PORTFOLIO_DATA`. Edit it to update the site.
+Edit `data.js` to update copy, links, and imagery:
 
-Shape overview:
+- `meta`: title, description, résumé link.
+- `profile`: hero headline, biography, portrait.
+- `contact`: email, availability messaging, location, response time.
+- `skills`: technology list rendered as badges.
+- `projects`: case studies with optional media, tech stack, and links.
+- `socials`: social profiles with optional icon overrides.
+- `schema`: JSON-LD Person metadata.
 
-```js
-window.PORTFOLIO_DATA = {
-  meta: {
-    title: "Utkarsh Singh — Robotics & Automation | Portfolio",
-    description: "Short SEO description...",
-    resumeHref: "https://your-hosted-link-to-resume.pdf", // can be absolute URL (Google Drive, etc.)
-  },
-  profile: {
-    name: "Utkarsh Singh",
-    heroLead: "One‑liner for the hero section",
-    about: "Longer bio paragraph for the About section",
-    photo: "assets/images/myimage.jpg", // optional portrait shown in the hero
-    photoAlt: "Accessible alt text for the portrait",
-  },
-  contact: {
-    email: "you@example.com",
-    phone: "+91 ...",
-    icon: "assets/icons/github.png", // optional explicit icon path (svg/png)
-    location: "City, Country",
-  },
-  skills: [
-    "Python · C · C++ · Embedded C",
-    // ...more
-  ],
-  projects: [
-    {
-      title: "Project title",
-      date: "Apr 2025",
-      oneLine: "Short one‑liner",
-      description: "A few sentences explaining your contribution and impact",
-      tech: ["Tag1", "Tag2"],
-      // img / alt are optional; omit them to render a text-only card
-      img: "assets/images/project-hero.svg",
-      alt: "Accessible alt text",
-      live: "#", // optional
-      liveLabel: "Live", // optional button label override
-      code: "https://github.com/you/project", // optional
-      codeLabel: "GitHub Repo", // optional button label override
-      note: "Hardware build — repository shared on request", // optional
-    },
-  ],
-  socials: [
-    {
-      name: "GitHub",
-      url: "https://github.com/utkarshware",
-      aria: "GitHub — Utkarsh Singh",
-    },
-    {
-      name: "LinkedIn",
-      url: "https://www.linkedin.com/in/utkarshware/",
-      aria: "LinkedIn — Utkarsh Singh",
-    },
-    {
-      name: "Twitter",
-      url: "https://twitter.com/utkarshware",
-      aria: "Twitter — Utkarsh Singh",
-    },
-  ],
-  schema: {
-    /* JSON‑LD Person schema used for SEO */
-  },
-};
-```
-
-Assets:
-
-- Place project images in `assets/images/` and reference them with relative paths (e.g., `assets/images/your-image.webp`).
-- Portraits for the hero can live in the same folder (e.g., `assets/images/myimage.jpg`) and be referenced via `profile.photo`.
-- Place icons in `assets/icons/`. Add them as SVG or PNG and point to them with the optional `icon` field under `socials`.
+Store images in `assets/images/` and reference them with relative paths. Icons belong in `assets/icons/`.
 
 ---
 
-## UI / behavior overview
+## Development notes
 
-- Theme toggle: persists the last chosen theme in localStorage.
-- Scroll progress bar: a thin accent bar at the top that fills as you scroll.
-- Project cards: image with a subtle overlay on hover and tags in the content.
-- If no image is provided, project cards expand to a full-width text layout with GitHub-only buttons.
-- If `PORTFOLIO_DATA.projects` is empty, the section shows a friendly reminder pointing back to `data.js`.
-- Social icons: simple SVGs rendered as images next to the hero content.
-- Hero portrait: loads from `profile.photo`, layered over `assets/images/placeholder-1.svg`; if omitted, a decorative orbit animation displays instead.
+- `script.js` hydrates the DOM, manages the nav highlight, theme toggle, and scroll progress bar.
+- `styles.css` defines the aurora-inspired visuals and responsive breakpoints (900px and 720px).
+- Hero portrait gracefully falls back to a decorative orbit when no image is provided.
 
 ---
 
-## Troubleshooting
+## Deployment
 
-- Images or icons not visible
-  - Ensure your paths are relative: `assets/images/...` or `assets/icons/...` (no leading slash).
-  - If you previously used absolute `/assets/...` paths, they won’t load with file:// — use the relative paths provided.
-  - Confirm files exist and names match exactly (Git hosts are case sensitive).
-  - Open DevTools → Network and check for 404s.
-- Want to show only GitHub links
-  - Remove the `img` field (and `live` link) from a project in `data.js`.
-  - Set `code` (and optionally `codeLabel`) to point at your repository; the card will render a single “GitHub Repo” button.
-- Data.js edits not showing up
-  - Confirm `data.js` appears before `script.js` in `index.html` (it does in this template; keep that order if you refactor).
-  - Hard refresh after editing (Ctrl+F5 on Windows) to bust cached copies when running via `npm run start`.
-  - Open DevTools → Console and type `window.PORTFOLIO_DATA` to make sure it’s defined; if not, check for syntax errors in `data.js`.
-  - The Projects section now renders a notice when the array is empty—use that as a quick sanity check that the file loaded.
-- Resume button opens a 404
-  - Provide a valid URL in `meta.resumeHref` (Google Drive “view” link works fine) or place a PDF in `assets/` and reference it relatively (e.g., `assets/resume.pdf`).
-  - After uploading a new file, ensure the filename matches exactly and refresh the browser cache.
-- Theme toggle stuck on one mode
-  - Press <kbd>F12</kbd> → Console and run `localStorage.removeItem('theme')`, then refresh.
-  - Ensure your custom CSS still targets both `.light` and `[data-theme="light"]` selectors on the `<html>` element.
-- Social icon colors
-  - SVGs loaded as `<img>` won’t inherit link color; use lighter icons for dark themes, or inline SVG if you need `currentColor` styling.
-- Mobile nav doesn’t open/close
-  - If you customize the nav, keep the JS and CSS class names aligned (toggle script and CSS must use the same open state).
-- Node server won’t start
-  - Ensure Node 18+ is installed. Reinstall deps with `npm install`.
-  - If the port is busy: set `PORT=5174` (PowerShell: `$env:PORT=5174; npm run start`).
-
----
-
-## Deploy
-
-- Any static host works: GitHub Pages, Netlify, Vercel, Cloudflare Pages.
-- Upload the repo contents as‑is. Asset paths are relative, so subpaths work.
+The site is static. Deploy the repository contents to any static host (GitHub Pages, Netlify, Vercel, Cloudflare Pages, etc.). No build step is required.
 
 ---
 
 ## License
 
-MIT — feel free to use and adapt. Attribution appreciated.
-
----
-
-## Credits
-
-- Design and implementation by Utkarsh Singh.
-- Icons and images are simple SVG placeholders — replace with your own assets.
+MIT License.

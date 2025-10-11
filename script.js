@@ -44,11 +44,12 @@
       resumeLink.setAttribute("href", D.meta.resumeHref);
     if (contactEmail && D.contact?.email) {
       contactEmail.setAttribute("href", `mailto:${D.contact.email}`);
-      contactEmail.textContent = "Email me";
+      contactEmail.textContent = "Send an email";
     }
     if (contactEmailLink && D.contact?.email) {
       contactEmailLink.setAttribute("href", `mailto:${D.contact.email}`);
-      contactEmailLink.textContent = D.contact.email;
+      const label = D.contact.emailLabel || D.contact.email;
+      contactEmailLink.textContent = label;
     }
     if (contactIntro && D.contact?.note)
       contactIntro.textContent = D.contact.note;
