@@ -198,10 +198,10 @@ a {
   width: 20px;
   height: 20px;
   display: inline-block;
-  filter: grayscale(1) brightness(1.2) invert(0.9);
+  vertical-align: middle;
 }
 .social li a:hover .social-icon {
-  filter: none;
+  opacity: 0.9;
 }
 
 /* project thumbnail + overlay */
@@ -237,6 +237,18 @@ a {
   margin: 6px 0 0;
   font-size: 13px;
   color: rgba(255, 255, 255, 0.85);
+}
+
+/* scroll progress bar */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: var(--accent);
+  box-shadow: 0 0 10px color-mix(in oklab, var(--accent), transparent 40%);
+  z-index: 300;
 }
 
 /* Orbit art */
@@ -449,7 +461,7 @@ a {
     width: 200px;
     display: none;
   }
-  .nav-open #nav-menu {
+  .nav-open .site-nav ul {
     display: flex;
   }
 }

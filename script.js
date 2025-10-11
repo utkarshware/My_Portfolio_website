@@ -1,7 +1,7 @@
 // script.js
 (function () {
   const D = window.PORTFOLIO_DATA || {};
-  if (!D || !Object.keys(D).length) return;
+  const HAS_DATA = D && Object.keys(D).length > 0;
 
   // META: update title & meta description if present
   if (D.meta?.title) document.title = D.meta.title;
@@ -24,24 +24,23 @@
   const yearEl = document.getElementById("year");
 
   // fill hero/profile text
-  if (heroName && D.profile?.name) heroName.textContent = D.profile.name;
-  if (heroLead && D.profile?.heroLead)
-    heroLead.textContent = D.profile.heroLead;
-  if (logoText && D.profile?.name) logoText.textContent = D.profile.name;
-  if (resumeLink && D.meta?.resumeHref)
-    resumeLink.setAttribute("href", D.meta.resumeHref);
-  if (contactEmail && D.contact?.email) {
-    contactEmail.setAttribute("href", `mailto:${D.contact.email}`);
-    contactEmail.textContent = "Email me";
+  if (HAS_DATA) {
+    if (heroName && D.profile?.name) heroName.textContent = D.profile.name;
+    if (heroLead && D.profile?.heroLead) heroLead.textContent = D.profile.heroLead;
+    if (logoText && D.profile?.name) logoText.textContent = D.profile.name;
+    if (resumeLink && D.meta?.resumeHref) resumeLink.setAttribute("href", D.meta.resumeHref);
+    if (contactEmail && D.contact?.email) {
+      contactEmail.setAttribute("href", `mailto:${D.contact.email}`);
+      contactEmail.textContent = "Email me";
+    }
+    if (footerName && D.profile?.name) footerName.textContent = D.profile.name;
   }
-  if (footerName && D.profile?.name) footerName.textContent = D.profile.name;
 
   // About
-  if (aboutParagraph && D.profile?.about)
-    aboutParagraph.textContent = D.profile.about;
+  if (HAS_DATA && aboutParagraph && D.profile?.about) aboutParagraph.textContent = D.profile.about;
 
   // Social links
-  if (socialLinks && Array.isArray(D.socials)) {
+  if (HAS_DATA && socialLinks && Array.isArray(D.socials)) {
     socialLinks.innerHTML = "";
     D.socials.forEach((s) => {
       const li = document.createElement("li");
@@ -50,14 +49,18 @@
       a.target = "_blank";
       a.rel = "noopener";
       a.setAttribute("aria-label", s.aria || s.name);
-      a.textContent = s.name;
+      const img = document.createElement("img");
+      img.className = "social-icon";
+      img.alt = s.name;
+      img.src = `assets/icons/${(s.name || "").toLowerCase()}.svg`;
+      a.appendChild(img);
       li.appendChild(a);
       socialLinks.appendChild(li);
     });
   }
 
   // Skills
-  if (skillList && Array.isArray(D.skills)) {
+  if (HAS_DATA && skillList && Array.isArray(D.skills)) {
     skillList.innerHTML = "";
     D.skills.forEach((s) => {
       const li = document.createElement("li");
@@ -131,7 +134,7 @@
     return article;
   }
 
-  if (projectGrid && Array.isArray(D.projects)) {
+  if (HAS_DATA && projectGrid && Array.isArray(D.projects)) {
     projectGrid.innerHTML = "";
     D.projects.forEach((p) => {
       projectGrid.appendChild(createProjectCard(p));
@@ -151,130 +154,49 @@
     }
   }
 
-  // NAV: mobile toggle
+  // NAV: mobile toggle (toggle header class for CSS)
   const navToggle = document.getElementById("nav-toggle");
-  const navMenu = document.getElementById("nav-menu");
-  if (navToggle && navMenu) {
+  const header = document.querySelector(".site-header");
+  if (navToggle && header) {
     navToggle.addEventListener("click", function () {
       const expanded = this.getAttribute("aria-expanded") === "true";
       this.setAttribute("aria-expanded", String(!expanded));
-      navMenu.classList.toggle("open");
+      header.classList.toggle("nav-open");
     });
   }
 
-  // THEME toggle (light/dark) — stores preference in localStorage
+  // THEME toggle (uses `.light` class as in CSS)
   const themeToggle = document.getElementById("theme-toggle");
   const root = document.documentElement;
-  const THEME_KEY = "portfolio-theme";
+  const THEME_KEY = "theme";
 
-  function applyTheme(theme) {
-    root.setAttribute("data-theme", theme);
-    localStorage.setItem(THEME_KEY, theme);
-  }
-
-  // initial theme (respect stored, then system)
   (function initTheme() {
     const stored = localStorage.getItem(THEME_KEY);
-    if (stored) {
-      applyTheme(stored);
-    } else {
-      const prefersDark =
-        window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches;
-      applyTheme(prefersDark ? "dark" : "light");
+    if (stored === "light") {
+      root.classList.add("light");
+    } else if (!stored) {
+      const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+      if (prefersLight) root.classList.add("light");
     }
   })();
 
   if (themeToggle) {
     themeToggle.addEventListener("click", function () {
-      const current = root.getAttribute("data-theme") || "light";
-      applyTheme(current === "dark" ? "light" : "dark");
+      const isLight = root.classList.toggle("light");
+      localStorage.setItem(THEME_KEY, isLight ? "light" : "dark");
     });
   }
-  // --- Dynamic render from data.js (`PORTFOLIO_DATA` is used in this project) ---
-  try {
-    const DATA =
-      typeof PORTFOLIO_DATA !== "undefined"
-        ? PORTFOLIO_DATA
-        : typeof SITE_DATA !== "undefined"
-        ? SITE_DATA
-        : null;
-    if (DATA) {
-      // Hero name/lead
-      const heroName = document.getElementById("hero-name");
-      const heroLead = document.getElementById("hero-lead");
-      const footerName = document.getElementById("footer-name");
-      const aboutPara = document.getElementById("about-paragraph");
 
-      heroName &&
-        (heroName.textContent = DATA.profile?.name || DATA.name || "");
-      heroLead &&
-        (heroLead.textContent = DATA.profile?.heroLead || DATA.title || "");
-      footerName &&
-        (footerName.textContent = DATA.profile?.name || DATA.name || "");
-      aboutPara &&
-        (aboutPara.textContent = DATA.profile?.about || DATA.about || "");
-
-      // Skills (allow array of strings)
-      const skillList = document.getElementById("skill-list");
-      if (skillList && Array.isArray(DATA.skills)) {
-        skillList.innerHTML = DATA.skills
-          .map((s) => `<li>${s}</li>`)
-          .join("\n");
-      }
-
-      // Projects
-      const projectGrid = document.getElementById("project-grid");
-      if (projectGrid && Array.isArray(DATA.projects)) {
-        projectGrid.innerHTML = DATA.projects
-          .map((p) => {
-            const tags = (p.tech || p.tags || [])
-              .map((t) => `<span>${t}</span>`)
-              .join("");
-            // overlay for hover effect
-            return `
-                <article class="project-card reveal">
-                  <div class="project-thumb">
-                    <img src="${
-                      p.img || "assets/images/placeholder-1.svg"
-                    }" alt="${p.alt || p.title}" loading="lazy" />
-                    <div class="thumb-overlay">
-                      <div class="overlay-text">
-                        <h4>${p.title}</h4>
-                        <p>${p.oneLine || p.description || ""}</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="project-content">
-                    <h3>${p.title}</h3>
-                    <p>${p.description || p.oneLine || ""}</p>
-                    <div class="tags">${tags}</div>
-                  </div>
-                </article>
-              `;
-          })
-          .join("\n");
-      }
-
-      // Social links (render icons)
-      const socialList = document.getElementById("social-links");
-      if (socialList && Array.isArray(DATA.socials)) {
-        socialList.innerHTML = DATA.socials
-          .map((s) => {
-            const key = s.name.toLowerCase();
-            const iconPath = `/assets/icons/${key}.svg`;
-            return `<li><a href="${
-              s.url
-            }" target="_blank" rel="noopener" aria-label="${
-              s.aria || s.name
-            }"><img class="social-icon" src="${iconPath}" alt="${
-              s.name
-            }"/></a></li>`;
-          })
-          .join("\n");
-      }
-    }
-  } catch (err) {
-    console.error("Error rendering data.js:", err);
+  // Scroll progress bar
+  const progressBar = document.getElementById("scroll-progress");
+  function updateScrollProgress() {
+    if (!progressBar) return;
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = pct + "%";
   }
+  window.addEventListener("scroll", updateScrollProgress, { passive: true });
+  window.addEventListener("resize", updateScrollProgress);
+  updateScrollProgress();
 })();

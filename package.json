@@ -1,0 +1,18 @@
+{
+  "name": "my-portfolio-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Utkarsh Singh — Robotics & Automation | Portfolio",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.19.2",
+    "serve-static": "^1.15.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
