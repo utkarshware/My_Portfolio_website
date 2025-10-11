@@ -49,40 +49,37 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: var(--accent);
+  width: 0;
+  height: 0;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 9998;
   transform: translate(-50%, -50%);
-  transition: transform 0.08s ease, opacity 0.2s ease, box-shadow 0.24s ease;
-  box-shadow: 0 0 20px color-mix(in oklab, var(--accent), transparent 40%),
-    0 0 0 4px color-mix(in oklab, var(--accent), transparent 80%);
+  transition: transform 0.08s ease, opacity 0.2s ease;
+  opacity: 0;
 }
 .cursor-ring {
   position: fixed;
   top: 0;
   left: 0;
-  width: 68px;
-  height: 68px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   border: 1px solid color-mix(in oklab, var(--accent), transparent 55%);
   pointer-events: none;
-  z-index: 9998;
+  z-index: 9997;
   transform: translate(-50%, -50%);
   transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease,
     border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
   background: radial-gradient(
     circle,
-    color-mix(in oklab, var(--accent), transparent 75%) 0%,
-    color-mix(in oklab, var(--accent), transparent 90%) 55%,
+    color-mix(in oklab, var(--accent), transparent 82%) 0%,
+    color-mix(in oklab, var(--accent), transparent 94%) 58%,
     transparent 100%
   );
-  opacity: 0.65;
-  box-shadow: 0 35px 55px color-mix(in oklab, var(--accent), transparent 85%);
+  opacity: 0.45;
+  box-shadow: 0 28px 44px color-mix(in oklab, var(--accent), transparent 88%);
   mix-blend-mode: screen;
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(10px);
 }
 .cursor-hidden {
   opacity: 0;
@@ -91,31 +88,22 @@ body {
   transform: translate(-50%, -50%) scale(1.35);
 }
 .cursor-ring.cursor-interactive {
-  transform: translate(-50%, -50%) scale(1.6);
+  transform: translate(-50%, -50%) scale(1.55);
   border-color: color-mix(in oklab, var(--accent), white 18%);
   background: radial-gradient(
     circle,
-    color-mix(in oklab, var(--accent), transparent 60%) 0%,
-    color-mix(in oklab, var(--accent), transparent 76%) 55%,
+    color-mix(in oklab, var(--accent), transparent 70%) 0%,
+    color-mix(in oklab, var(--accent), transparent 82%) 55%,
     transparent 100%
   );
-  box-shadow: 0 40px 62px color-mix(in oklab, var(--accent), transparent 75%);
-  opacity: 0.85;
-}
-
-body.has-custom-cursor,
-body.has-custom-cursor * {
-  cursor: none !important;
+  box-shadow: 0 36px 58px color-mix(in oklab, var(--accent), transparent 80%);
+  opacity: 0.68;
 }
 
 @media (pointer: coarse), (hover: none) {
   .cursor,
   .cursor-ring {
     display: none;
-  }
-  body.has-custom-cursor,
-  body.has-custom-cursor * {
-    cursor: auto !important;
   }
 }
 
