@@ -550,18 +550,56 @@ a {
 
 /* Lists */
 .skill-list {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 26px 0 0;
 }
-.skill-list li {
-  padding: 6px 12px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  color: var(--muted);
+.skill-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border-radius: 16px;
+  border: 1px solid color-mix(in oklab, var(--border), transparent 10%);
+  background: color-mix(in oklab, var(--bg-elev), white 8%);
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.24);
+  color: var(--text);
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  text-align: center;
+  transition: transform 0.26s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.26s ease, border-color 0.26s ease, background 0.26s ease;
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+}
+.skill-item:hover,
+.skill-item:focus-visible {
+  transform: translateY(-4px);
+  border-color: color-mix(in oklab, var(--accent), transparent 40%);
+  background: color-mix(in oklab, var(--accent), transparent 82%);
+  box-shadow: 0 24px 48px rgba(37, 99, 235, 0.26);
+}
+.skill-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 30% 30%,
+    color-mix(in oklab, var(--accent), transparent 80%),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.skill-item:hover::after,
+.skill-item:focus-visible::after {
+  opacity: 1;
 }
 
 /* Buttons */

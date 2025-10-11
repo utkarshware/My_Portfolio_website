@@ -102,6 +102,7 @@
     skillList.innerHTML = "";
     D.skills.forEach((s) => {
       const li = document.createElement("li");
+      li.className = "skill-item";
       li.textContent = s;
       skillList.appendChild(li);
     });
