@@ -166,59 +166,252 @@ a {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 100;
-  background: color-mix(in oklab, var(--bg), black 10%);
-  backdrop-filter: saturate(180%) blur(10px);
-  border-bottom: 1px solid var(--border);
+  z-index: 120;
+  background: linear-gradient(rgba(4, 7, 14, 0.55), rgba(4, 7, 14, 0.3))
+    color-mix(in oklab, var(--bg), transparent 8%);
+  border-bottom: 1px solid color-mix(in oklab, var(--border), transparent 25%);
+  box-shadow: 0 14px 34px rgba(8, 13, 23, 0.32);
+  backdrop-filter: blur(16px) saturate(160%);
+}
+.site-header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in oklab, var(--accent), transparent 86%) 20%,
+    transparent 40%,
+    transparent 60%,
+    color-mix(in oklab, var(--accent), transparent 86%) 80%,
+    transparent 100%
+  );
+  opacity: 0.18;
+  pointer-events: none;
 }
 .site-header .container {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  gap: 22px;
+  padding: 14px 0;
 }
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
 }
 .logo-mark {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  background: var(--accent);
+  display: grid;
+  place-items: center;
+  width: 14px;
+  height: 14px;
   border-radius: 999px;
-  box-shadow: 0 0 18px var(--accent);
+  background: var(--accent);
+  box-shadow: 0 0 18px color-mix(in oklab, var(--accent), transparent 20%),
+    0 0 32px color-mix(in oklab, var(--accent), transparent 60%);
+  position: relative;
+}
+.logo-mark::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  border: 1px solid color-mix(in oklab, var(--accent), transparent 70%);
+  opacity: 0.6;
 }
 .logo-text {
-  letter-spacing: 0.4px;
+  font-size: 15px;
+  letter-spacing: 0.32em;
+  color: var(--muted);
 }
 
-.site-nav ul {
+.site-nav {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-shell {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 16px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--bg-elev), white 8%);
+  border: 1px solid color-mix(in oklab, var(--border), transparent 30%);
+  box-shadow: 0 20px 32px rgba(10, 18, 30, 0.34);
+  backdrop-filter: blur(18px) saturate(150%);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+.nav-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid color-mix(in oklab, var(--accent), transparent 88%);
+  opacity: 0.4;
+  pointer-events: none;
+}
+.nav-shell:hover {
+  border-color: color-mix(in oklab, var(--accent), transparent 55%);
+  box-shadow: 0 26px 44px rgba(12, 22, 40, 0.38);
+}
+
+.nav-node {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: color-mix(in oklab, var(--accent), white 22%);
+  box-shadow: 0 0 16px color-mix(in oklab, var(--accent), transparent 18%),
+    0 0 36px color-mix(in oklab, var(--accent), transparent 55%);
+  pointer-events: none;
+}
+.nav-node--left {
+  left: 16px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.nav-node--right {
+  right: 16px;
+  top: 50%;
+  transform: translate(50%, -50%);
+}
+
+.nav-scanline {
+  position: absolute;
+  left: 32px;
+  right: 32px;
+  top: 10px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklab, var(--accent), transparent 45%),
+    transparent
+  );
+  opacity: 0.25;
+  transform-origin: center;
+  animation: nav-scan 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes nav-scan {
+  0% {
+    opacity: 0.05;
+    transform: scaleX(0.3);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scaleX(1);
+  }
+  100% {
+    opacity: 0.1;
+    transform: scaleX(0.3);
+  }
+}
+
+.nav-menu-panel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
   list-style: none;
-  margin: 0;
   padding: 0;
+  margin: 0;
+  z-index: 1;
 }
-.site-nav a {
-  color: var(--muted);
+.nav-menu li {
+  position: relative;
+}
+.nav-menu a,
+.nav-theme-item .theme-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
   font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.18px;
+  color: var(--muted);
+  transition: color 0.28s ease, transform 0.28s ease, text-shadow 0.28s ease;
 }
-.site-nav a:hover,
-.site-nav a:focus {
+.nav-menu a::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: color-mix(in oklab, var(--accent), transparent 55%);
+  box-shadow: 0 0 6px color-mix(in oklab, var(--accent), transparent 40%);
+}
+.nav-menu a:hover,
+.nav-menu a:focus-visible {
+  color: var(--text);
+  transform: translateY(-1px);
+  text-shadow: 0 0 14px color-mix(in oklab, var(--accent), transparent 30%);
+}
+.nav-menu a.is-active {
+  color: var(--text);
+}
+
+.nav-indicator {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: var(--indicator-width, 0px);
+  height: 36px;
+  border-radius: 999px;
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--accent), transparent 78%),
+    color-mix(in oklab, var(--accent), transparent 55%)
+  );
+  border: 1px solid color-mix(in oklab, var(--accent), transparent 40%);
+  box-shadow: 0 20px 36px rgba(37, 99, 235, 0.22);
+  transform: translateX(var(--indicator-x, 0px)) translateY(-50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease,
+    width 0.32s ease, background 0.3s ease, border-color 0.3s ease;
+  z-index: 0;
+}
+.nav-indicator.is-visible {
+  opacity: 0.92;
+}
+
+.nav-theme-item .theme-toggle {
+  padding: 0;
+  color: var(--muted);
+  background: color-mix(in oklab, var(--bg-elev), white 6%);
+}
+.nav-theme-item .theme-toggle:hover,
+.nav-theme-item .theme-toggle:focus-visible {
   color: var(--text);
 }
 
 .nav-toggle {
-  display: none;
   background: none;
   border: none;
   width: 38px;
   height: 32px;
   position: relative;
+  display: none;
+  z-index: 2;
 }
 .nav-toggle .bar {
   position: absolute;
@@ -730,13 +923,21 @@ a {
   top: 10px;
 }
 .theme-toggle {
-  border: 1px solid var(--border);
-  width: 40px;
-  height: 32px;
-  border-radius: 9px;
-  background: transparent;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--bg-elev), white 6%);
   display: grid;
   place-items: center;
+  box-shadow: 0 8px 18px rgba(10, 18, 30, 0.22);
+  transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  transform: translateY(-1px);
+  background: color-mix(in oklab, var(--accent), transparent 80%);
+  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.28);
 }
 .theme-toggle .sun {
   display: none;
@@ -763,26 +964,68 @@ html[data-theme="light"] .theme-toggle .moon {
   .project-card {
     grid-template-columns: 1fr;
   }
+  .nav-shell {
+    padding: 10px 16px;
+    gap: 14px;
+  }
+  .nav-menu a,
+  .nav-theme-item .theme-toggle {
+    padding: 8px 12px;
+  }
 }
 
 @media (max-width: 720px) {
+  .site-header .container {
+    align-items: flex-start;
+  }
+  .site-nav {
+    width: 100%;
+  }
+  .nav-shell {
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 10px 14px 14px;
+    border-radius: 24px;
+  }
+  .nav-node--left,
+  .nav-node--right {
+    top: 22px;
+  }
+  .nav-scanline {
+    display: none;
+  }
   .nav-toggle {
     display: inline-block;
   }
-  .site-nav ul {
-    position: absolute;
-    right: 16px;
-    top: 64px;
-    background: var(--bg-elev);
-    border: 1px solid var(--border);
-    padding: 12px;
-    border-radius: 10px;
+  .nav-menu-panel {
+    width: 100%;
     flex-direction: column;
-    gap: 8px;
-    width: 200px;
+    align-items: stretch;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: max-height 0.34s ease, opacity 0.3s ease;
+  }
+  .nav-menu {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    padding-top: 10px;
+  }
+  .nav-menu a,
+  .nav-theme-item .theme-toggle {
+    justify-content: space-between;
+  }
+  .nav-menu a::before {
+    order: 2;
+  }
+  .nav-indicator {
     display: none;
   }
-  .nav-open .site-nav ul {
-    display: flex;
+  .nav-open .nav-menu-panel {
+    max-height: 420px;
+    opacity: 1;
+    pointer-events: auto;
   }
 }

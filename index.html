@@ -38,36 +38,56 @@
         </a>
 
         <nav class="site-nav" aria-label="Primary">
-          <button
-            class="nav-toggle"
-            aria-expanded="false"
-            aria-controls="nav-menu"
-            aria-label="Menu"
-            id="nav-toggle"
-          >
-            <span class="bar"></span><span class="bar"></span
-            ><span class="bar"></span>
-          </button>
+          <div class="nav-shell">
+            <span class="nav-node nav-node--left" aria-hidden="true"></span>
+            <span class="nav-node nav-node--right" aria-hidden="true"></span>
+            <span class="nav-scanline" aria-hidden="true"></span>
 
-          <ul id="nav-menu" class="nav-menu" role="menu">
-            <li role="none"><a role="menuitem" href="#about">About</a></li>
-            <li role="none"><a role="menuitem" href="#skills">Skills</a></li>
-            <li role="none">
-              <a role="menuitem" href="#projects">Projects</a>
-            </li>
-            <li role="none"><a role="menuitem" href="#contact">Contact</a></li>
-            <li role="none">
-              <button
-                id="theme-toggle"
-                class="theme-toggle"
-                aria-label="Toggle dark mode"
-                title="Toggle theme"
-              >
-                <span class="sun" aria-hidden="true">☀️</span>
-                <span class="moon" aria-hidden="true">🌙</span>
-              </button>
-            </li>
-          </ul>
+            <button
+              class="nav-toggle"
+              aria-expanded="false"
+              aria-controls="nav-menu"
+              aria-label="Menu"
+              id="nav-toggle"
+            >
+              <span class="bar"></span><span class="bar"></span
+              ><span class="bar"></span>
+            </button>
+
+            <div class="nav-menu-panel" data-nav-surface>
+              <span
+                class="nav-indicator"
+                id="nav-indicator"
+                aria-hidden="true"
+              ></span>
+
+              <ul id="nav-menu" class="nav-menu" role="menu">
+                <li role="none">
+                  <a role="menuitem" href="#about" data-nav-link>About</a>
+                </li>
+                <li role="none">
+                  <a role="menuitem" href="#skills" data-nav-link>Skills</a>
+                </li>
+                <li role="none">
+                  <a role="menuitem" href="#projects" data-nav-link>Projects</a>
+                </li>
+                <li role="none">
+                  <a role="menuitem" href="#contact" data-nav-link>Contact</a>
+                </li>
+                <li role="none" class="nav-theme-item">
+                  <button
+                    id="theme-toggle"
+                    class="theme-toggle"
+                    aria-label="Toggle dark mode"
+                    title="Toggle theme"
+                  >
+                    <span class="sun" aria-hidden="true">☀️</span>
+                    <span class="moon" aria-hidden="true">🌙</span>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
         </nav>
       </div>
     </header>

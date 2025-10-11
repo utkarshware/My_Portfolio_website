@@ -4,6 +4,7 @@
 window.PORTFOLIO_DATA = {
   meta: {
     title: "Utkarsh Singh — Robotics & Automation | Portfolio",
+
     description:
       "Portfolio of Utkarsh Singh — B.Tech (Robotics & Automation). I design and build robotics systems, embedded firmware and ML-enabled web & mobile prototypes. Open to internships, research collaborations and product roles.",
     resumeHref:

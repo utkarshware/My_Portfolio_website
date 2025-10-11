@@ -229,6 +229,96 @@
     });
   }
 
+  // NAV indicator + active state handling
+  const navMenuSurface = document.querySelector("[data-nav-surface]");
+  const navIndicator = document.getElementById("nav-indicator");
+  const navLinks = Array.from(
+    document.querySelectorAll("#nav-menu a[data-nav-link]")
+  );
+  let activeNavLink = null;
+
+  const updateIndicator = (link) => {
+    if (!navIndicator || !navMenuSurface || !link) return;
+    requestAnimationFrame(() => {
+      const panelRect = navMenuSurface.getBoundingClientRect();
+      const linkRect = link.getBoundingClientRect();
+      const width = linkRect.width + 26;
+      const center = linkRect.left - panelRect.left + linkRect.width / 2;
+      navIndicator.style.setProperty("--indicator-width", `${width}px`);
+      navIndicator.style.setProperty("--indicator-x", `${center}px`);
+      navIndicator.classList.add("is-visible");
+    });
+  };
+
+  const setActiveLink = (link) => {
+    if (activeNavLink === link) return;
+    if (activeNavLink) activeNavLink.classList.remove("is-active");
+    activeNavLink = link || null;
+    if (activeNavLink) {
+      activeNavLink.classList.add("is-active");
+      updateIndicator(activeNavLink);
+    } else if (navIndicator) {
+      navIndicator.classList.remove("is-visible");
+    }
+  };
+
+  if (navLinks.length) {
+    navLinks.forEach((link) => {
+      link.addEventListener("mouseenter", () => updateIndicator(link));
+      link.addEventListener("focus", () => updateIndicator(link));
+      link.addEventListener("click", () => {
+        setActiveLink(link);
+        if (header && header.classList.contains("nav-open")) {
+          header.classList.remove("nav-open");
+          if (navToggle) navToggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+
+    if (navMenuSurface) {
+      navMenuSurface.addEventListener("mouseleave", () => {
+        if (activeNavLink) updateIndicator(activeNavLink);
+      });
+    }
+
+    window.addEventListener("resize", () => {
+      if (activeNavLink) updateIndicator(activeNavLink);
+    });
+
+    const sectionMap = new Map();
+    navLinks.forEach((link) => {
+      const id = link.getAttribute("href");
+      if (!id || !id.startsWith("#")) return;
+      const section = document.getElementById(id.slice(1));
+      if (section) sectionMap.set(section, link);
+    });
+
+    const sections = Array.from(sectionMap.keys());
+    if (sections.length && "IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const link = sectionMap.get(entry.target);
+              if (link) setActiveLink(link);
+            }
+          });
+        },
+        {
+          threshold: 0.55,
+        }
+      );
+
+      sections.forEach((section) => observer.observe(section));
+    } else if (sections.length) {
+      setActiveLink(sectionMap.get(sections[0]));
+    }
+
+    if (navLinks[0]) {
+      setActiveLink(navLinks[0]);
+    }
+  }
+
   // THEME toggle (uses `.light` class and data-theme on root for CSS)
   const themeToggle = document.getElementById("theme-toggle");
   const root = document.documentElement;
