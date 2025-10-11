@@ -1,34 +1,44 @@
-# Portfolio Starter
+# My Portfolio Website — Utkarsh Singh
 
-A clean, modern, responsive portfolio template. Vanilla HTML/CSS/JS with no build step.
+[![Repo size](https://img.shields.io/github/repo-size/utkarshware/My_Portfolio_website?style=flat-square)](https://github.com/utkarshware/My_Portfolio_website)
+[![License: MIT](https://img.shields.io/badge/license-MIT-lightgrey?style=flat-square)](#license)
 
-## Customize
+> Clean, responsive, and accessible single-page portfolio built with vanilla HTML, CSS and JavaScript — no build step required.
 
-- Update your details in `index.html` (name, socials, sections)
-- Replace placeholder images in `assets/images/`
-- Add your resume PDF to `assets/YourName_Resume.pdf` and update the link
-- Tweak colors and spacing in `styles.css` under `:root`
+This repository contains the source for my personal portfolio website. The site is intentionally lightweight and fully dynamic: all content (hero, about, skills, projects, socials, JSON-LD) is driven from a single `data.js` file and rendered by `script.js`. See the live files in the repository: `index.html`, `data.js`, `script.js`, `styles.css` and `assets/images`. :contentReference[oaicite:1]{index=1}
 
-## Run locally
+---
 
-Just open `index.html` in your browser, or serve it locally for smooth routing.
+## 🔍 Project highlights
 
-### Option A: Open file
+- **No build step** — just static files (HTML / CSS / JS).
+- **Single source of truth**: update `data.js` to change all content.
+- **Accessible**: keyboard-friendly nav + skip link included.
+- **Theme support**: light/dark mode persisted in `localStorage`.
+- **Easy to deploy**: GitHub Pages, Netlify, Vercel — all supported.
+- Friendly for beginners and recruiters — quick to customize.
 
-- Double-click `index.html`
+---
 
-### Option B: Serve (recommended)
+## 📁 Repository structure
 
-- Use any static server extension in VS Code or Python/Node server.
+My_Portfolio_website/
+├─ assets/
+│ └─ images/ # placeholder and project images
+├─ index.html # main HTML (mount points only)
+├─ data.js # all content (profile, projects, skills, socials)
+├─ script.js # DOM rendering, theme and nav logic
+├─ styles.css # styling / responsive layout
+└─ README.md # you are here
 
-## Deploy
+---
 
-- GitHub Pages: push this folder to a repo, then enable Pages from `main` branch `/root`.
-- Netlify: drag-and-drop the folder, or connect repo, build command: none, publish directory: root.
-- Vercel: import repo, framework preset: Other, output directory: `.`
+## 🚀 Quick start
 
-## Notes
+### Option A — Open locally (fast)
 
-- No external JS deps. One Google Fonts CSS.
-- Accessible and keyboard-friendly nav; skip link included.
-- Light/dark theme persisted in `localStorage`.
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/utkarshware/My_Portfolio_website.git
+   cd My_Portfolio_website
+   ```

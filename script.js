@@ -191,4 +191,90 @@
       applyTheme(current === "dark" ? "light" : "dark");
     });
   }
+  // --- Dynamic render from data.js (`PORTFOLIO_DATA` is used in this project) ---
+  try {
+    const DATA =
+      typeof PORTFOLIO_DATA !== "undefined"
+        ? PORTFOLIO_DATA
+        : typeof SITE_DATA !== "undefined"
+        ? SITE_DATA
+        : null;
+    if (DATA) {
+      // Hero name/lead
+      const heroName = document.getElementById("hero-name");
+      const heroLead = document.getElementById("hero-lead");
+      const footerName = document.getElementById("footer-name");
+      const aboutPara = document.getElementById("about-paragraph");
+
+      heroName &&
+        (heroName.textContent = DATA.profile?.name || DATA.name || "");
+      heroLead &&
+        (heroLead.textContent = DATA.profile?.heroLead || DATA.title || "");
+      footerName &&
+        (footerName.textContent = DATA.profile?.name || DATA.name || "");
+      aboutPara &&
+        (aboutPara.textContent = DATA.profile?.about || DATA.about || "");
+
+      // Skills (allow array of strings)
+      const skillList = document.getElementById("skill-list");
+      if (skillList && Array.isArray(DATA.skills)) {
+        skillList.innerHTML = DATA.skills
+          .map((s) => `<li>${s}</li>`)
+          .join("\n");
+      }
+
+      // Projects
+      const projectGrid = document.getElementById("project-grid");
+      if (projectGrid && Array.isArray(DATA.projects)) {
+        projectGrid.innerHTML = DATA.projects
+          .map((p) => {
+            const tags = (p.tech || p.tags || [])
+              .map((t) => `<span>${t}</span>`)
+              .join("");
+            // overlay for hover effect
+            return `
+                <article class="project-card reveal">
+                  <div class="project-thumb">
+                    <img src="${
+                      p.img || "assets/images/placeholder-1.svg"
+                    }" alt="${p.alt || p.title}" loading="lazy" />
+                    <div class="thumb-overlay">
+                      <div class="overlay-text">
+                        <h4>${p.title}</h4>
+                        <p>${p.oneLine || p.description || ""}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="project-content">
+                    <h3>${p.title}</h3>
+                    <p>${p.description || p.oneLine || ""}</p>
+                    <div class="tags">${tags}</div>
+                  </div>
+                </article>
+              `;
+          })
+          .join("\n");
+      }
+
+      // Social links (render icons)
+      const socialList = document.getElementById("social-links");
+      if (socialList && Array.isArray(DATA.socials)) {
+        socialList.innerHTML = DATA.socials
+          .map((s) => {
+            const key = s.name.toLowerCase();
+            const iconPath = `/assets/icons/${key}.svg`;
+            return `<li><a href="${
+              s.url
+            }" target="_blank" rel="noopener" aria-label="${
+              s.aria || s.name
+            }"><img class="social-icon" src="${iconPath}" alt="${
+              s.name
+            }"/></a></li>`;
+          })
+          .join("\n");
+      }
+    }
+  } catch (err) {
+    console.error("Error rendering data.js:", err);
+  }
 })();
