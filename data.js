@@ -96,14 +96,14 @@ window.PORTFOLIO_DATA = {
     },
     {
       name: "Twitter",
-      url: "https://twitter.com/utkarshware",
-      aria: "Twitter — Utkarsh Singh",
+      url: "https://x.com/Utkarzxhh",
+      aria: "Twitter — @Utkarzxhh",
       icon: "assets/icons/twitter.png",
     },
     {
       name: "Instagram",
-      url: "https://www.instagram.com/utkarshware/",
-      aria: "Instagram — Utkarsh Singh",
+      url: "https://www.instagram.com/utkcrashh/",
+      aria: "Instagram — @utkcrashh",
       icon: "assets/icons/instagram.png",
     },
   ],
