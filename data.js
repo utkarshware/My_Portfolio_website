@@ -48,10 +48,8 @@ window.PORTFOLIO_DATA = {
         "TensorFlow Lite",
         "Firebase",
       ],
-      img: "assets/images/medicare-hero.svg",
-      alt: "MediCare AR interface on Android",
-      live: "#",
-      code: "#",
+      code: "https://github.com/utkarshware/medi-care-ar-assistant",
+      codeLabel: "GitHub Repo",
     },
     {
       title: "Agri-Dost — Farmer Planning & Price Forecasting",
@@ -61,10 +59,8 @@ window.PORTFOLIO_DATA = {
       description:
         "Built the frontend and ML forecasting prototype that predicts short-term crop prices to help farmers decide sowing and selling windows. Created a simple dashboard suitable for small-holder farmers.",
       tech: ["React", "Flask", "scikit-learn", "Tailwind"],
-      img: "assets/images/agridost-dashboard.svg",
-      alt: "Agri-Dost dashboard showing crop forecast",
-      live: "#",
-      code: "#",
+      code: "https://github.com/utkarshware/agri-dost-platform",
+      codeLabel: "GitHub Repo",
     },
     {
       title: "Mini Robotic Arm — 4-DOF Manipulator",
@@ -80,10 +76,8 @@ window.PORTFOLIO_DATA = {
         "PID control",
         "JavaScript UI",
       ],
-      img: "assets/images/robotic-arm.svg",
-      alt: "4-DOF mini robotic arm performing pick-and-place",
-      live: "#",
-      code: "#",
+      code: "https://github.com/utkarshware/mini-robotic-arm",
+      codeLabel: "GitHub Repo",
     },
   ],
 

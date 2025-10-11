@@ -104,10 +104,13 @@ window.PORTFOLIO_DATA = {
       oneLine: "Short one‑liner",
       description: "A few sentences explaining your contribution and impact",
       tech: ["Tag1", "Tag2"],
+      // img / alt are optional; omit them to render a text-only card
       img: "assets/images/project-hero.svg",
       alt: "Accessible alt text",
       live: "#", // optional
-      code: "#", // optional
+      liveLabel: "Live", // optional button label override
+      code: "https://github.com/you/project", // optional
+      codeLabel: "GitHub Repo", // optional button label override
     },
   ],
   socials: [
@@ -146,6 +149,8 @@ Assets:
 - Theme toggle: persists the last chosen theme in localStorage.
 - Scroll progress bar: a thin accent bar at the top that fills as you scroll.
 - Project cards: image with a subtle overlay on hover and tags in the content.
+- If no image is provided, project cards expand to a full-width text layout with GitHub-only buttons.
+- If `PORTFOLIO_DATA.projects` is empty, the section shows a friendly reminder pointing back to `data.js`.
 - Social icons: simple SVGs rendered as images next to the hero content.
 - Hero portrait: loads from `profile.photo`; if omitted, a decorative orbit animation displays instead.
 
@@ -158,6 +163,14 @@ Assets:
   - If you previously used absolute `/assets/...` paths, they won’t load with file:// — use the relative paths provided.
   - Confirm files exist and names match exactly (Git hosts are case sensitive).
   - Open DevTools → Network and check for 404s.
+- Want to show only GitHub links
+  - Remove the `img` field (and `live` link) from a project in `data.js`.
+  - Set `code` (and optionally `codeLabel`) to point at your repository; the card will render a single “GitHub Repo” button.
+- Data.js edits not showing up
+  - Confirm `data.js` appears before `script.js` in `index.html` (it does in this template; keep that order if you refactor).
+  - Hard refresh after editing (Ctrl+F5 on Windows) to bust cached copies when running via `npm run start`.
+  - Open DevTools → Console and type `window.PORTFOLIO_DATA` to make sure it’s defined; if not, check for syntax errors in `data.js`.
+  - The Projects section now renders a notice when the array is empty—use that as a quick sanity check that the file loaded.
 - Theme toggle stuck on one mode
   - Press <kbd>F12</kbd> → Console and run `localStorage.removeItem('theme')`, then refresh.
   - Ensure your custom CSS still targets both `.light` and `[data-theme="light"]` selectors on the `<html>` element.

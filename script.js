@@ -103,13 +103,17 @@
     const article = document.createElement("article");
     article.className = "project-card reveal";
 
+    const hasImage = Boolean(p.img);
+
     // image (if exists)
-    if (p.img) {
+    if (hasImage) {
       const img = document.createElement("img");
       img.src = p.img;
       img.alt = p.alt || p.title;
       img.loading = "lazy";
       article.appendChild(img);
+    } else {
+      article.classList.add("without-image");
     }
 
     const content = document.createElement("div");
@@ -143,31 +147,45 @@
 
     const links = document.createElement("div");
     links.className = "links";
-    const live = document.createElement("a");
-    live.className = "btn small";
-    live.textContent = "Live";
-    live.href = p.live || "#";
-    live.target = "_blank";
-    live.rel = "noopener";
-    const code = document.createElement("a");
-    code.className = "btn small ghost";
-    code.textContent = "Code";
-    code.href = p.code || "#";
-    code.target = "_blank";
-    code.rel = "noopener";
-    links.appendChild(live);
-    links.appendChild(code);
-    content.appendChild(links);
+
+    if (p.live) {
+      const live = document.createElement("a");
+      live.className = "btn small";
+      live.textContent = p.liveLabel || "Live";
+      live.href = p.live;
+      live.target = "_blank";
+      live.rel = "noopener";
+      links.appendChild(live);
+    }
+
+    if (p.code) {
+      const code = document.createElement("a");
+      code.className = "btn small ghost";
+      code.textContent = p.codeLabel || "GitHub";
+      code.href = p.code;
+      code.target = "_blank";
+      code.rel = "noopener";
+      links.appendChild(code);
+    }
+
+    if (links.children.length) {
+      content.appendChild(links);
+    }
 
     article.appendChild(content);
     return article;
   }
 
-  if (HAS_DATA && projectGrid && Array.isArray(D.projects)) {
-    projectGrid.innerHTML = "";
-    D.projects.forEach((p) => {
-      projectGrid.appendChild(createProjectCard(p));
-    });
+  if (projectGrid) {
+    if (HAS_DATA && Array.isArray(D.projects) && D.projects.length) {
+      projectGrid.innerHTML = "";
+      D.projects.forEach((p) => {
+        projectGrid.appendChild(createProjectCard(p));
+      });
+    } else {
+      projectGrid.innerHTML =
+        '<p class="projects-empty">Project details will appear here once added to <code>data.js</code>.</p>';
+    }
   }
 
   // Year auto-fill
@@ -270,4 +288,29 @@
   window.addEventListener("scroll", updateScrollProgress, { passive: true });
   window.addEventListener("resize", updateScrollProgress);
   updateScrollProgress();
+
+  // Reveal animations
+  const revealEls = document.querySelectorAll(".reveal");
+  if (revealEls.length) {
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting || entry.intersectionRatio > 0) {
+              entry.target.classList.add("visible");
+              obs.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.15,
+          rootMargin: "0px 0px -10% 0px",
+        }
+      );
+
+      revealEls.forEach((el) => observer.observe(el));
+    } else {
+      revealEls.forEach((el) => el.classList.add("visible"));
+    }
+  }
 })();
