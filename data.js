@@ -33,6 +33,8 @@ window.PORTFOLIO_DATA = {
     "Embedded C",
     "JavaScript",
     "TypeScript",
+    "Linux",
+    "Bash",
     "TensorFlow Lite",
     "scikit-learn",
     "Raspberry Pi",
