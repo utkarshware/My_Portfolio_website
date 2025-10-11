@@ -551,38 +551,38 @@ a {
 /* Lists */
 .skill-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
   list-style: none;
   padding: 0;
-  margin: 20px 0 0;
+  margin: 18px 0 0;
 }
 .skill-item {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 9px 14px;
-  border-radius: 14px;
-  border: 1px solid color-mix(in oklab, var(--border), transparent 25%);
-  background: color-mix(in oklab, var(--bg-elev), white 4%);
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.18);
+  padding: 7px 12px;
+  border-radius: 12px;
+  border: 1px solid color-mix(in oklab, var(--border), transparent 35%);
+  background: color-mix(in oklab, var(--bg-elev), white 3%);
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.14);
   color: var(--text);
   font-weight: 500;
-  font-size: 14px;
-  letter-spacing: 0.15px;
+  font-size: 13.5px;
+  letter-spacing: 0.1px;
   text-align: center;
-  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
-  backdrop-filter: blur(6px);
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  backdrop-filter: blur(4px);
   overflow: hidden;
 }
 .skill-item:hover,
 .skill-item:focus-visible {
-  transform: translateY(-2px);
-  border-color: color-mix(in oklab, var(--accent), transparent 60%);
-  background: color-mix(in oklab, var(--accent), transparent 90%);
-  box-shadow: 0 16px 32px rgba(37, 99, 235, 0.18);
+  transform: translateY(-1px);
+  border-color: color-mix(in oklab, var(--accent), transparent 70%);
+  background: color-mix(in oklab, var(--accent), transparent 93%);
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.16);
 }
 .skill-item::after {
   content: "";
@@ -592,8 +592,8 @@ a {
   pointer-events: none;
   background: radial-gradient(
     circle at 30% 30%,
-    color-mix(in oklab, var(--accent), transparent 90%),
-    transparent 72%
+    color-mix(in oklab, var(--accent), transparent 94%),
+    transparent 74%
   );
   opacity: 0;
   transition: opacity 0.3s ease;
