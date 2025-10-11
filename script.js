@@ -20,6 +20,12 @@
   const skillList = document.getElementById("skill-list");
   const projectGrid = document.getElementById("project-grid");
   const contactEmail = document.getElementById("contact-email");
+  const contactEmailLink = document.getElementById("contact-email-link");
+  const contactIntro = document.getElementById("contact-intro");
+  const contactLocation = document.getElementById("contact-location");
+  const contactAvailability = document.getElementById("contact-availability");
+  const contactResponse = document.getElementById("contact-response");
+  const contactLinkedIn = document.getElementById("contact-linkedin");
   const footerName = document.getElementById("footer-name");
   const yearEl = document.getElementById("year");
   const heroPhotoWrapper = document.getElementById("hero-photo-wrapper");
@@ -39,6 +45,28 @@
     if (contactEmail && D.contact?.email) {
       contactEmail.setAttribute("href", `mailto:${D.contact.email}`);
       contactEmail.textContent = "Email me";
+    }
+    if (contactEmailLink && D.contact?.email) {
+      contactEmailLink.setAttribute("href", `mailto:${D.contact.email}`);
+      contactEmailLink.textContent = D.contact.email;
+    }
+    if (contactIntro && D.contact?.note)
+      contactIntro.textContent = D.contact.note;
+    if (contactLocation && D.contact?.location)
+      contactLocation.textContent = D.contact.location;
+    if (contactAvailability && D.contact?.availability)
+      contactAvailability.textContent = D.contact.availability;
+    if (contactResponse && D.contact?.responseTime)
+      contactResponse.textContent = D.contact.responseTime;
+    if (contactLinkedIn) {
+      let linkedinHref = D.contact?.linkedin;
+      if (!linkedinHref && Array.isArray(D.socials)) {
+        const linkedinSocial = D.socials.find(
+          (s) => (s.name || "").toLowerCase() === "linkedin"
+        );
+        if (linkedinSocial?.url) linkedinHref = linkedinSocial.url;
+      }
+      if (linkedinHref) contactLinkedIn.setAttribute("href", linkedinHref);
     }
     if (footerName && D.profile?.name) footerName.textContent = D.profile.name;
   }
