@@ -48,7 +48,7 @@ window.PORTFOLIO_DATA = {
         "TensorFlow Lite",
         "Firebase",
       ],
-      code: "https://github.com/utkarshware/medi-care-ar-assistant",
+      code: "https://github.com/utkarshware/Medi_Care",
       codeLabel: "GitHub Repo",
     },
     {
@@ -59,7 +59,7 @@ window.PORTFOLIO_DATA = {
       description:
         "Built the frontend and ML forecasting prototype that predicts short-term crop prices to help farmers decide sowing and selling windows. Created a simple dashboard suitable for small-holder farmers.",
       tech: ["React", "Flask", "scikit-learn", "Tailwind"],
-      code: "https://github.com/utkarshware/agri-dost-platform",
+      code: "https://github.com/utkarshware/Agri_Dost",
       codeLabel: "GitHub Repo",
     },
     {
@@ -76,8 +76,7 @@ window.PORTFOLIO_DATA = {
         "PID control",
         "JavaScript UI",
       ],
-      code: "https://github.com/utkarshware/mini-robotic-arm",
-      codeLabel: "GitHub Repo",
+      note: "Hardware-focused build — repository available on request.",
     },
   ],
 

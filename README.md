@@ -111,6 +111,7 @@ window.PORTFOLIO_DATA = {
       liveLabel: "Live", // optional button label override
       code: "https://github.com/you/project", // optional
       codeLabel: "GitHub Repo", // optional button label override
+      note: "Hardware build — repository shared on request", // optional
     },
   ],
   socials: [
@@ -152,7 +153,7 @@ Assets:
 - If no image is provided, project cards expand to a full-width text layout with GitHub-only buttons.
 - If `PORTFOLIO_DATA.projects` is empty, the section shows a friendly reminder pointing back to `data.js`.
 - Social icons: simple SVGs rendered as images next to the hero content.
-- Hero portrait: loads from `profile.photo`; if omitted, a decorative orbit animation displays instead.
+- Hero portrait: loads from `profile.photo`, layered over `assets/images/placeholder-1.svg`; if omitted, a decorative orbit animation displays instead.
 
 ---
 

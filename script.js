@@ -134,6 +134,13 @@
       content.appendChild(pdesc);
     }
 
+    if (p.note) {
+      const note = document.createElement("p");
+      note.className = "project-note";
+      note.textContent = p.note;
+      content.appendChild(note);
+    }
+
     if (Array.isArray(p.tech) && p.tech.length) {
       const tags = document.createElement("div");
       tags.className = "tags";
