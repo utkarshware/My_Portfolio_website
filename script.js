@@ -78,11 +78,18 @@
       a.target = "_blank";
       a.rel = "noopener";
       a.setAttribute("aria-label", s.aria || s.name);
-      const img = document.createElement("img");
-      img.className = "social-icon";
-      img.alt = s.name;
-      img.src = `assets/icons/${(s.name || "").toLowerCase()}.svg`;
-      a.appendChild(img);
+      const iconPath =
+        s.icon || `assets/icons/${(s.name || "").toLowerCase()}.svg`;
+      if (iconPath) {
+        const img = document.createElement("img");
+        img.className = "social-icon";
+        img.alt = s.name || "Social link";
+        img.src = iconPath;
+        img.decoding = "async";
+        a.appendChild(img);
+      } else {
+        a.textContent = s.name || "Link";
+      }
       li.appendChild(a);
       socialLinks.appendChild(li);
     });

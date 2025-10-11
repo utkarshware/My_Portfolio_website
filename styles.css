@@ -199,10 +199,11 @@ a {
 
 /* social icons */
 .social-icon {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   display: inline-block;
   vertical-align: middle;
+  object-fit: contain;
 }
 .social li a:hover .social-icon {
   opacity: 0.9;

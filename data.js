@@ -6,7 +6,8 @@ window.PORTFOLIO_DATA = {
     title: "Utkarsh Singh — Robotics & Automation | Portfolio",
     description:
       "Portfolio of Utkarsh Singh — B.Tech (Robotics & Automation). I design and build robotics systems, embedded firmware and ML-enabled web & mobile prototypes. Open to internships, research collaborations and product roles.",
-    resumeHref: "/assets/Utkarsh_Singh_Resume.pdf", // update to your hosted resume path or Google Drive link
+    resumeHref:
+      "https://drive.google.com/file/d/1uWpbTTRiyPo5-sRiASr5FOCMEeTYKE5Y/view?usp=drive_link",
   },
 
   profile: {
@@ -85,16 +86,25 @@ window.PORTFOLIO_DATA = {
       name: "GitHub",
       url: "https://github.com/utkarshware",
       aria: "GitHub — Utkarsh Singh",
+      icon: "assets/icons/github.png",
     },
     {
       name: "LinkedIn",
       url: "https://www.linkedin.com/in/utkarshware/",
       aria: "LinkedIn — Utkarsh Singh",
+      icon: "assets/icons/linkedin.png",
     },
     {
       name: "Twitter",
       url: "https://twitter.com/utkarshware",
       aria: "Twitter — Utkarsh Singh",
+      icon: "assets/icons/twitter.png",
+    },
+    {
+      name: "Instagram",
+      url: "https://www.instagram.com/utkarshware/",
+      aria: "Instagram — Utkarsh Singh",
+      icon: "assets/icons/instagram.png",
     },
   ],
 

@@ -79,7 +79,7 @@ window.PORTFOLIO_DATA = {
   meta: {
     title: "Utkarsh Singh — Robotics & Automation | Portfolio",
     description: "Short SEO description...",
-    resumeHref: "assets/Utkarsh_Singh_Resume.pdf", // or a full URL
+    resumeHref: "https://your-hosted-link-to-resume.pdf", // can be absolute URL (Google Drive, etc.)
   },
   profile: {
     name: "Utkarsh Singh",
@@ -91,6 +91,7 @@ window.PORTFOLIO_DATA = {
   contact: {
     email: "you@example.com",
     phone: "+91 ...",
+    icon: "assets/icons/github.png", // optional explicit icon path (svg/png)
     location: "City, Country",
   },
   skills: [
@@ -141,7 +142,7 @@ Assets:
 
 - Place project images in `assets/images/` and reference them with relative paths (e.g., `assets/images/your-image.webp`).
 - Portraits for the hero can live in the same folder (e.g., `assets/images/myimage.jpg`) and be referenced via `profile.photo`.
-- Place icons in `assets/icons/`. The script expects file names matching social names (github.svg, linkedin.svg, twitter.svg).
+- Place icons in `assets/icons/`. Add them as SVG or PNG and point to them with the optional `icon` field under `socials`.
 
 ---
 
@@ -172,6 +173,9 @@ Assets:
   - Hard refresh after editing (Ctrl+F5 on Windows) to bust cached copies when running via `npm run start`.
   - Open DevTools → Console and type `window.PORTFOLIO_DATA` to make sure it’s defined; if not, check for syntax errors in `data.js`.
   - The Projects section now renders a notice when the array is empty—use that as a quick sanity check that the file loaded.
+- Resume button opens a 404
+  - Provide a valid URL in `meta.resumeHref` (Google Drive “view” link works fine) or place a PDF in `assets/` and reference it relatively (e.g., `assets/resume.pdf`).
+  - After uploading a new file, ensure the filename matches exactly and refresh the browser cache.
 - Theme toggle stuck on one mode
   - Press <kbd>F12</kbd> → Console and run `localStorage.removeItem('theme')`, then refresh.
   - Ensure your custom CSS still targets both `.light` and `[data-theme="light"]` selectors on the `<html>` element.
