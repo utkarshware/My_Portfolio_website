@@ -25,6 +25,8 @@
   const heroPhotoWrapper = document.getElementById("hero-photo-wrapper");
   const heroPhotoImg = document.getElementById("hero-photo-img");
   const heroOrbit = document.getElementById("hero-orbit");
+  const cursorElm = document.getElementById("cursor");
+  const cursorRingElm = document.getElementById("cursor-ring");
 
   // fill hero/profile text
   if (HAS_DATA) {
@@ -302,6 +304,130 @@
   window.addEventListener("scroll", updateScrollProgress, { passive: true });
   window.addEventListener("resize", updateScrollProgress);
   updateScrollProgress();
+
+  // Custom cursor (desktop only)
+  (function initCustomCursor() {
+    if (!cursorElm || !cursorRingElm) return;
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
+    const isCoarsePointer = window.matchMedia("(pointer: coarse)");
+    const noHover = window.matchMedia("(hover: none)");
+
+    const shouldDisable = () =>
+      prefersReducedMotion.matches ||
+      isCoarsePointer.matches ||
+      noHover.matches;
+
+    if (shouldDisable()) {
+      cursorElm.remove();
+      cursorRingElm.remove();
+      return;
+    }
+
+    document.body.classList.add("has-custom-cursor");
+
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let ringX = mouseX;
+    let ringY = mouseY;
+    let rafId;
+
+    const render = () => {
+      ringX += (mouseX - ringX) * 0.18;
+      ringY += (mouseY - ringY) * 0.18;
+      cursorRingElm.style.top = `${ringY}px`;
+      cursorRingElm.style.left = `${ringX}px`;
+      rafId = requestAnimationFrame(render);
+    };
+
+    const setCursorPosition = (x, y) => {
+      cursorElm.style.top = `${y}px`;
+      cursorElm.style.left = `${x}px`;
+    };
+
+    const handleMove = (event) => {
+      mouseX = event.clientX;
+      mouseY = event.clientY;
+      setCursorPosition(mouseX, mouseY);
+      cursorElm.classList.remove("cursor-hidden");
+      cursorRingElm.classList.remove("cursor-hidden");
+    };
+
+    render();
+    setCursorPosition(mouseX, mouseY);
+
+    const interactiveSelectors =
+      "a, button, .btn, .nav-toggle, .theme-toggle, input, textarea, select";
+
+    let interactiveActive = false;
+    const toggleInteractive = (state) => {
+      if (state === interactiveActive) return;
+      interactiveActive = state;
+      cursorElm.classList.toggle("cursor-interactive", state);
+      cursorRingElm.classList.toggle("cursor-interactive", state);
+    };
+
+    window.addEventListener("mousemove", handleMove, { passive: true });
+
+    const handleMouseEnter = (event) => {
+      if (!event.clientX && !event.clientY) return;
+      handleMove(event);
+    };
+
+    const handleMouseOut = (event) => {
+      if (event.relatedTarget === null) {
+        cursorElm.classList.add("cursor-hidden");
+        cursorRingElm.classList.add("cursor-hidden");
+        toggleInteractive(false);
+      }
+    };
+
+    const handleWindowBlur = () => {
+      cursorElm.classList.add("cursor-hidden");
+      cursorRingElm.classList.add("cursor-hidden");
+      toggleInteractive(false);
+    };
+
+    window.addEventListener("mouseenter", handleMouseEnter);
+    window.addEventListener("mouseout", handleMouseOut);
+    window.addEventListener("blur", handleWindowBlur);
+
+    const pointerMoveHandler = (event) => {
+      toggleInteractive(
+        Boolean(event.target && event.target.closest(interactiveSelectors))
+      );
+    };
+
+    document.addEventListener("pointermove", pointerMoveHandler, {
+      passive: true,
+    });
+
+    const cleanup = () => {
+      window.removeEventListener("mousemove", handleMove);
+      window.removeEventListener("mouseenter", handleMouseEnter);
+      window.removeEventListener("mouseout", handleMouseOut);
+      window.removeEventListener("blur", handleWindowBlur);
+      document.removeEventListener("pointermove", pointerMoveHandler);
+      cancelAnimationFrame(rafId);
+      cursorElm.remove();
+      cursorRingElm.remove();
+      document.body.classList.remove("has-custom-cursor");
+    };
+
+    const handleChange = () => {
+      if (!shouldDisable()) return;
+      cleanup();
+      prefersReducedMotion.removeEventListener("change", handleChange);
+      isCoarsePointer.removeEventListener("change", handleChange);
+      noHover.removeEventListener("change", handleChange);
+    };
+
+    prefersReducedMotion.addEventListener("change", handleChange);
+    isCoarsePointer.addEventListener("change", handleChange);
+    noHover.addEventListener("change", handleChange);
+  })();
 
   // Reveal animations
   const revealEls = document.querySelectorAll(".reveal");
