@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Utkarsh Singh — Portfolio</title>
+    <title>Utkarsh Singh — Robotics & Automation | Portfolio</title>
     <meta
       name="description"
       content="Portfolio of Utkarsh Singh: Robotics and Automation Engineer."
@@ -18,6 +18,7 @@
       content="#ffffff"
       media="(prefers-color-scheme: light)"
     />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -26,31 +27,37 @@
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
+
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
+
     <header class="site-header" id="top">
       <div class="container">
         <a class="logo" href="#top" aria-label="Go to top">
           <span class="logo-mark" aria-hidden="true">&#9679;</span>
-          <span class="logo-text">Your Name</span>
+          <span class="logo-text" id="logo-text">Utkarsh Singh</span>
         </a>
+
         <nav class="site-nav" aria-label="Primary">
           <button
             class="nav-toggle"
             aria-expanded="false"
             aria-controls="nav-menu"
             aria-label="Menu"
+            id="nav-toggle"
           >
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+            <span class="bar"></span><span class="bar"></span
+            ><span class="bar"></span>
           </button>
-          <ul id="nav-menu">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li>
+
+          <ul id="nav-menu" class="nav-menu" role="menu">
+            <li role="none"><a role="menuitem" href="#about">About</a></li>
+            <li role="none"><a role="menuitem" href="#skills">Skills</a></li>
+            <li role="none">
+              <a role="menuitem" href="#projects">Projects</a>
+            </li>
+            <li role="none"><a role="menuitem" href="#contact">Contact</a></li>
+            <li role="none">
               <button
                 id="theme-toggle"
                 class="theme-toggle"
@@ -70,48 +77,32 @@
       <section class="hero section" id="hero">
         <div class="container grid-2">
           <div class="hero-copy reveal">
-            <h1>Hi, I'm <span class="accent">Your Name</span>.</h1>
-            <p class="lead">
-              I build delightful, performant web experiences. Currently focused
-              on Frontend Engineering, Design Systems, and DX.
+            <h1>
+              Hi, I'm <span class="accent" id="hero-name">Utkarsh Singh</span>.
+            </h1>
+            <p class="lead" id="hero-lead">
+              I build robotics, embedded firmware and full-stack prototypes.
             </p>
+
             <div class="cta">
-              <a class="btn primary" href="#projects">View Projects</a>
+              <a class="btn primary" href="#projects" id="cta-projects"
+                >View Projects</a
+              >
               <a
                 class="btn ghost"
-                href="https://drive.google.com/file/d/1uWpbTTRiyPo5-sRiASr5FOCMEeTYKE5Y/view?usp=sharing"
+                href="https://drive.google.com/file/d/1uWpbTTRiyPo5-sRiASr5FOCMEeTYKE5Y/view?usp=drive_link"
+                id="resume-link"
                 target="_blank"
                 rel="noopener"
                 >Resume</a
               >
             </div>
-            <ul class="social">
-              <li>
-                <a
-                  href="https://github.com/utkarshware"
-                  aria-label="GitHub"
-                  rel="noopener"
-                  target="_blank"
-                  >GitHub</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://www.linkedin.com/in/utkarshware/"
-                  aria-label="LinkedIn"
-                  rel="noopener"
-                  target="_blank"
-                  >LinkedIn</a
-                >
-              </li>
-              <li>
-                <a href="#" aria-label="Twitter" rel="noopener" target="_blank"
-                  >Twitter</a
-                >
-              </li>
-            </ul>
+
+            <ul class="social" id="social-links" aria-label="Social links"></ul>
           </div>
+
           <div class="hero-art reveal" aria-hidden="true">
+            <!-- decorative artwork — keep in CSS -->
             <div class="orbit">
               <div class="planet"></div>
               <div class="ring"></div>
@@ -123,128 +114,21 @@
       <section class="about section" id="about">
         <div class="container">
           <h2 class="section-title">About</h2>
-          <p>
-            I'm a software developer with a passion for building products that
-            are fast, accessible, and beautiful. I enjoy working across the
-            stack, with a particular love for frontend engineering and developer
-            tooling.
-          </p>
-          <p>
-            Previously at <strong>Company</strong>, I led projects that improved
-            performance and developer experience. Outside of work, I write about
-            web development and contribute to open-source.
-          </p>
+          <p id="about-paragraph"></p>
         </div>
       </section>
 
       <section class="skills section" id="skills">
         <div class="container">
           <h2 class="section-title">Skills</h2>
-          <ul class="skill-list">
-            <li>HTML5</li>
-            <li>CSS3 / Tailwind</li>
-            <li>JavaScript / TypeScript</li>
-            <li>React / Next.js</li>
-            <li>Node.js</li>
-            <li>Design Systems</li>
-            <li>Accessibility</li>
-            <li>Testing</li>
-          </ul>
+          <ul class="skill-list" id="skill-list"></ul>
         </div>
       </section>
 
       <section class="projects section" id="projects">
         <div class="container">
           <h2 class="section-title">Projects</h2>
-          <div class="project-grid">
-            <article class="project-card reveal">
-              <img
-                src="assets/images/placeholder-1.svg"
-                alt="Project screenshot"
-                loading="lazy"
-              />
-              <div class="project-content">
-                <h3>Project One</h3>
-                <p>
-                  A short description of the project—what it does, the tech
-                  used, and the impact. Keep it concise.
-                </p>
-                <div class="tags">
-                  <span>React</span><span>TypeScript</span><span>Vite</span>
-                </div>
-                <div class="links">
-                  <a class="btn small" href="#" target="_blank" rel="noopener"
-                    >Live</a
-                  >
-                  <a
-                    class="btn small ghost"
-                    href="#"
-                    target="_blank"
-                    rel="noopener"
-                    >Code</a
-                  >
-                </div>
-              </div>
-            </article>
-            <article class="project-card reveal">
-              <img
-                src="assets/images/placeholder-2.svg"
-                alt="Project screenshot"
-                loading="lazy"
-              />
-              <div class="project-content">
-                <h3>Project Two</h3>
-                <p>
-                  Brief summary focusing on your role and the outcome. Mention
-                  metrics if possible.
-                </p>
-                <div class="tags">
-                  <span>Next.js</span><span>Tailwind</span><span>SSR</span>
-                </div>
-                <div class="links">
-                  <a class="btn small" href="#" target="_blank" rel="noopener"
-                    >Live</a
-                  >
-                  <a
-                    class="btn small ghost"
-                    href="#"
-                    target="_blank"
-                    rel="noopener"
-                    >Code</a
-                  >
-                </div>
-              </div>
-            </article>
-            <article class="project-card reveal">
-              <img
-                src="assets/images/placeholder-3.svg"
-                alt="Project screenshot"
-                loading="lazy"
-              />
-              <div class="project-content">
-                <h3>Project Three</h3>
-                <p>
-                  Highlight a unique challenge and how you solved it. What
-                  skills did you use?
-                </p>
-                <div class="tags">
-                  <span>Node</span><span>Express</span><span>REST</span>
-                </div>
-                <div class="links">
-                  <a class="btn small" href="#" target="_blank" rel="noopener"
-                    >Live</a
-                  >
-                  <a
-                    class="btn small ghost"
-                    href="#"
-                    target="_blank"
-                    rel="noopener"
-                    >Code</a
-                  >
-                </div>
-              </div>
-            </article>
-          </div>
+          <div class="project-grid" id="project-grid"></div>
         </div>
       </section>
 
@@ -252,35 +136,32 @@
         <div class="container">
           <h2 class="section-title">Get in touch</h2>
           <p>If you want to collaborate or just say hi, my inbox is open.</p>
-          <a class="btn primary" href="mailto:you@example.com">Email me</a>
+          <a
+            class="btn primary"
+            id="contact-email"
+            href="mailto:utkarshsingh2104@outlook.com"
+            >Email me</a
+          >
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="container">
-        <p>© <span id="year"></span> Your Name. All rights reserved.</p>
+        <p>
+          &copy; <span id="year"></span>
+          <span id="footer-name">Utkarsh Singh</span>. All rights reserved.
+        </p>
       </div>
     </footer>
 
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Your Name",
-        "url": "https://your-domain.com",
-        "sameAs": [
-          "https://github.com/your",
-          "https://www.linkedin.com/in/your",
-          "https://twitter.com/your"
-        ],
-        "jobTitle": "Software Engineer",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Company"
-        }
-      }
-    </script>
+    <!-- dynamic JSON-LD container; script content is populated by script.js -->
+    <script id="person-ld" type="application/ld+json"></script>
+
+    <!-- data and behavior: keep data.js BEFORE script.js -->
+    <script src="./data.js"></script>
     <script src="./script.js" defer></script>
   </body>
 </html>
+<!-- To run a local server, use the following command in your terminal: -->
+<!-- python -m http.server 8000 -->
