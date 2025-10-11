@@ -236,92 +236,141 @@ a {
   justify-content: flex-end;
 }
 
-.nav-shell {
+.nav-glass {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 10px 18px;
-  border-radius: 999px;
-  background: color-mix(in oklab, var(--bg-elev), white 8%);
-  border: 1px solid color-mix(in oklab, var(--border), transparent 30%);
-  box-shadow: 0 20px 32px rgba(10, 18, 30, 0.34);
-  backdrop-filter: blur(18px) saturate(150%);
+  gap: 18px;
+  padding: 12px 20px;
+  border-radius: 28px;
+  background: color-mix(in oklab, var(--bg-elev), white 9%);
+  border: 1px solid color-mix(in oklab, var(--border), transparent 32%);
+  box-shadow: 0 20px 44px rgba(9, 16, 32, 0.3);
+  backdrop-filter: blur(18px) saturate(140%);
+  overflow: hidden;
   transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
-.nav-shell::before {
+.nav-glass::before {
+  content: "";
+  position: absolute;
+  inset: -65% -25% 15% -25%;
+  background: conic-gradient(
+    from 150deg,
+    color-mix(in oklab, var(--accent), transparent 35%),
+    transparent 32%,
+    color-mix(in oklab, var(--accent), transparent 75%),
+    transparent 84%,
+    color-mix(in oklab, var(--accent), transparent 45%)
+  );
+  filter: blur(70px);
+  opacity: 0.26;
+  animation: nav-aurora-shift 18s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+.nav-glass::after {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  border: 1px solid color-mix(in oklab, var(--accent), transparent 88%);
-  opacity: 0.4;
+  border: 1px solid color-mix(in oklab, var(--accent), transparent 80%);
+  opacity: 0.3;
   pointer-events: none;
 }
-.nav-shell:hover {
-  border-color: color-mix(in oklab, var(--accent), transparent 55%);
-  box-shadow: 0 26px 44px rgba(12, 22, 40, 0.38);
+.nav-glass:hover {
+  border-color: color-mix(in oklab, var(--accent), transparent 42%);
+  box-shadow: 0 26px 56px rgba(12, 22, 44, 0.34);
 }
 
-.nav-node {
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: color-mix(in oklab, var(--accent), white 22%);
-  box-shadow: 0 0 16px color-mix(in oklab, var(--accent), transparent 18%),
-    0 0 36px color-mix(in oklab, var(--accent), transparent 55%);
-  pointer-events: none;
-}
-.nav-node--left {
-  left: 16px;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-.nav-node--right {
-  right: 16px;
-  top: 50%;
-  transform: translate(50%, -50%);
-}
-
-.nav-scanline {
-  position: absolute;
-  left: 32px;
-  right: 32px;
-  top: 10px;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    color-mix(in oklab, var(--accent), transparent 45%),
-    transparent
-  );
-  opacity: 0.25;
-  transform-origin: center;
-  animation: nav-scan 7s ease-in-out infinite;
-  pointer-events: none;
-}
-
-@keyframes nav-scan {
+@keyframes nav-aurora-shift {
   0% {
-    opacity: 0.05;
-    transform: scaleX(0.3);
+    transform: rotate(0deg) scale(1.05);
   }
   50% {
-    opacity: 0.4;
-    transform: scaleX(1);
+    transform: rotate(18deg) scale(1.08);
   }
   100% {
-    opacity: 0.1;
-    transform: scaleX(0.3);
+    transform: rotate(-14deg) scale(0.96);
   }
 }
 
-.nav-menu-panel {
+.nav-rail {
   position: relative;
   display: flex;
   align-items: center;
   gap: 10px;
+  padding: 6px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--bg-elev), white 4%);
+  border: 1px solid color-mix(in oklab, var(--border), transparent 38%);
+  box-shadow: inset 0 1px 0 color-mix(in oklab, white, transparent 92%),
+    inset 0 -1px 0 color-mix(in oklab, var(--border), transparent 70%);
+  overflow: hidden;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.nav-aurora {
+  position: absolute;
+  inset: -12% -28%;
+  background: linear-gradient(
+    120deg,
+    color-mix(in oklab, var(--accent), transparent 70%),
+    color-mix(in oklab, #22d3ee, transparent 78%),
+    color-mix(in oklab, var(--accent), transparent 85%)
+  );
+  opacity: 0.24;
+  filter: blur(28px);
+  mix-blend-mode: screen;
+  animation: nav-aurora-pulse 14s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes nav-aurora-pulse {
+  0% {
+    transform: translateX(-12%) scale(0.96);
+    opacity: 0.18;
+  }
+  50% {
+    transform: translateX(8%) scale(1.08);
+    opacity: 0.32;
+  }
+  100% {
+    transform: translateX(18%) scale(0.98);
+    opacity: 0.2;
+  }
+}
+
+.nav-highlight {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: var(--highlight-width, 0px);
+  height: 38px;
+  border-radius: 999px;
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--accent), transparent 55%),
+    color-mix(in oklab, #22d3ee, transparent 35%)
+  );
+  box-shadow: 0 26px 44px rgba(56, 189, 248, 0.22);
+  transform: translateX(var(--highlight-x, 0px)) translateY(-50%);
+  opacity: 0;
+  transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1), width 0.34s ease,
+    opacity 0.32s ease;
+  will-change: transform, width;
+  pointer-events: none;
+  z-index: 0;
+}
+.nav-highlight::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  border: 1px solid color-mix(in oklab, var(--accent), transparent 60%);
+  opacity: 0.7;
+}
+.nav-highlight.is-visible {
+  opacity: 0.95;
 }
 
 .nav-menu {
@@ -337,71 +386,70 @@ a {
 .nav-menu li {
   position: relative;
 }
-.nav-menu a,
-.nav-theme-item .theme-toggle {
+.nav-menu a {
   position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
+  gap: 6px;
+  padding: 10px 18px;
   border-radius: 999px;
   font-weight: 500;
   font-size: 14px;
   letter-spacing: 0.18px;
   color: var(--muted);
-  transition: color 0.28s ease, transform 0.28s ease, text-shadow 0.28s ease;
+  transition: color 0.28s ease, transform 0.24s ease, text-shadow 0.28s ease;
 }
-.nav-menu a::before {
+.nav-menu a::after {
   content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: color-mix(in oklab, var(--accent), transparent 55%);
-  box-shadow: 0 0 6px color-mix(in oklab, var(--accent), transparent 40%);
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 10px;
+  height: 1px;
+  background: color-mix(in oklab, var(--accent), transparent 38%);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.28s ease;
+  opacity: 0.7;
+  pointer-events: none;
+}
+.nav-menu a:hover::after,
+.nav-menu a:focus-visible::after {
+  transform: scaleX(1);
 }
 .nav-menu a:hover,
 .nav-menu a:focus-visible {
   color: var(--text);
   transform: translateY(-1px);
-  text-shadow: 0 0 14px color-mix(in oklab, var(--accent), transparent 30%);
+  text-shadow: 0 0 16px color-mix(in oklab, var(--accent), transparent 45%);
 }
 .nav-menu a.is-active {
   color: var(--text);
 }
-
-.nav-indicator {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: var(--indicator-width, 0px);
-  height: 36px;
-  border-radius: 999px;
-  background: linear-gradient(
-    135deg,
-    color-mix(in oklab, var(--accent), transparent 78%),
-    color-mix(in oklab, var(--accent), transparent 55%)
-  );
-  border: 1px solid color-mix(in oklab, var(--accent), transparent 40%);
-  box-shadow: 0 20px 36px rgba(37, 99, 235, 0.22);
-  transform: translateX(var(--indicator-x, 0px)) translateY(-50%);
-  opacity: 0;
-  pointer-events: none;
-  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease,
-    width 0.32s ease, background 0.3s ease, border-color 0.3s ease;
-  z-index: 0;
-}
-.nav-indicator.is-visible {
-  opacity: 0.92;
+.nav-menu a.is-active::after {
+  transform: scaleX(1);
 }
 
 .nav-theme-item .theme-toggle {
+  width: 38px;
+  height: 38px;
   padding: 0;
+  border-radius: 999px;
+  display: inline-grid;
+  place-items: center;
   color: var(--muted);
-  background: color-mix(in oklab, var(--bg-elev), white 6%);
+  background: color-mix(in oklab, var(--bg-elev), white 5%);
+  border: 1px solid color-mix(in oklab, var(--border), transparent 45%);
+  transition: color 0.28s ease, transform 0.24s ease, box-shadow 0.28s ease,
+    background 0.3s ease, border-color 0.3s ease;
 }
 .nav-theme-item .theme-toggle:hover,
 .nav-theme-item .theme-toggle:focus-visible {
   color: var(--text);
+  transform: translateY(-1px);
+  background: color-mix(in oklab, var(--accent), transparent 82%);
+  border-color: color-mix(in oklab, var(--accent), transparent 48%);
+  box-shadow: 0 18px 32px rgba(56, 189, 248, 0.26);
 }
 
 .nav-toggle {
@@ -964,13 +1012,12 @@ html[data-theme="light"] .theme-toggle .moon {
   .project-card {
     grid-template-columns: 1fr;
   }
-  .nav-shell {
-    padding: 10px 16px;
-    gap: 14px;
+  .nav-glass {
+    padding: 12px 18px;
+    gap: 16px;
   }
-  .nav-menu a,
-  .nav-theme-item .theme-toggle {
-    padding: 8px 12px;
+  .nav-menu a {
+    padding: 10px 16px;
   }
 }
 
@@ -981,23 +1028,14 @@ html[data-theme="light"] .theme-toggle .moon {
   .site-nav {
     width: 100%;
   }
-  .nav-shell {
+  .nav-glass {
     width: 100%;
     flex-wrap: wrap;
-    padding: 10px 14px 14px;
+    padding: 12px 16px 16px;
     border-radius: 24px;
+    gap: 14px;
   }
-  .nav-node--left,
-  .nav-node--right {
-    top: 22px;
-  }
-  .nav-scanline {
-    display: none;
-  }
-  .nav-toggle {
-    display: inline-block;
-  }
-  .nav-menu-panel {
+  .nav-rail {
     width: 100%;
     flex-direction: column;
     align-items: stretch;
@@ -1005,25 +1043,42 @@ html[data-theme="light"] .theme-toggle .moon {
     max-height: 0;
     opacity: 0;
     pointer-events: none;
+    padding: 0;
+    border-radius: 22px;
+    background: color-mix(in oklab, var(--bg-elev), white 6%);
+    border: 1px solid color-mix(in oklab, var(--border), transparent 50%);
     transition: max-height 0.34s ease, opacity 0.3s ease;
+  }
+  .nav-aurora,
+  .nav-highlight {
+    display: none;
+  }
+  .nav-toggle {
+    display: inline-block;
   }
   .nav-menu {
     flex-direction: column;
     align-items: stretch;
     gap: 6px;
-    padding-top: 10px;
+    padding: 10px 0;
   }
-  .nav-menu a,
-  .nav-theme-item .theme-toggle {
+  .nav-menu a {
     justify-content: space-between;
+    padding: 12px 14px;
   }
-  .nav-menu a::before {
-    order: 2;
-  }
-  .nav-indicator {
+  .nav-menu a::after {
     display: none;
   }
-  .nav-open .nav-menu-panel {
+  .nav-theme-item {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .nav-theme-item .theme-toggle {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+  }
+  .nav-open .nav-rail {
     max-height: 420px;
     opacity: 1;
     pointer-events: auto;

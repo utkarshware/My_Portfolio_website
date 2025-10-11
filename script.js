@@ -231,22 +231,22 @@
 
   // NAV indicator + active state handling
   const navMenuSurface = document.querySelector("[data-nav-surface]");
-  const navIndicator = document.getElementById("nav-indicator");
+  const navHighlight = document.getElementById("nav-highlight");
   const navLinks = Array.from(
     document.querySelectorAll("#nav-menu a[data-nav-link]")
   );
   let activeNavLink = null;
 
-  const updateIndicator = (link) => {
-    if (!navIndicator || !navMenuSurface || !link) return;
+  const updateHighlight = (link) => {
+    if (!navHighlight || !navMenuSurface || !link) return;
     requestAnimationFrame(() => {
       const panelRect = navMenuSurface.getBoundingClientRect();
       const linkRect = link.getBoundingClientRect();
-      const width = linkRect.width + 26;
+      const width = linkRect.width + 28;
       const center = linkRect.left - panelRect.left + linkRect.width / 2;
-      navIndicator.style.setProperty("--indicator-width", `${width}px`);
-      navIndicator.style.setProperty("--indicator-x", `${center}px`);
-      navIndicator.classList.add("is-visible");
+      navHighlight.style.setProperty("--highlight-width", `${width}px`);
+      navHighlight.style.setProperty("--highlight-x", `${center}px`);
+      navHighlight.classList.add("is-visible");
     });
   };
 
@@ -256,16 +256,16 @@
     activeNavLink = link || null;
     if (activeNavLink) {
       activeNavLink.classList.add("is-active");
-      updateIndicator(activeNavLink);
-    } else if (navIndicator) {
-      navIndicator.classList.remove("is-visible");
+      updateHighlight(activeNavLink);
+    } else if (navHighlight) {
+      navHighlight.classList.remove("is-visible");
     }
   };
 
   if (navLinks.length) {
     navLinks.forEach((link) => {
-      link.addEventListener("mouseenter", () => updateIndicator(link));
-      link.addEventListener("focus", () => updateIndicator(link));
+      link.addEventListener("mouseenter", () => updateHighlight(link));
+      link.addEventListener("focus", () => updateHighlight(link));
       link.addEventListener("click", () => {
         setActiveLink(link);
         if (header && header.classList.contains("nav-open")) {
@@ -277,12 +277,12 @@
 
     if (navMenuSurface) {
       navMenuSurface.addEventListener("mouseleave", () => {
-        if (activeNavLink) updateIndicator(activeNavLink);
+        if (activeNavLink) updateHighlight(activeNavLink);
       });
     }
 
     window.addEventListener("resize", () => {
-      if (activeNavLink) updateIndicator(activeNavLink);
+      if (activeNavLink) updateHighlight(activeNavLink);
     });
 
     const sectionMap = new Map();
