@@ -504,23 +504,29 @@ img {
 .hero__header {
   display: flex;
   align-items: center;
-  gap: 26px;
+  gap: 32px;
   margin-bottom: 24px;
 }
 
 .hero__portrait {
   position: relative;
-  width: 132px;
-  height: 132px;
-  border-radius: 24px;
-  padding: 12px;
+  flex: 0 0 clamp(150px, 14vw, 220px);
+  width: clamp(150px, 14vw, 220px);
+  height: clamp(150px, 14vw, 220px);
+  border-radius: 28px;
+  padding: 14px;
   background: linear-gradient(
-    150deg,
-    rgba(94, 229, 255, 0.28),
-    rgba(8, 18, 46, 0.85)
-  );
-  border: 1px solid rgba(94, 229, 255, 0.25);
-  box-shadow: 0 20px 44px rgba(12, 24, 56, 0.35);
+      150deg,
+      rgba(94, 229, 255, 0.32),
+      rgba(8, 18, 46, 0.9)
+    ),
+    radial-gradient(
+      circle at 18% 18%,
+      rgba(94, 229, 255, 0.22),
+      transparent 55%
+    );
+  border: 1px solid rgba(94, 229, 255, 0.3);
+  box-shadow: 0 24px 52px rgba(12, 24, 56, 0.32);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -538,15 +544,15 @@ img {
 
 .hero__portrait figcaption {
   position: absolute;
-  inset: auto 12px 12px;
-  padding: 6px 12px;
+  inset: auto 16px 16px;
+  padding: 6px 14px;
   border-radius: 999px;
-  background: rgba(7, 14, 32, 0.72);
-  border: 1px solid rgba(94, 229, 255, 0.35);
+  background: rgba(7, 14, 32, 0.78);
+  border: 1px solid rgba(94, 229, 255, 0.38);
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(236, 240, 255, 0.78);
+  color: rgba(236, 240, 255, 0.82);
 }
 
 .hero__headline {
@@ -1533,7 +1539,7 @@ img {
 
 .about__meta {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 24px;
   align-content: start;
 }
@@ -1850,6 +1856,7 @@ img {
   }
 
   .hero__portrait {
+    flex-basis: 140px;
     width: 140px;
     height: 140px;
   }
