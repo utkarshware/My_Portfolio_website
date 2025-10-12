@@ -8,351 +8,290 @@
       name="description"
       content="Portfolio for Utkarsh Singh, robotics and automation engineer blending embedded systems, intelligent automation, and human-centered prototypes."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <div class="background-grid" aria-hidden="true"></div>
-    <header class="site-header" id="top">
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#top" class="nav__brand">
-          <span class="brand-mark" aria-hidden="true"></span>
-          <div class="nav__brand-copy">
-            <span class="nav__brand-name">Utkarsh Singh</span>
-            <span class="nav__brand-role">Robotics Engineer</span>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Utkarsh Singh — Robotics &amp; Automation Student</title>
+        <meta
+          name="description"
+          content="Portfolio site for Utkarsh Singh, a robotics and automation student exploring manipulators, embedded control, and campus-led builds."
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap"
+          rel="stylesheet"
+        />
+        <link rel="stylesheet" href="./styles.css" />
+      </head>
+      <body id="top">
+        <header class="site-header">
+          <div class="container nav">
+            <a class="nav__logo" href="#top">Utkarsh Singh</a>
+            <nav class="nav__links" aria-label="Primary">
+              <a href="#intro">Home</a>
+              <a href="#about">About</a>
+              <a href="#projects">Projects</a>
+              <a href="#experience">Experience</a>
+              <a href="#contact">Contact</a>
+            </nav>
           </div>
-        </a>
-        <button
-          class="nav__toggle"
-          aria-expanded="false"
-          aria-controls="nav-menu"
-          aria-label="Toggle navigation"
-        >
-          <span></span><span></span><span></span>
-        </button>
-        <div class="nav__menu" id="nav-menu" data-nav-surface>
-          <div class="nav__links">
-            <ul>
-              <li><a href="#hero" data-nav-link>Home</a></li>
-              <li><a href="#expertise" data-nav-link>Expertise</a></li>
-              <li><a href="#projects" data-nav-link>Projects</a></li>
-              <li><a href="#about" data-nav-link>About</a></li>
-              <li><a href="#process" data-nav-link>Process</a></li>
-              <li><a href="#contact" data-nav-link>Contact</a></li>
-            </ul>
-          </div>
-          <div class="nav__actions">
-            <span class="nav__availability">
-              <span class="nav__dot" aria-hidden="true"></span>
-              Open to student collaborations
-            </span>
-            <a class="btn btn--ghost nav__contact" href="#contact"
-              >Let's Talk</a
-            >
-            <a
-              class="btn btn--primary nav__resume"
-              id="nav-resume"
-              href="#"
-              target="_blank"
-              rel="noopener"
-              >Resume</a
-            >
-          </div>
-        </div>
-      </nav>
-    </header>
+        </header>
 
-    <main class="page-layout">
-      <aside class="page-rail" aria-label="Profile highlights">
-        <div class="rail-card rail-card--profile">
-          <span class="rail-card__tag">Student profile</span>
-          <h2>Utkarsh Singh</h2>
-          <p>
-            Robotics &amp; Automation undergraduate experimenting with robots,
-            sensors, and control systems.
-          </p>
-        </div>
-        <div class="rail-card rail-card--focus">
-          <span class="rail-card__tag">Learning focus</span>
-          <ul class="rail-card__list">
-            <li>Manipulator prototypes &amp; kinematics</li>
-            <li>Embedded control with Arduino &amp; STM32</li>
-            <li>Edge AI for perception projects</li>
-          </ul>
-        </div>
-        <div class="rail-card rail-card--cta">
-          <span class="rail-card__tag">Work with me</span>
-          <p>
-            Let’s team up on student projects, research internships, or tech
-            communities.
-          </p>
-          <a class="btn btn--primary rail-card__action" href="#contact"
-            >Start a collaboration</a
-          >
-        </div>
-      </aside>
-      <div class="page-content">
-        <section class="hero" id="hero">
-          <div class="hero__background" aria-hidden="true">
-            <div class="hero__orb hero__orb--one"></div>
-            <div class="hero__orb hero__orb--two"></div>
-            <div class="hero__globe">
-              <span class="hero__globe-core"></span>
-            </div>
-            <div class="hero__schematic">
-              <span></span><span></span><span></span>
-            </div>
-            <div class="hero__pulse"></div>
-          </div>
-          <div class="hero__layout">
-            <div class="hero__primary">
-              <div class="hero__copy">
-                <div class="hero__badge">
-                  Robotics &amp; Intelligent Automation
-                </div>
-                <h1>
-                  Building practical robotics as a hands-on automation student.
-                </h1>
-                <p class="hero__lead" id="hero-lead">
-                  I explore manipulators, embedded control, and edge AI through
-                  coursework, hackathons, and club projects.
+        <main>
+          <section class="intro" id="intro">
+            <div class="container intro__layout">
+              <div class="intro__copy">
+                <p class="intro__eyebrow">Robotics &amp; Automation Student</p>
+                <h1>Hi, I’m Utkarsh Singh.</h1>
+                <p class="intro__lead">
+                  I build small-scale robots and embedded prototypes to
+                  understand how mechanics, control, and software come together.
+                  Between classes, I lead student teams, test hardware in campus
+                  labs, and document what I learn so the next build is smoother.
                 </p>
-                <div class="hero__cta">
-                  <a class="btn btn--primary" href="#projects">View Projects</a>
-                  <a
-                    class="btn btn--ghost"
-                    id="hero-resume"
-                    href="#"
-                    target="_blank"
-                    rel="noopener"
-                    >Download Resume</a
-                  >
+                <div class="intro__actions">
+                  <a class="btn btn--primary" href="#projects">See Projects</a>
+                  <a class="btn btn--outline" href="#contact">Let’s connect</a>
                 </div>
               </div>
-              <div class="hero__insights">
-                <article class="hero__panel hero__panel--stats">
-                  <span class="hero__panel-label">Impact snapshot</span>
-                  <dl class="hero__stats" id="hero-stats"></dl>
-                </article>
-                <article class="hero__panel hero__panel--mission">
-                  <span class="hero__panel-label">Mission pillars</span>
-                  <div class="hero__mission" id="hero-mission"></div>
-                </article>
-              </div>
-            </div>
-            <aside class="hero__profile" aria-label="Portrait highlight">
-              <figure class="hero__portrait">
+              <figure class="intro__portrait">
                 <img
                   src="./assets/images/utkarsh.jpg"
-                  alt="Portrait of Utkarsh Singh"
-                  loading="lazy"
+                  alt="Utkarsh Singh wearing a dark shirt and smiling"
                 />
               </figure>
-            </aside>
-            <div class="hero__visual" aria-hidden="true">
-              <div class="arm-scaffold">
-                <svg class="arm" viewBox="0 0 320 320" role="presentation">
-                  <defs>
-                    <linearGradient
-                      id="armGradient"
-                      x1="0%"
-                      y1="0%"
-                      x2="100%"
-                      y2="100%"
-                    >
-                      <stop offset="0%" stop-color="#7dd3fc" />
-                      <stop offset="100%" stop-color="#38bdf8" />
-                    </linearGradient>
-                  </defs>
-                  <circle cx="160" cy="160" r="150" class="arm__halo" />
-                  <g class="arm__base">
-                    <rect x="150" y="210" width="20" height="70" rx="8" />
-                    <circle cx="160" cy="210" r="22" />
-                  </g>
-                  <g class="arm__segment arm__segment--lower">
-                    <rect x="148" y="140" width="24" height="80" rx="12" />
-                    <circle cx="160" cy="140" r="18" />
-                  </g>
-                  <g class="arm__segment arm__segment--upper">
-                    <rect x="140" y="80" width="24" height="70" rx="12" />
-                    <circle cx="152" cy="80" r="16" />
-                  </g>
-                  <g class="arm__grip">
-                    <rect x="122" y="40" width="56" height="16" rx="8" />
-                    <rect x="116" y="32" width="16" height="32" rx="6" />
-                    <rect x="166" y="32" width="16" height="32" rx="6" />
-                  </g>
-                </svg>
-                <div class="arm-scan" aria-hidden="true">
-                  <span class="arm-scan__ring arm-scan__ring--outer"></span>
-                  <span class="arm-scan__ring arm-scan__ring--inner"></span>
+            </div>
+          </section>
+
+          <section class="about" id="about">
+            <div class="container about__layout">
+              <div class="section-heading">
+                <h2>About me</h2>
+                <p>
+                  I’m currently pursuing a B.Tech in Robotics &amp; Automation.
+                  My favourite part of every project is translating a rough idea
+                  into a working prototype—whether that’s a manipulator arm, a
+                  sensing block, or a small autonomous robot.
+                </p>
+              </div>
+              <div class="about__cards">
+                <article class="info-card">
+                  <h3>What I’m practising</h3>
+                  <ul>
+                    <li>Manipulator design with off-the-shelf parts</li>
+                    <li>Embedded control on Arduino and STM32 platforms</li>
+                    <li>Computer vision experiments on the Jetson Nano</li>
+                  </ul>
+                </article>
+                <article class="info-card">
+                  <h3>Current focus</h3>
+                  <p>
+                    I’m mapping out a low-cost pick-and-place system for a
+                    campus maker space. The goal is to combine a lightweight
+                    arm, simple control loops, and reliable perception so
+                    first-time builders can replicate it.
+                  </p>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="projects" id="projects">
+            <div class="container">
+              <div class="section-heading section-heading--center">
+                <h2>Selected student projects</h2>
+                <p>
+                  Hands-on work from campus labs, club initiatives, and
+                  hackathons where I focused on building something tangible.
+                </p>
+              </div>
+              <div class="projects__grid">
+                <article class="project-card">
+                  <span class="project-card__tag">Capstone concept</span>
+                  <h3>Table-top Pick-and-Place Arm</h3>
+                  <p>
+                    Designed a 4 DOF arm with 3D-printed links, MG996R servos,
+                    and an STM32 controller. Iterated on joint tolerances and
+                    PID values to improve repeatability for light payloads.
+                  </p>
+                  <ul>
+                    <li>
+                      Modelled the arm in Fusion 360 and validated clearances
+                    </li>
+                    <li>
+                      Implemented inverse kinematics in C with safety limits
+                    </li>
+                    <li>
+                      Documented build steps for club members to replicate
+                    </li>
+                  </ul>
+                </article>
+
+                <article class="project-card">
+                  <span class="project-card__tag">Hackathon build</span>
+                  <h3>Smart Campus Delivery Bot</h3>
+                  <p>
+                    Collaborated with a 4-person team to prototype an indoor
+                    robot that maps hallways and carries lab equipment between
+                    rooms.
+                  </p>
+                  <ul>
+                    <li>Integrated LiDAR data with SLAM on a Jetson Nano</li>
+                    <li>
+                      Designed a modular payload bay for different equipment
+                    </li>
+                    <li>
+                      Presented testing results to judges and faculty mentors
+                    </li>
+                  </ul>
+                </article>
+
+                <article class="project-card">
+                  <span class="project-card__tag">Club initiative</span>
+                  <h3>Assistive Lab Sensor Network</h3>
+                  <p>
+                    Built a network of low-cost sensor nodes that track humidity
+                    and vibration across the robotics lab to catch issues before
+                    build sessions.
+                  </p>
+                  <ul>
+                    <li>Deployed ESP32 modules with MQTT messaging</li>
+                    <li>
+                      Wrote a lightweight dashboard for the club workshop leads
+                    </li>
+                    <li>Created troubleshooting guides for new members</li>
+                  </ul>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="experience" id="experience">
+            <div class="container">
+              <div class="section-heading">
+                <h2>Experience &amp; education</h2>
+                <p>
+                  My time is split between coursework, club leadership, and
+                  campus events that keep me close to real hardware.
+                </p>
+              </div>
+              <div class="experience__timeline">
+                <article class="timeline-item">
+                  <h3>B.Tech Robotics &amp; Automation</h3>
+                  <p class="timeline-item__meta">
+                    Lovely Professional University · 2022 — Present
+                  </p>
+                  <p>
+                    Coursework in mechatronics, embedded systems, kinematics,
+                    and control theory. Favourite modules: Robotics Planning
+                    &amp; Programming, Sensors &amp; Actuators.
+                  </p>
+                </article>
+                <article class="timeline-item">
+                  <h3>Robotics Club Lead</h3>
+                  <p class="timeline-item__meta">
+                    Campus Robotics Society · 2024 — Present
+                  </p>
+                  <p>
+                    Coordinate weekly build sessions, help new members with
+                    their first prototypes, and organise hardware reviews ahead
+                    of competitions.
+                  </p>
+                </article>
+                <article class="timeline-item">
+                  <h3>Summer Research Volunteer</h3>
+                  <p class="timeline-item__meta">
+                    Automation Lab · Summer 2024
+                  </p>
+                  <p>
+                    Supported a graduate project on collaborative arms by
+                    testing gripper designs, logging performance data, and
+                    preparing demo reports.
+                  </p>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="skills" aria-label="Skills">
+            <div class="container">
+              <div class="section-heading section-heading--center">
+                <h2>Tools &amp; technologies</h2>
+                <p>
+                  I mix classroom fundamentals with the tools that make student
+                  builds possible.
+                </p>
+              </div>
+              <div class="skills__grid">
+                <div class="skills__group">
+                  <h3>Hardware</h3>
+                  <ul>
+                    <li>3D printing &amp; rapid prototyping</li>
+                    <li>Servo tuning &amp; motion calibration</li>
+                    <li>Sensors: LiDAR, IMU, computer vision cameras</li>
+                  </ul>
                 </div>
-                <div class="arm-particles" aria-hidden="true">
-                  <span class="arm-particle arm-particle--alpha"></span>
-                  <span class="arm-particle arm-particle--beta"></span>
-                  <span class="arm-particle arm-particle--gamma"></span>
+                <div class="skills__group">
+                  <h3>Software</h3>
+                  <ul>
+                    <li>C / C++ for microcontrollers</li>
+                    <li>Python for data logging &amp; automation</li>
+                    <li>ROS basics and Gazebo simulations</li>
+                  </ul>
                 </div>
-                <div class="arm-readout" aria-hidden="true">
-                  <span class="arm-readout__label">Operational</span>
-                  <span class="arm-readout__signal"></span>
-                </div>
-                <div class="sensor-grid"></div>
-                <div class="data-beam"></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section" id="expertise">
-          <div class="section__grid">
-            <aside class="section__intro">
-              <span class="section__tag">Skills</span>
-              <h2>Core Strengths</h2>
-              <p class="section__lead">
-                Student projects that combine robotics, embedded systems, and
-                software tooling.
-              </p>
-              <p class="section__note">
-                These tracks come from labs, internships, and campus clubs where
-                I build and test real hardware.
-              </p>
-            </aside>
-            <div class="section__content">
-              <div class="section__surface">
-                <div class="expertise" id="expertise-grid"></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section" id="projects">
-          <div class="section__grid">
-            <aside class="section__intro">
-              <span class="section__tag">Projects</span>
-              <h2>Portfolio Highlights</h2>
-              <p class="section__lead">
-                Course assignments, club builds, and hackathon sprints that
-                stretched my robotics toolkit.
-              </p>
-              <p class="section__note">
-                I document what I built, why it mattered, and what I learned for
-                the next iteration.
-              </p>
-            </aside>
-            <div class="section__content">
-              <div class="section__surface">
-                <div class="projects" id="project-grid"></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section" id="about">
-          <div class="section__grid">
-            <aside class="section__intro">
-              <span class="section__tag">About</span>
-              <h2>Meet Utkarsh</h2>
-              <p class="section__lead">
-                Robotics &amp; Automation student blending classroom learning
-                with campus initiatives.
-              </p>
-              <p class="section__note">
-                I thrive in team settings—leading clubs, organising events, and
-                making sure our projects land.
-              </p>
-            </aside>
-            <div class="section__content">
-              <div class="section__surface section__surface--about">
-                <div class="about">
-                  <div class="about__content">
-                    <p id="about-summary"></p>
-                    <ul class="about__highlights" id="about-highlights"></ul>
-                  </div>
-                  <div class="about__meta">
-                    <div class="meta-card" id="meta-education"></div>
-                    <div class="meta-card" id="meta-focus"></div>
-                  </div>
+                <div class="skills__group">
+                  <h3>Collaboration</h3>
+                  <ul>
+                    <li>Technical documentation and photos</li>
+                    <li>Leading campus build sessions</li>
+                    <li>Presenting prototypes to mentors</li>
+                  </ul>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section class="section section--process" id="process">
-          <div class="section__grid">
-            <aside class="section__intro">
-              <span class="section__tag">Workflow</span>
-              <h2>How I Build</h2>
-              <p class="section__lead">
-                A simple loop that keeps student projects organised and moving
-                forward.
-              </p>
-              <p class="section__note">
-                Each step is lightweight so teams can adapt quickly while still
-                capturing what we learn.
-              </p>
-            </aside>
-            <div class="section__content">
-              <div class="section__surface section__surface--process">
-                <ol class="process" id="process-timeline"></ol>
+          <section class="contact" id="contact">
+            <div class="container contact__box">
+              <div>
+                <h2>Let’s build something</h2>
+                <p>
+                  I’m looking for internships, research labs, or student-led
+                  teams where I can keep experimenting with robotics. Drop me a
+                  note and I’ll reply within a day.
+                </p>
+              </div>
+              <div class="contact__actions">
+                <a
+                  class="btn btn--primary"
+                  href="mailto:utkarshsingh@example.com"
+                  >Email me</a
+                >
+                <a
+                  class="btn btn--outline"
+                  href="https://www.linkedin.com/"
+                  target="_blank"
+                  rel="noopener"
+                  >LinkedIn</a
+                >
               </div>
             </div>
+          </section>
+        </main>
+
+        <footer class="site-footer">
+          <div class="container">
+            <p>
+              &copy; <span id="year">2025</span> Utkarsh Singh. Built for
+              learning.
+            </p>
           </div>
-        </section>
-
-        <section class="section section--contact" id="contact">
-          <div class="section__grid">
-            <aside class="section__intro">
-              <span class="section__tag">Reach out</span>
-              <h2>Let's Collaborate</h2>
-              <p class="section__lead">
-                Open to internships, research labs, and student-led builds in
-                robotics or automation.
-              </p>
-              <p class="section__note">
-                Drop a note with your idea or opportunity—I usually reply within
-                a day.
-              </p>
-            </aside>
-            <div class="section__content">
-              <div class="section__surface section__surface--contact">
-                <div class="contact">
-                  <div class="contact__actions">
-                    <a class="btn btn--primary" id="contact-email" href="#"
-                      >Email</a
-                    >
-                    <a
-                      class="btn btn--ghost"
-                      id="contact-linkedin"
-                      href="#"
-                      target="_blank"
-                      rel="noopener"
-                      >LinkedIn</a
-                    >
-                  </div>
-                  <dl class="contact__details" id="contact-details"></dl>
-                  <ul class="contact__social" id="contact-social"></ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </main>
-
-    <footer class="site-footer">
-      <p>
-        &copy; <span id="footer-year"></span> Utkarsh Singh. All rights
-        reserved.
-      </p>
-    </footer>
-
-    <script src="./data.js"></script>
-    <script src="./script.js" defer></script>
-  </body>
+        </footer>
+      </body>
+    </html>
+    <div class="about"></div>
+  </head>
 </html>
