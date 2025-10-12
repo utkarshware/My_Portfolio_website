@@ -22,7 +22,10 @@
       <nav class="nav" aria-label="Main navigation">
         <a href="#top" class="nav__brand">
           <span class="brand-mark" aria-hidden="true"></span>
-          <span class="brand-text">Utkarsh Singh</span>
+          <div class="nav__brand-copy">
+            <span class="nav__brand-name">Utkarsh Singh</span>
+            <span class="nav__brand-role">Robotics Engineer</span>
+          </div>
         </a>
         <button
           class="nav__toggle"
@@ -33,20 +36,33 @@
           <span></span><span></span><span></span>
         </button>
         <div class="nav__menu" id="nav-menu" data-nav-surface>
-          <ul>
-            <li><a href="#expertise" data-nav-link>Expertise</a></li>
-            <li><a href="#projects" data-nav-link>Projects</a></li>
-            <li><a href="#about" data-nav-link>About</a></li>
-            <li><a href="#contact" data-nav-link>Contact</a></li>
-          </ul>
-          <a
-            class="nav__resume"
-            id="nav-resume"
-            href="#"
-            target="_blank"
-            rel="noopener"
-            >Resume</a
-          >
+          <div class="nav__links">
+            <ul>
+              <li><a href="#hero" data-nav-link>Home</a></li>
+              <li><a href="#expertise" data-nav-link>Expertise</a></li>
+              <li><a href="#projects" data-nav-link>Projects</a></li>
+              <li><a href="#about" data-nav-link>About</a></li>
+              <li><a href="#process" data-nav-link>Process</a></li>
+              <li><a href="#contact" data-nav-link>Contact</a></li>
+            </ul>
+          </div>
+          <div class="nav__actions">
+            <span class="nav__availability">
+              <span class="nav__dot" aria-hidden="true"></span>
+              Available for collaborations
+            </span>
+            <a class="btn btn--ghost nav__contact" href="#contact"
+              >Let's Talk</a
+            >
+            <a
+              class="btn btn--primary nav__resume"
+              id="nav-resume"
+              href="#"
+              target="_blank"
+              rel="noopener"
+              >Resume</a
+            >
+          </div>
         </div>
       </nav>
     </header>
@@ -140,82 +156,110 @@
       </section>
 
       <section class="section" id="expertise">
-        <div class="section__header">
-          <h2>Core Expertise</h2>
-          <p class="section__lead">
-            Multi-disciplinary engineering across robotics, intelligent control,
-            and experience design.
-          </p>
+        <div class="section__surface">
+          <div class="section__header">
+            <h2>Core Expertise</h2>
+            <p class="section__lead">
+              Multi-disciplinary engineering across robotics, intelligent
+              control, and experience design.
+            </p>
+          </div>
+          <div class="section__body">
+            <div class="expertise" id="expertise-grid"></div>
+          </div>
         </div>
-        <div class="expertise" id="expertise-grid"></div>
       </section>
 
       <section class="section" id="projects">
-        <div class="section__header">
-          <h2>Selected Projects</h2>
-          <p class="section__lead">
-            Outcome-driven work combining perception, controls, and product
-            thinking.
-          </p>
+        <div class="section__surface">
+          <div class="section__header">
+            <h2>Selected Projects</h2>
+            <p class="section__lead">
+              Outcome-driven work combining perception, controls, and product
+              thinking.
+            </p>
+          </div>
+          <div class="section__body">
+            <div class="projects" id="project-grid"></div>
+          </div>
         </div>
-        <div class="projects" id="project-grid"></div>
       </section>
 
       <section class="section" id="about">
-        <div class="about">
-          <div class="about__content">
+        <div class="section__surface">
+          <div class="section__header">
             <h2>About Utkarsh</h2>
-            <p id="about-summary"></p>
-            <ul class="about__highlights" id="about-highlights"></ul>
+            <p class="section__lead">
+              Robotics engineer grounding future-ready automation in practical
+              delivery and trusted human experiences.
+            </p>
           </div>
-          <div class="about__meta">
-            <figure class="about__portrait">
-              <img
-                src="./assets/images/utkarsh.jpg"
-                alt="Portrait of Utkarsh Singh"
-                loading="lazy"
-              />
-              <figcaption>Utkarsh Singh</figcaption>
-            </figure>
-            <div class="meta-card" id="meta-education"></div>
-            <div class="meta-card" id="meta-focus"></div>
+          <div class="section__body">
+            <div class="about">
+              <div class="about__content">
+                <p id="about-summary"></p>
+                <ul class="about__highlights" id="about-highlights"></ul>
+              </div>
+              <div class="about__meta">
+                <figure class="about__portrait">
+                  <img
+                    src="./assets/images/utkarsh.jpg"
+                    alt="Portrait of Utkarsh Singh"
+                    loading="lazy"
+                  />
+                  <figcaption>Utkarsh Singh</figcaption>
+                </figure>
+                <div class="meta-card" id="meta-education"></div>
+                <div class="meta-card" id="meta-focus"></div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section section--process">
-        <div class="section__header">
-          <h2>Engineering Process</h2>
-          <p class="section__lead">
-            From opportunity framing to field deployment, every phase is a
-            closed feedback loop with hardware and stakeholders.
-          </p>
+      <section class="section section--process" id="process">
+        <div class="section__surface">
+          <div class="section__header">
+            <h2>Engineering Process</h2>
+            <p class="section__lead">
+              From opportunity framing to field deployment, every phase is a
+              closed feedback loop with hardware and stakeholders.
+            </p>
+          </div>
+          <div class="section__body">
+            <ol class="process" id="process-timeline"></ol>
+          </div>
         </div>
-        <ol class="process" id="process-timeline"></ol>
       </section>
 
       <section class="section section--contact" id="contact">
-        <div class="section__header">
-          <h2>Collaborate</h2>
-          <p class="section__lead">
-            Let's co-design reliable robotic or intelligent automation
-            solutions.
-          </p>
-        </div>
-        <div class="contact">
-          <div class="contact__actions">
-            <a class="btn btn--primary" id="contact-email" href="#">Email</a>
-            <a
-              class="btn btn--ghost"
-              id="contact-linkedin"
-              href="#"
-              target="_blank"
-              rel="noopener"
-              >LinkedIn</a
-            >
+        <div class="section__surface">
+          <div class="section__header">
+            <h2>Collaborate</h2>
+            <p class="section__lead">
+              Let's co-design reliable robotic or intelligent automation
+              solutions.
+            </p>
           </div>
-          <dl class="contact__details" id="contact-details"></dl>
-          <ul class="contact__social" id="contact-social"></ul>
+          <div class="section__body">
+            <div class="contact">
+              <div class="contact__actions">
+                <a class="btn btn--primary" id="contact-email" href="#"
+                  >Email</a
+                >
+                <a
+                  class="btn btn--ghost"
+                  id="contact-linkedin"
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                  >LinkedIn</a
+                >
+              </div>
+              <dl class="contact__details" id="contact-details"></dl>
+              <ul class="contact__social" id="contact-social"></ul>
+            </div>
+          </div>
         </div>
       </section>
     </main>
