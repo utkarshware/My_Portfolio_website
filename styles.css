@@ -483,8 +483,7 @@ img {
 .hero__layout {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.96fr);
-  grid-template-rows: auto auto;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
   align-items: center;
   gap: 48px 56px;
   padding: 56px;
@@ -497,17 +496,25 @@ img {
 
 .hero__content {
   grid-column: 1 / 2;
-  grid-row: 1 / 2;
   position: relative;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
-.hero__header {
+.hero__panel {
   display: flex;
-  align-items: center;
-  gap: 48px;
-  margin-bottom: 32px;
+  align-items: flex-start;
+  gap: 40px;
   flex-wrap: wrap;
+}
+
+.hero__intro {
+  flex: 1 1 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
 .hero__portrait {
@@ -544,41 +551,28 @@ img {
   box-shadow: 0 18px 40px rgba(12, 24, 56, 0.4);
 }
 
-.hero__headline {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  max-width: 520px;
-  flex: 1 1 320px;
-}
-
-.hero__meta {
-  grid-column: 1 / 2;
-  grid-row: 2 / 3;
+.hero__details {
   display: grid;
-  gap: 28px;
-  align-content: start;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
 }
 
-.hero__meta-surface {
+.hero__surface {
   padding: 24px 26px;
   border-radius: var(--radius-md);
-  background: rgba(12, 24, 48, 0.78);
+  background: rgba(12, 24, 48, 0.75);
   border: 1px solid rgba(94, 229, 255, 0.16);
   box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(14px);
 }
 
-.hero__meta-label {
+.hero__surface-label {
   display: inline-block;
   margin-bottom: 16px;
   font-size: 12px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: rgba(156, 168, 212, 0.72);
-}
-
-.hero__meta-surface--mission {
-  padding-bottom: 30px;
 }
 
 .hero__background {
@@ -700,7 +694,7 @@ img {
   border-radius: 999px;
   background: rgba(56, 189, 248, 0.1);
   border: 1px solid rgba(56, 189, 248, 0.25);
-  margin-bottom: 24px;
+  margin: 0;
 }
 
 .hero__lead {
@@ -713,7 +707,7 @@ img {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  margin: 32px 0;
+  margin: 20px 0 0;
 }
 
 .hero__stats {
@@ -813,29 +807,18 @@ img {
   }
 
   .hero__content {
-    grid-column: 1 / span 6;
-    max-width: 640px;
-  }
-
-  .hero__meta {
-    grid-column: 7 / span 3;
-    grid-row: 1;
-    align-self: flex-start;
-    gap: 26px;
+    grid-column: 1 / span 7;
+    max-width: 700px;
   }
 
   .hero__visual {
-    grid-column: 10 / span 3;
+    grid-column: 9 / span 4;
     grid-row: 1;
     align-self: stretch;
   }
 
-  .hero__meta-surface {
-    height: auto;
-  }
-
-  .hero__meta-surface--mission {
-    padding-bottom: 32px;
+  .hero__details {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .section__grid {
@@ -1804,14 +1787,12 @@ img {
 @media (max-width: 960px) {
   .hero__layout {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: auto auto auto;
     padding: 44px;
   }
 
-  .hero__header {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  .hero__panel {
+    justify-content: center;
+    gap: 28px;
   }
 
   .hero__visual {
@@ -1819,9 +1800,8 @@ img {
     grid-row: 2;
   }
 
-  .hero__meta {
-    grid-column: 1;
-    grid-row: 3;
+  .hero__details {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .projects,
@@ -1857,7 +1837,7 @@ img {
     gap: 32px;
   }
 
-  .hero__header {
+  .hero__panel {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -1920,11 +1900,6 @@ img {
   .hero__portrait {
     width: 120px;
     height: 120px;
-  }
-
-  .hero__portrait figcaption {
-    inset: auto 8px 8px;
-    font-size: 10px;
   }
 
   .rail-card {

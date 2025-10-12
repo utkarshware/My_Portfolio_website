@@ -108,7 +108,7 @@
           </div>
           <div class="hero__layout">
             <div class="hero__content">
-              <div class="hero__header">
+              <div class="hero__panel">
                 <figure class="hero__portrait">
                   <img
                     src="./assets/images/utkarsh.jpg"
@@ -116,7 +116,7 @@
                     loading="lazy"
                   />
                 </figure>
-                <div class="hero__headline">
+                <div class="hero__intro">
                   <div class="hero__badge">
                     Robotics &amp; Intelligent Automation
                   </div>
@@ -124,34 +124,36 @@
                     Building practical robotics as a hands-on automation
                     student.
                   </h1>
+                  <p class="hero__lead" id="hero-lead">
+                    I explore manipulators, embedded control, and edge AI
+                    through coursework, hackathons, and club projects.
+                  </p>
+                  <div class="hero__cta">
+                    <a class="btn btn--primary" href="#projects"
+                      >View Projects</a
+                    >
+                    <a
+                      class="btn btn--ghost"
+                      id="hero-resume"
+                      href="#"
+                      target="_blank"
+                      rel="noopener"
+                      >Download Resume</a
+                    >
+                  </div>
                 </div>
               </div>
-              <p class="hero__lead" id="hero-lead">
-                I explore manipulators, embedded control, and edge AI through
-                coursework, hackathons, and club projects.
-              </p>
-              <div class="hero__cta">
-                <a class="btn btn--primary" href="#projects">View Projects</a>
-                <a
-                  class="btn btn--ghost"
-                  id="hero-resume"
-                  href="#"
-                  target="_blank"
-                  rel="noopener"
-                  >Download Resume</a
-                >
+              <div class="hero__details">
+                <div class="hero__surface hero__surface--stats">
+                  <span class="hero__surface-label">Impact snapshot</span>
+                  <dl class="hero__stats" id="hero-stats"></dl>
+                </div>
+                <div class="hero__surface hero__surface--mission">
+                  <span class="hero__surface-label">Mission pillars</span>
+                  <div class="hero__mission" id="hero-mission"></div>
+                </div>
               </div>
             </div>
-            <aside class="hero__meta" aria-label="Impact overview">
-              <div class="hero__meta-surface">
-                <span class="hero__meta-label">Impact snapshot</span>
-                <dl class="hero__stats" id="hero-stats"></dl>
-              </div>
-              <div class="hero__meta-surface hero__meta-surface--mission">
-                <span class="hero__meta-label">Mission pillars</span>
-                <div class="hero__mission" id="hero-mission"></div>
-              </div>
-            </aside>
             <div class="hero__visual" aria-hidden="true">
               <div class="arm-scaffold">
                 <svg class="arm" viewBox="0 0 320 320" role="presentation">
