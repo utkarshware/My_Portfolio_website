@@ -3,132 +3,174 @@
 
 window.PORTFOLIO_DATA = {
   meta: {
-    title: "Utkarsh Singh — Robotics & Automation | Portfolio",
-
+    title: "Utkarsh Singh — Robotics Engineer",
     description:
-      "Portfolio of Utkarsh Singh — B.Tech (Robotics & Automation). I design and build robotics systems, embedded firmware and ML-enabled web & mobile prototypes. Open to internships, research collaborations and product roles.",
+      "Robotics and automation engineer delivering intelligent manipulators, embedded control, and ML-enabled interfaces for practical deployment.",
     resumeHref:
       "https://drive.google.com/file/d/1uWpbTTRiyPo5-sRiASr5FOCMEeTYKE5Y/view?usp=drive_link",
   },
 
-  profile: {
-    name: "Utkarsh Singh",
-    heroLead:
-      "I’m a B.Tech student in Robotics & Automation. I bridge hardware and software to build reliable robotic systems, embedded firmware and ML-powered prototypes.",
-    about:
-      "I focus on practical robotics and automation: embedded systems (Arduino/STM32), inverse kinematics for manipulators, control systems, on-device ML and full-stack interfaces. I move quickly from prototype to demonstrable product while emphasising reliability and usability. Previously I led operations & communications at INFIDIT and served as Student Council & MUN President. Open to internships, research collaborations and product roles.",
-    photo: "assets/images/myimage.jpg",
-    photoAlt: "Utkarsh Singh smiling in front of a robotics lab setup",
+  hero: {
+    badge: "Robotics & Intelligent Automation",
+    headline:
+      "Engineering responsive robots and intelligent systems that perform reliably in the real world.",
+    lead: "I design and deploy robotics solutions that stitch together mechanical assemblies, embedded firmware, and machine intelligence for industrial and human-centred environments.",
+    stats: [
+      { label: "Experience", value: "3+ years building robotics prototypes" },
+      {
+        label: "Focus",
+        value: "Manipulators · Embedded Control · Edge ML",
+      },
+      {
+        label: "Currently",
+        value: "Robotics & Automation, Symbiosis International University",
+      },
+    ],
   },
 
-  contact: {
-    email: "utkarshsingh2104@outlook.com",
-    emailLabel: "utkarshsingh2104",
-    location: "Pune, Maharashtra, India",
-    availability:
-      "Currently partnering with teams building robotics, automation, and intelligent systems.",
-    responseTime: "Responses within one business day (IST).",
-    note: "Happy to discuss robotics systems, embedded firmware, or intelligent automation initiatives.",
-  },
-
-  skills: [
-    "Python",
-    "C",
-    "C++",
-    "Embedded C",
-    "JavaScript",
-    "TypeScript",
-    "Linux",
-    "Bash",
-    "TensorFlow Lite",
-    "scikit-learn",
-    "Raspberry Pi",
-    "Arduino",
-    "React",
-    "Flask",
-    "Unity (AR)",
-    "Fusion 360",
-    "AutoCAD",
-    "MATLAB",
-    "Git",
-    "PID Control",
-    "Inverse Kinematics",
-    "Sensor Integration",
-    "Control Systems",
+  expertise: [
+    {
+      title: "Robotic Systems Engineering",
+      summary:
+        "Designing manipulators, mobile platforms, and supporting architectures that withstand production constraints.",
+      focus: [
+        "Mechanism design, kinematics, and CAD to bench-tested hardware",
+        "PID and model-based control tuned for repeatable motion",
+        "Sensor fusion and calibration for perception-driven tasks",
+      ],
+    },
+    {
+      title: "Embedded Intelligence",
+      summary:
+        "Bringing intelligence to the edge with firmware, real-time processing, and on-device ML pipelines.",
+      focus: [
+        "C/C++ firmware across Arduino, STM32, and Raspberry Pi",
+        "Low-latency communications, telemetry, and safety interlocks",
+        "TensorFlow Lite, optimisation, and inference profiling",
+      ],
+    },
+    {
+      title: "Human-Centred Platforms",
+      summary:
+        "Combining robotics capability with considered product experiences for operators and stakeholders.",
+      focus: [
+        "React, Flask, and REST interfaces that expose control surfaces",
+        "Data visualisation for diagnostics and operations",
+        "Cross-functional leadership, workshops, and enablement",
+      ],
+    },
   ],
 
   projects: [
     {
-      title: "MediCare — Emergency AR Assistant",
-      date: "Feb 2025",
-      oneLine:
-        "Android AR app that assists emergency responders by identifying medical components.",
-      description:
-        "Led the prototype for a mobile AR app that uses on-device image classification (TensorFlow Lite) to recognize medical supplies and overlay step-by-step guidance for first responders. Designed for offline use in low-connectivity environments.",
-      tech: [
-        "Android Studio",
-        "Unity (AR Foundation)",
-        "TensorFlow Lite",
-        "Firebase",
+      category: "AR Emergency Response",
+      period: "2025",
+      title: "MediCare — On-Device Triage Assistant",
+      summary:
+        "Built a mobile AR assistant that recognises medical supplies offline and guides first responders through critical procedures.",
+      outcomes: [
+        "Designed Unity AR workflows with TensorFlow Lite classifiers running fully on-device",
+        "Implemented low-light tolerant image pipelines and audited inference accuracy with clinical advisors",
+        "Delivered a resilient UI for low-connectivity field conditions",
       ],
-      code: "https://github.com/utkarshware/Medi_Care",
-      codeLabel: "GitHub Repo",
+      tags: ["Unity AR", "TensorFlow Lite", "Android", "Edge ML"],
+      links: [
+        {
+          label: "GitHub",
+          url: "https://github.com/utkarshware/Medi_Care",
+        },
+      ],
     },
     {
-      title: "Agri-Dost — Farmer Planning & Price Forecasting",
-      date: "Mar 2025",
-      oneLine:
-        "Web platform to help farmers plan crop cycles and forecast prices with ML-driven insights.",
-      description:
-        "Built the frontend and ML forecasting prototype that predicts short-term crop prices to help farmers decide sowing and selling windows. Created a simple dashboard suitable for small-holder farmers.",
-      tech: ["React", "Flask", "scikit-learn", "Tailwind"],
-      code: "https://github.com/utkarshware/Agri_Dost",
-      codeLabel: "GitHub Repo",
+      category: "Agritech Intelligence",
+      period: "2025",
+      title: "Agri-Dost — Crop Planning Insights",
+      summary:
+        "Created an ML-backed planning cockpit that forecasts commodity prices to assist smallholder farmers in scheduling harvest cycles.",
+      outcomes: [
+        "Prototyped a forecasting stack blending scikit-learn models with explainable metrics",
+        "Authored a React interface tuned for low bandwidth and bilingual content",
+        "Ran field interviews to close the loop between predictions and operator actions",
+      ],
+      tags: ["React", "Flask", "Forecasting", "Product Research"],
+      links: [
+        {
+          label: "GitHub",
+          url: "https://github.com/utkarshware/Agri_Dost",
+        },
+      ],
     },
     {
-      title: "Mini Robotic Arm — 4-DOF Manipulator",
-      date: "Apr 2025",
-      oneLine:
-        "4-DOF desktop robotic arm with inverse-kinematics and PID joint control.",
-      description:
-        "Designed the mechanical assembly in Fusion 360, implemented inverse-kinematics and PID-based servo control on Arduino, and integrated a simple web UI for pick/place commands.",
-      tech: [
-        "Arduino (C++)",
-        "Fusion 360",
-        "Servos",
-        "PID control",
-        "JavaScript UI",
+      category: "Manipulator R&D",
+      period: "2025",
+      title: "Mini Robotic Arm — 4-DOF Workcell",
+      summary:
+        "Delivered a laboratory-scale manipulator with closed-loop joint control and a browser-based command deck.",
+      outcomes: [
+        "Modelled the arm in Fusion 360 with torque and reach optimisation",
+        "Implemented inverse kinematics and PID tuning on Arduino for smooth joint trajectories",
+        "Integrated telemetry streaming to a web UI for pick-and-place scripting",
       ],
-      note: "Hardware-focused build — repository available on request.",
+      tags: ["Arduino", "Fusion 360", "PID Control", "Web UI"],
+      links: [],
     },
   ],
 
-  socials: [
-    {
-      name: "GitHub",
-      url: "https://github.com/utkarshware",
-      aria: "GitHub — Utkarsh Singh",
-      icon: "assets/icons/github.png",
+  about: {
+    summary:
+      "Robotics and automation engineer turning hypotheses into fieldable systems through an end-to-end build mindset. I balance mechanism design, embedded optimisation, and human-centred delivery to create robotics that teams can trust.",
+    highlights: [
+      "Vice President — Robotics Process Automation Society, advancing campus-wide automation programs",
+      "AI/Data Science Co-Lead — SIT ACM Chapter, curating learning labs and project sprints",
+      "Core contributor to CodeX Programming Community, TEDxMUN organising team, and V@rsity finance operations",
+    ],
+    education: {
+      title: "Education",
+      description: "B.Tech, Robotics & Automation",
+      items: [
+        "Symbiosis International University",
+        "Leadership: Student Council President, MUN President",
+        "Operations & Communications Lead — INFIDIT",
+      ],
     },
-    {
-      name: "LinkedIn",
-      url: "https://www.linkedin.com/in/utkarshware/",
-      aria: "LinkedIn — Utkarsh Singh",
-      icon: "assets/icons/linkedin.png",
+    focus: {
+      title: "Current Focus",
+      description:
+        "Strengthening collaborative robotics and intelligent automation pipelines.",
+      items: [
+        "Autonomous calibration and health monitoring",
+        "Human-robot interaction for safety-critical workflows",
+        "Deployable edge ML for industrial environments",
+      ],
     },
-    {
-      name: "Twitter",
-      url: "https://x.com/Utkarzxhh",
-      aria: "Twitter — @Utkarzxhh",
-      icon: "assets/icons/twitter.png",
-    },
-    {
-      name: "Instagram",
-      url: "https://www.instagram.com/utkcrashh/",
-      aria: "Instagram — @utkcrashh",
-      icon: "assets/icons/instagram.png",
-    },
-  ],
+  },
+
+  contact: {
+    email: "utkarshsingh2104@outlook.com",
+    emailLabel: "Email Utkarsh",
+    linkedin: "https://www.linkedin.com/in/utkarshware/",
+    details: [
+      { label: "Location", value: "Pune, Maharashtra, India" },
+      {
+        label: "Collaborations",
+        value: "Robotics, embedded control, intelligent automation initiatives",
+      },
+      { label: "Response", value: "Replies within one business day (IST)" },
+    ],
+    socials: [
+      {
+        name: "GitHub",
+        label: "GitHub",
+        url: "https://github.com/utkarshware",
+      },
+      {
+        name: "LinkedIn",
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/in/utkarshware/",
+      },
+      { name: "Twitter", label: "Twitter", url: "https://x.com/Utkarzxhh" },
+    ],
+  },
 
   schema: {
     "@context": "https://schema.org",
@@ -138,8 +180,9 @@ window.PORTFOLIO_DATA = {
     sameAs: [
       "https://github.com/utkarshware",
       "https://www.linkedin.com/in/utkarshware/",
+      "https://x.com/Utkarzxhh",
     ],
-    jobTitle: "B.Tech Student — Robotics & Automation",
+    jobTitle: "Robotics & Automation Engineer",
     worksFor: {
       "@type": "CollegeOrUniversity",
       name: "Symbiosis International University",

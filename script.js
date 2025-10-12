@@ -1,7 +1,11 @@
-﻿(function () {
+(function () {
   const data = window.PORTFOLIO_DATA || {};
-  const $ = (selector) => document.querySelector(selector);
+  const select = (selector) => document.querySelector(selector);
   const byId = (id) => document.getElementById(id);
+  const setText = (el, value) => {
+    if (!el || value == null) return;
+    el.textContent = value;
+  };
 
   const updateMeta = () => {
     if (data.meta?.title) document.title = data.meta.title;
@@ -12,33 +16,11 @@
   };
 
   const populateHero = () => {
-    const badge = .hero__badge;
-    const headline = .hero h1;
-    const lead = byId("hero-lead");
+    setText(select(".hero__badge"), data.hero?.badge);
+    setText(select(".hero h1"), data.hero?.headline);
+    setText(byId("hero-lead"), data.hero?.lead);
+
     const stats = byId("hero-stats");
-    const heroResume = byId("hero-resume");
-    const navResume = byId("nav-resume");
-
-    if (badge && data.hero?.badge) badge.textContent = data.hero.badge;
-    if (headline && data.hero?.headline) headline.textContent = data.hero.headline;
-    if (lead && data.hero?.lead) lead.textContent = data.hero.lead;
-
-    const resumeHref = data.meta?.resumeHref;
-    if (heroResume) {
-      if (resumeHref) {
-        heroResume.href = resumeHref;
-      } else {
-        heroResume.setAttribute("hidden", "");
-      }
-    }
-    if (navResume) {
-      if (resumeHref) {
-        navResume.href = resumeHref;
-      } else {
-        navResume.setAttribute("hidden", "");
-      }
-    }
-
     if (stats) {
       stats.innerHTML = "";
       (data.hero?.stats || []).forEach((stat) => {
@@ -51,12 +33,27 @@
         stats.appendChild(dd);
       });
     }
+
+    const resumeHref = data.meta?.resumeHref;
+    const heroResume = byId("hero-resume");
+    const navResume = byId("nav-resume");
+
+    [heroResume, navResume].forEach((link) => {
+      if (!link) return;
+      if (resumeHref) {
+        link.href = resumeHref;
+        link.removeAttribute("hidden");
+      } else {
+        link.setAttribute("hidden", "");
+      }
+    });
   };
 
   const populateExpertise = () => {
     const grid = byId("expertise-grid");
     if (!grid) return;
     grid.innerHTML = "";
+
     (data.expertise || []).forEach((item) => {
       const card = document.createElement("article");
       card.className = "expertise-card";
@@ -75,9 +72,9 @@
 
       if (Array.isArray(item.focus) && item.focus.length) {
         const list = document.createElement("ul");
-        item.focus.forEach((focusItem) => {
+        item.focus.forEach((focusPoint) => {
           const li = document.createElement("li");
-          li.textContent = focusItem;
+          li.textContent = focusPoint;
           list.appendChild(li);
         });
         card.appendChild(list);
@@ -91,6 +88,7 @@
     const container = byId("project-grid");
     if (!container) return;
     container.innerHTML = "";
+
     (data.projects || []).forEach((project) => {
       const article = document.createElement("article");
       article.className = "project-card";
@@ -126,14 +124,14 @@
       }
 
       if (Array.isArray(project.outcomes) && project.outcomes.length) {
-        const ul = document.createElement("ul");
-        ul.className = "project-card__outcomes";
+        const list = document.createElement("ul");
+        list.className = "project-card__outcomes";
         project.outcomes.forEach((outcome) => {
           const li = document.createElement("li");
           li.textContent = outcome;
-          ul.appendChild(li);
+          list.appendChild(li);
         });
-        article.appendChild(ul);
+        article.appendChild(list);
       }
 
       if (Array.isArray(project.tags) && project.tags.length) {
@@ -167,67 +165,64 @@
   };
 
   const populateAbout = () => {
-    const summary = byId("about-summary");
+    setText(byId("about-summary"), data.about?.summary);
+
     const highlights = byId("about-highlights");
-    const education = byId("meta-education");
-    const focus = byId("meta-focus");
-
-    if (summary && data.about?.summary) summary.textContent = data.about.summary;
-
     if (highlights) {
       highlights.innerHTML = "";
-      (data.about?.highlights || []).forEach((point) => {
+      (data.about?.highlights || []).forEach((highlight) => {
         const li = document.createElement("li");
-        li.textContent = point;
+        li.textContent = highlight;
         highlights.appendChild(li);
       });
     }
 
-    const createMetaCard = (cardEl, cardData) => {
-      if (!cardEl) return;
-      cardEl.innerHTML = "";
+    const renderMetaCard = (el, cardData) => {
+      if (!el) return;
+      el.innerHTML = "";
       if (cardData?.title) {
         const title = document.createElement("h3");
         title.textContent = cardData.title;
-        cardEl.appendChild(title);
+        el.appendChild(title);
       }
       if (cardData?.description) {
         const desc = document.createElement("p");
         desc.textContent = cardData.description;
-        cardEl.appendChild(desc);
+        el.appendChild(desc);
       }
       if (Array.isArray(cardData?.items) && cardData.items.length) {
         const list = document.createElement("ul");
-        cardData.items.forEach((entry) => {
+        cardData.items.forEach((item) => {
           const li = document.createElement("li");
-          li.textContent = entry;
+          li.textContent = item;
           list.appendChild(li);
         });
-        cardEl.appendChild(list);
+        el.appendChild(list);
       }
     };
 
-    createMetaCard(education, data.about?.education);
-    createMetaCard(focus, data.about?.focus);
+    renderMetaCard(byId("meta-education"), data.about?.education);
+    renderMetaCard(byId("meta-focus"), data.about?.focus);
   };
 
   const populateContact = () => {
     const emailBtn = byId("contact-email");
-    const linkedinBtn = byId("contact-linkedin");
-    const details = byId("contact-details");
-    const socials = byId("contact-social");
-
     if (emailBtn && data.contact?.email) {
-      emailBtn.href = mailto:;
+      emailBtn.href = `mailto:${data.contact.email}`;
       emailBtn.textContent = data.contact.emailLabel || "Email";
     }
 
-    if (linkedinBtn && data.contact?.linkedin) {
-      linkedinBtn.href = data.contact.linkedin;
-    } else if (linkedinBtn) {
-      linkedinBtn.setAttribute("hidden", "");
+    const linkedinBtn = byId("contact-linkedin");
+    if (linkedinBtn) {
+      if (data.contact?.linkedin) {
+        linkedinBtn.href = data.contact.linkedin;
+        linkedinBtn.removeAttribute("hidden");
+      } else {
+        linkedinBtn.setAttribute("hidden", "");
+      }
     }
 
+    const details = byId("contact-details");
     if (details) {
       details.innerHTML = "";
       (data.contact?.details || []).forEach((detail) => {
@@ -241,25 +236,26 @@
       });
     }
 
+    const socials = byId("contact-social");
     if (socials) {
       socials.innerHTML = "";
       (data.contact?.socials || []).forEach((social) => {
         if (!social?.url) return;
         const li = document.createElement("li");
-        const a = document.createElement("a");
-        a.href = social.url;
-        a.target = "_blank";
-        a.rel = "noopener";
-        a.textContent = social.label || social.name || "Social";
-        li.appendChild(a);
+        const anchor = document.createElement("a");
+        anchor.href = social.url;
+        anchor.target = "_blank";
+        anchor.rel = "noopener";
+        anchor.textContent = social.label || social.name || "Social";
+        li.appendChild(anchor);
         socials.appendChild(li);
       });
     }
   };
 
   const bindNav = () => {
-    const toggle = .nav__toggle;
-    const menu = .nav__menu;
+    const toggle = select(".nav__toggle");
+    const menu = select(".nav__menu");
     const links = document.querySelectorAll("[data-nav-link]");
 
     if (toggle && menu) {
@@ -291,16 +287,16 @@
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
-              const id = #;
+              const id = entry.target.id;
+              if (!id) return;
               const link = Array.from(links).find(
-                (anchor) => anchor.getAttribute("href") === id
+                (anchor) => anchor.getAttribute("href") === `#${id}`
               );
-              if (link) {
-                if (entry.isIntersecting) {
-                  link.setAttribute("aria-current", "true");
-                } else {
-                  link.removeAttribute("aria-current");
-                }
+              if (!link) return;
+              if (entry.isIntersecting) {
+                link.setAttribute("aria-current", "true");
+              } else {
+                link.removeAttribute("aria-current");
               }
             });
           },
@@ -312,8 +308,7 @@
   };
 
   const populateFooter = () => {
-    const year = byId("footer-year");
-    if (year) year.textContent = String(new Date().getFullYear());
+    setText(byId("footer-year"), String(new Date().getFullYear()));
   };
 
   updateMeta();
