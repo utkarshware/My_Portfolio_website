@@ -53,6 +53,14 @@
 
     <main>
       <section class="hero" id="hero">
+        <div class="hero__background" aria-hidden="true">
+          <div class="hero__orb hero__orb--one"></div>
+          <div class="hero__orb hero__orb--two"></div>
+          <div class="hero__schematic">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="hero__pulse"></div>
+        </div>
         <div class="hero__content">
           <div class="hero__badge">Robotics &amp; Intelligent Automation</div>
           <h1>
@@ -76,6 +84,7 @@
             >
           </div>
           <dl class="hero__stats" id="hero-stats"></dl>
+          <div class="hero__mission" id="hero-mission"></div>
         </div>
         <div class="hero__visual" aria-hidden="true">
           <div class="arm-scaffold">
@@ -172,6 +181,17 @@
             <div class="meta-card" id="meta-focus"></div>
           </div>
         </div>
+      </section>
+
+      <section class="section section--process">
+        <div class="section__header">
+          <h2>Engineering Process</h2>
+          <p class="section__lead">
+            From opportunity framing to field deployment, every phase is a
+            closed feedback loop with hardware and stakeholders.
+          </p>
+        </div>
+        <ol class="process" id="process-timeline"></ol>
       </section>
 
       <section class="section section--contact" id="contact">

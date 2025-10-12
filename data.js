@@ -26,6 +26,20 @@ window.PORTFOLIO_DATA = {
         value: "Robotics & Automation, Symbiosis International University",
       },
     ],
+    mission: [
+      {
+        label: "Mission",
+        value: "Build field-ready robots that teams trust on day one.",
+      },
+      {
+        label: "Operating Mode",
+        value: "Rapid prototyping with closed-loop user feedback.",
+      },
+      {
+        label: "Differentiator",
+        value: "Full-stack ownership from CAD to calibrated deployment.",
+      },
+    ],
   },
 
   expertise: [
@@ -74,6 +88,11 @@ window.PORTFOLIO_DATA = {
         "Delivered a resilient UI for low-connectivity field conditions",
       ],
       tags: ["Unity AR", "TensorFlow Lite", "Android", "Edge ML"],
+      visual: [
+        "AR triage overlays",
+        "Edge inference dashboards",
+        "Offline workflows",
+      ],
       links: [
         {
           label: "GitHub",
@@ -93,6 +112,11 @@ window.PORTFOLIO_DATA = {
         "Ran field interviews to close the loop between predictions and operator actions",
       ],
       tags: ["React", "Flask", "Forecasting", "Product Research"],
+      visual: [
+        "Price trend horizons",
+        "Farmer advisory cockpit",
+        "Explainability layers",
+      ],
       links: [
         {
           label: "GitHub",
@@ -112,6 +136,7 @@ window.PORTFOLIO_DATA = {
         "Integrated telemetry streaming to a web UI for pick-and-place scripting",
       ],
       tags: ["Arduino", "Fusion 360", "PID Control", "Web UI"],
+      visual: ["Fusion 360 joints", "Servo telemetry", "Browser command deck"],
       links: [],
     },
   ],
@@ -144,6 +169,53 @@ window.PORTFOLIO_DATA = {
       ],
     },
   },
+
+  process: [
+    {
+      step: "01",
+      title: "Discover",
+      summary:
+        "Frame opportunities with operators, constraints, and desired success signals.",
+      details: [
+        "Immersion interviews and shadowing",
+        "Field requirement capture",
+        "Safety and compliance scope",
+      ],
+    },
+    {
+      step: "02",
+      title: "Prototype",
+      summary:
+        "Move fast from concepts to benchtop rigs with instrumented feedback loops.",
+      details: [
+        "CAD + kinematics simulations",
+        "Embed firmware with logging",
+        "Quick perception stack bring-up",
+      ],
+    },
+    {
+      step: "03",
+      title: "Integrate",
+      summary:
+        "Fuse mechanics, electronics, and software into robust subsystems ready for pilots.",
+      details: [
+        "Closed-loop testing harnesses",
+        "Edge ML optimisation",
+        "Operator interface sprints",
+      ],
+    },
+    {
+      step: "04",
+      title: "Deploy",
+      summary:
+        "Launch, monitor, and iterate with real-world telemetry and stakeholder workshops.",
+      details: [
+        "Pilot rollout playbooks",
+        "Telemetry dashboards",
+        "Feedback-informed roadmap",
+      ],
+    },
+  ],
 
   contact: {
     email: "utkarshsingh2104@outlook.com",

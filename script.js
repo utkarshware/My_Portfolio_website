@@ -34,6 +34,28 @@
       });
     }
 
+    const mission = byId("hero-mission");
+    if (mission) {
+      mission.innerHTML = "";
+      (data.hero?.mission || []).forEach((item) => {
+        if (!item?.label || !item?.value) return;
+        const card = document.createElement("article");
+        card.className = "mission-card";
+
+        const label = document.createElement("p");
+        label.className = "mission-card__label";
+        label.textContent = item.label;
+        card.appendChild(label);
+
+        const value = document.createElement("p");
+        value.className = "mission-card__value";
+        value.textContent = item.value;
+        card.appendChild(value);
+
+        mission.appendChild(card);
+      });
+    }
+
     const resumeHref = data.meta?.resumeHref;
     const heroResume = byId("hero-resume");
     const navResume = byId("nav-resume");
@@ -92,6 +114,19 @@
     (data.projects || []).forEach((project) => {
       const article = document.createElement("article");
       article.className = "project-card";
+
+      if (Array.isArray(project.visual) && project.visual.length) {
+        const media = document.createElement("div");
+        media.className = "project-card__media";
+        project.visual.forEach((visualItem) => {
+          if (!visualItem) return;
+          const span = document.createElement("span");
+          span.className = "project-card__media-item";
+          span.textContent = visualItem;
+          media.appendChild(span);
+        });
+        article.appendChild(media);
+      }
 
       if (project.category || project.period) {
         const meta = document.createElement("div");
@@ -323,6 +358,49 @@
     setText(byId("footer-year"), String(new Date().getFullYear()));
   };
 
+  const populateProcess = () => {
+    const timeline = byId("process-timeline");
+    if (!timeline) return;
+    timeline.innerHTML = "";
+
+    (data.process || []).forEach((phase) => {
+      if (!phase) return;
+      const li = document.createElement("li");
+      li.className = "process__step";
+      if (phase.step) {
+        li.setAttribute("data-step", phase.step);
+      }
+
+      if (phase.title) {
+        const title = document.createElement("h3");
+        title.className = "process__title";
+        title.textContent = phase.title;
+        li.appendChild(title);
+      }
+
+      if (phase.summary) {
+        const summary = document.createElement("p");
+        summary.className = "process__summary";
+        summary.textContent = phase.summary;
+        li.appendChild(summary);
+      }
+
+      if (Array.isArray(phase.details) && phase.details.length) {
+        const details = document.createElement("ul");
+        details.className = "process__details";
+        phase.details.forEach((detail) => {
+          if (!detail) return;
+          const detailItem = document.createElement("li");
+          detailItem.textContent = detail;
+          details.appendChild(detailItem);
+        });
+        li.appendChild(details);
+      }
+
+      timeline.appendChild(li);
+    });
+  };
+
   updateMeta();
   populateHero();
   populateExpertise();
@@ -331,4 +409,5 @@
   populateContact();
   bindNav();
   populateFooter();
+  populateProcess();
 })();
