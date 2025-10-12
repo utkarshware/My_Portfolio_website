@@ -257,6 +257,7 @@
     const toggle = select(".nav__toggle");
     const menu = select(".nav__menu");
     const links = document.querySelectorAll("[data-nav-link]");
+    const brand = select(".nav__brand");
 
     if (toggle && menu) {
       toggle.addEventListener("click", () => {
@@ -273,6 +274,17 @@
         }
       });
     });
+
+    if (brand) {
+      brand.addEventListener("click", (event) => {
+        event.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        if (menu?.classList.contains("open")) {
+          menu.classList.remove("open");
+          toggle?.setAttribute("aria-expanded", "false");
+        }
+      });
+    }
 
     if (links.length) {
       const sections = Array.from(links)
