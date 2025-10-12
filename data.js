@@ -3,9 +3,9 @@
 
 window.PORTFOLIO_DATA = {
   meta: {
-    title: "Utkarsh Singh — Robotics Engineer",
+    title: "Utkarsh Singh — Robotics & Automation Student",
     description:
-      "Robotics and automation engineer delivering intelligent manipulators, embedded control, and ML-enabled interfaces for practical deployment.",
+      "Robotics and automation student exploring manipulators, embedded control, and edge AI through labs, hackathons, and campus clubs.",
     resumeHref:
       "https://drive.google.com/file/d/1uWpbTTRiyPo5-sRiASr5FOCMEeTYKE5Y/view?usp=drive_link",
   },
@@ -13,64 +13,64 @@ window.PORTFOLIO_DATA = {
   hero: {
     badge: "Robotics & Intelligent Automation",
     headline:
-      "Engineering responsive robots and intelligent systems that perform reliably in the real world.",
-    lead: "I design and deploy robotics solutions that stitch together mechanical assemblies, embedded firmware, and machine intelligence for industrial and human-centred environments.",
+      "Robotics student experimenting with manipulators, control, and edge AI.",
+    lead: "I love turning classroom concepts into working demos—mixing CAD, firmware, and quick ML models to see robots move.",
     stats: [
-      { label: "Experience", value: "3+ years building robotics prototypes" },
+      { label: "Experience", value: "Dozens of course & club prototypes" },
       {
         label: "Focus",
         value: "Manipulators · Embedded Control · Edge ML",
       },
       {
         label: "Currently",
-        value: "Robotics & Automation, Symbiosis International University",
+        value: "B.Tech Robotics & Automation — Symbiosis International",
       },
     ],
     mission: [
       {
-        label: "Mission",
-        value: "Build field-ready robots that teams trust on day one.",
+        label: "Goal",
+        value: "Build robots that classmates and mentors can rely on.",
       },
       {
-        label: "Operating Mode",
-        value: "Rapid prototyping with closed-loop user feedback.",
+        label: "Approach",
+        value: "Prototype fast, test often, share learnings.",
       },
       {
-        label: "Differentiator",
-        value: "Full-stack ownership from CAD to calibrated deployment.",
+        label: "Edge",
+        value: "Comfortable jumping between CAD, code, and debugging.",
       },
     ],
   },
 
   expertise: [
     {
-      title: "Robotic Systems Engineering",
+      title: "Robotic Systems",
       summary:
-        "Designing manipulators, mobile platforms, and supporting architectures that withstand production constraints.",
+        "Hands-on work with manipulators, small mobile bases, and supporting rigs.",
       focus: [
-        "Mechanism design, kinematics, and CAD to bench-tested hardware",
-        "PID and model-based control tuned for repeatable motion",
-        "Sensor fusion and calibration for perception-driven tasks",
+        "CAD + kinematics for course labs and club prototypes",
+        "PID tuning and motion planning on low-cost hardware",
+        "Sensor calibration for vision and distance sensing",
       ],
     },
     {
       title: "Embedded Intelligence",
       summary:
-        "Bringing intelligence to the edge with firmware, real-time processing, and on-device ML pipelines.",
+        "Firmware and microcontroller projects that push sensing and control to the edge.",
       focus: [
-        "C/C++ firmware across Arduino, STM32, and Raspberry Pi",
-        "Low-latency communications, telemetry, and safety interlocks",
-        "TensorFlow Lite, optimisation, and inference profiling",
+        "C/C++ on Arduino, STM32, and Raspberry Pi",
+        "Serial comms, telemetry logging, and watchdogs",
+        "TensorFlow Lite experiments for vision and classification",
       ],
     },
     {
       title: "Human-Centred Platforms",
       summary:
-        "Combining robotics capability with considered product experiences for operators and stakeholders.",
+        "Interfaces and data views that help teams understand what the robot is doing.",
       focus: [
-        "React, Flask, and REST interfaces that expose control surfaces",
-        "Data visualisation for diagnostics and operations",
-        "Cross-functional leadership, workshops, and enablement",
+        "React + Flask dashboards for lab demonstrations",
+        "Real-time visuals for telemetry and diagnostics",
+        "Facilitating teammate workshops and study groups",
       ],
     },
   ],
@@ -81,7 +81,7 @@ window.PORTFOLIO_DATA = {
       period: "2025",
       title: "MediCare — On-Device Triage Assistant",
       summary:
-        "Built a mobile AR assistant that recognises medical supplies offline and guides first responders through critical procedures.",
+        "Built a mobile AR helper that spots medical supplies offline and guides first responders through simple workflows.",
       outcomes: [
         "Designed Unity AR workflows with TensorFlow Lite classifiers running fully on-device",
         "Implemented low-light tolerant image pipelines and audited inference accuracy with clinical advisors",
@@ -105,7 +105,7 @@ window.PORTFOLIO_DATA = {
       period: "2025",
       title: "Agri-Dost — Crop Planning Insights",
       summary:
-        "Created an ML-backed planning cockpit that forecasts commodity prices to assist smallholder farmers in scheduling harvest cycles.",
+        "Created a data tool that forecasts crop prices so smallholder farmers can plan harvest cycles with confidence.",
       outcomes: [
         "Prototyped a forecasting stack blending scikit-learn models with explainable metrics",
         "Authored a React interface tuned for low bandwidth and bilingual content",
@@ -129,7 +129,7 @@ window.PORTFOLIO_DATA = {
       period: "2025",
       title: "Mini Robotic Arm — 4-DOF Workcell",
       summary:
-        "Delivered a laboratory-scale manipulator with closed-loop joint control and a browser-based command deck.",
+        "Delivered a lab-scale manipulator with closed-loop joint control and a browser-based command deck for demos.",
       outcomes: [
         "Modelled the arm in Fusion 360 with torque and reach optimisation",
         "Implemented inverse kinematics and PID tuning on Arduino for smooth joint trajectories",
@@ -143,29 +143,29 @@ window.PORTFOLIO_DATA = {
 
   about: {
     summary:
-      "Robotics and automation engineer turning hypotheses into fieldable systems through an end-to-end build mindset. I balance mechanism design, embedded optimisation, and human-centred delivery to create robotics that teams can trust.",
+      "Robotics & automation undergraduate who enjoys balancing hardware builds with code, community leadership, and storytelling.",
     highlights: [
-      "Vice President — Robotics Process Automation Society, advancing campus-wide automation programs",
-      "AI/Data Science Co-Lead — SIT ACM Chapter, curating learning labs and project sprints",
-      "Core contributor to CodeX Programming Community, TEDxMUN organising team, and V@rsity finance operations",
+      "Vice President — Robotics Process Automation Society, leading student automation drives",
+      "AI/Data Science Co-Lead — SIT ACM Chapter, hosting labs and sprint challenges",
+      "Core member of CodeX programming club, TEDx organising team, and V@rsity finance ops",
     ],
     education: {
       title: "Education",
       description: "B.Tech, Robotics & Automation",
       items: [
         "Symbiosis International University",
-        "Leadership: Student Council President, MUN President",
+        "Leadership roles: Student Council & MUN",
         "Operations & Communications Lead — INFIDIT",
       ],
     },
     focus: {
       title: "Current Focus",
       description:
-        "Strengthening collaborative robotics and intelligent automation pipelines.",
+        "Deepening robotics fundamentals while sharing knowledge across campus.",
       items: [
         "Autonomous calibration and health monitoring",
-        "Human-robot interaction for safety-critical workflows",
-        "Deployable edge ML for industrial environments",
+        "Human-robot interaction for safer workflows",
+        "Deployable edge ML on student budgets",
       ],
     },
   },
@@ -175,7 +175,7 @@ window.PORTFOLIO_DATA = {
       step: "01",
       title: "Discover",
       summary:
-        "Frame opportunities with operators, constraints, and desired success signals.",
+        "Frame the challenge with teammates, mentors, and available resources.",
       details: [
         "Immersion interviews and shadowing",
         "Field requirement capture",
@@ -185,8 +185,7 @@ window.PORTFOLIO_DATA = {
     {
       step: "02",
       title: "Prototype",
-      summary:
-        "Move fast from concepts to benchtop rigs with instrumented feedback loops.",
+      summary: "Quickly prototype with CAD, breadboards, and simple scripts.",
       details: [
         "CAD + kinematics simulations",
         "Embed firmware with logging",
@@ -197,7 +196,7 @@ window.PORTFOLIO_DATA = {
       step: "03",
       title: "Integrate",
       summary:
-        "Fuse mechanics, electronics, and software into robust subsystems ready for pilots.",
+        "Integrate hardware, firmware, and interfaces so everything talks.",
       details: [
         "Closed-loop testing harnesses",
         "Edge ML optimisation",
@@ -208,7 +207,7 @@ window.PORTFOLIO_DATA = {
       step: "04",
       title: "Deploy",
       summary:
-        "Launch, monitor, and iterate with real-world telemetry and stakeholder workshops.",
+        "Demo, collect feedback, and iterate with fresh tasks or metrics.",
       details: [
         "Pilot rollout playbooks",
         "Telemetry dashboards",
@@ -225,9 +224,9 @@ window.PORTFOLIO_DATA = {
       { label: "Location", value: "Pune, Maharashtra, India" },
       {
         label: "Collaborations",
-        value: "Robotics, embedded control, intelligent automation initiatives",
+        value: "Internships, research labs, technical clubs",
       },
-      { label: "Response", value: "Replies within one business day (IST)" },
+      { label: "Response", value: "Replies within one day (IST)" },
     ],
     socials: [
       {

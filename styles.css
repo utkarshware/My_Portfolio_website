@@ -472,7 +472,7 @@ img {
 .page-content {
   display: flex;
   flex-direction: column;
-  gap: 120px;
+  gap: 110px;
 }
 
 .hero {
@@ -737,6 +737,99 @@ img {
   position: relative;
   display: grid;
   place-items: center;
+}
+
+@media (min-width: 1280px) {
+  .page-layout {
+    width: min(1420px, 92%);
+    gap: 64px;
+    padding: 140px 0 150px;
+  }
+
+  .page-rail {
+    gap: 28px;
+  }
+
+  .page-content {
+    gap: 120px;
+  }
+
+  .hero__layout {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: auto;
+    padding: 64px 68px 60px;
+    gap: 48px;
+  }
+
+  .hero__content {
+    grid-column: 1 / span 5;
+    max-width: 560px;
+  }
+
+  .hero__meta {
+    grid-column: 6 / span 3;
+    grid-row: 1;
+    align-self: flex-start;
+    gap: 26px;
+  }
+
+  .hero__visual {
+    grid-column: 9 / span 4;
+    grid-row: 1;
+    align-self: stretch;
+  }
+
+  .hero__meta-surface {
+    height: auto;
+  }
+
+  .hero__meta-surface--mission {
+    padding-bottom: 32px;
+  }
+
+  .section__grid {
+    grid-template-columns: minmax(0, 0.34fr) minmax(0, 1.2fr);
+    gap: 64px;
+  }
+
+  .section__intro {
+    gap: 22px;
+  }
+
+  .section__surface {
+    padding: 48px;
+  }
+
+  .section__surface--about,
+  .section__surface--process,
+  .section__surface--contact {
+    padding: 54px;
+  }
+
+  .projects {
+    gap: 36px;
+  }
+
+  .project-card,
+  .expertise-card {
+    padding: 32px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .page-layout {
+    width: min(1560px, 88%);
+    gap: 72px;
+  }
+
+  .hero__layout {
+    padding: 72px 82px 70px;
+    gap: 56px;
+  }
+
+  .section__grid {
+    gap: 72px;
+  }
 }
 
 .arm-scaffold {
@@ -1005,11 +1098,14 @@ img {
 }
 
 .section__surface {
+  position: relative;
   padding: 36px;
   border-radius: var(--radius-lg);
-  background: rgba(12, 24, 52, 0.8);
+  background: rgba(12, 24, 52, 0.82);
   border: 1px solid rgba(94, 229, 255, 0.16);
   box-shadow: var(--shadow-md);
+  overflow: hidden;
+  isolation: isolate;
 }
 
 .section__surface--about {
@@ -1019,6 +1115,19 @@ img {
 .section__surface--process,
 .section__surface--contact {
   padding: 42px;
+}
+
+.section__surface::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 12% 12%,
+    rgba(94, 229, 255, 0.14),
+    transparent 55%
+  );
+  opacity: 0.7;
+  z-index: -1;
 }
 
 .expertise {
