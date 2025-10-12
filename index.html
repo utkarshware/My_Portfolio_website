@@ -1,266 +1,141 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Utkarshware</title>
-    <meta name="description" content="Utkarsh" />
-    <meta
-      name="theme-color"
-      content="#0f172a"
-      media="(prefers-color-scheme: dark)"
-    />
-    <meta
-      name="theme-color"
-      content="#ffffff"
-      media="(prefers-color-scheme: light)"
-    />
-
+    <title>Utkarsh Singh — Robotics Engineer</title>
+    <meta name="description" content="Portfolio for Utkarsh Singh, robotics and automation engineer blending embedded systems, intelligent automation, and human-centered prototypes." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
-
   <body>
-    <div id="scroll-progress" aria-hidden="true"></div>
-    <a class="skip-link" href="#main">Skip to content</a>
-
+    <div class="background-grid" aria-hidden="true"></div>
     <header class="site-header" id="top">
-      <div class="container">
-        <a class="logo" href="#top" aria-label="Go to top">
-          <span class="logo-mark" aria-hidden="true">&#9679;</span>
-          <span class="logo-text" id="logo-text">Utkarsh Singh</span>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#top" class="nav__brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-text">Utkarsh Singh</span>
         </a>
-
-        <nav class="site-nav" aria-label="Primary">
-          <div class="nav-glass">
-            <button
-              class="nav-toggle"
-              aria-expanded="false"
-              aria-controls="nav-menu"
-              aria-label="Menu"
-              id="nav-toggle"
-            >
-              <span class="bar"></span><span class="bar"></span
-              ><span class="bar"></span>
-            </button>
-
-            <div class="nav-statement">
-              <img
-                src="assets/images/placeholder-2.svg"
-                alt=""
-                class="nav-statement__glow"
-                aria-hidden="true"
-              />
-              <span class="nav-statement__text"
-                >Crafting robotics &amp; ML-first experiences</span
-              >
-            </div>
-
-            <span class="nav-glass-art" aria-hidden="true"></span>
-
-            <div class="nav-rail" data-nav-surface>
-              <span class="nav-aurora" aria-hidden="true"></span>
-              <span
-                class="nav-highlight"
-                id="nav-highlight"
-                aria-hidden="true"
-              ></span>
-
-              <ul id="nav-menu" class="nav-menu" role="menu">
-                <li role="none">
-                  <a role="menuitem" href="#about" data-nav-link>About</a>
-                </li>
-                <li role="none">
-                  <a role="menuitem" href="#skills" data-nav-link>Skills</a>
-                </li>
-                <li role="none">
-                  <a role="menuitem" href="#projects" data-nav-link>Projects</a>
-                </li>
-                <li role="none">
-                  <a role="menuitem" href="#contact" data-nav-link>Contact</a>
-                </li>
-                <li role="none" class="nav-theme-item">
-                  <button
-                    id="theme-toggle"
-                    class="theme-toggle"
-                    aria-label="Toggle dark mode"
-                    title="Toggle theme"
-                  >
-                    <span class="sun" aria-hidden="true">☀️</span>
-                    <span class="moon" aria-hidden="true">🌙</span>
-                  </button>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </div>
+        <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav__menu" id="nav-menu" data-nav-surface>
+          <ul>
+            <li><a href="#expertise" data-nav-link>Expertise</a></li>
+            <li><a href="#projects" data-nav-link>Projects</a></li>
+            <li><a href="#about" data-nav-link>About</a></li>
+            <li><a href="#contact" data-nav-link>Contact</a></li>
+          </ul>
+          <a class="nav__resume" id="nav-resume" href="#" target="_blank" rel="noopener">Résumé</a>
+        </div>
+      </nav>
     </header>
 
-    <main id="main">
-      <section class="hero section" id="hero">
-        <div class="container grid-2">
-          <div class="hero-copy reveal">
-            <h1>
-              Hi, I'm <span class="accent" id="hero-name">Utkarsh Singh</span>.
-            </h1>
-            <p class="lead" id="hero-lead">
-              I build robotics, embedded firmware and full-stack prototypes.
-            </p>
-
-            <div class="cta">
-              <a class="btn primary" href="#projects" id="cta-projects"
-                >View Projects</a
-              >
-              <a
-                class="btn ghost"
-                href="https://drive.google.com/file/d/1uWpbTTRiyPo5-sRiASr5FOCMEeTYKE5Y/view?usp=drive_link"
-                id="resume-link"
-                target="_blank"
-                rel="noopener"
-                >Resume</a
-              >
-            </div>
-
-            <ul class="social" id="social-links" aria-label="Social links"></ul>
+    <main>
+      <section class="hero" id="hero">
+        <div class="hero__content">
+          <div class="hero__badge">Robotics &amp; Intelligent Automation</div>
+          <h1>
+            Engineering responsive robots and intelligent systems that work reliably in the real world.
+          </h1>
+          <p class="hero__lead" id="hero-lead">
+            I build deeply integrated robotics solutions that merge mechanical design, embedded control, and machine intelligence for industrial and human-centered applications.
+          </p>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#projects">View Projects</a>
+            <a class="btn btn--ghost" id="hero-resume" href="#" target="_blank" rel="noopener">Download Résumé</a>
           </div>
-
-          <div class="hero-visual reveal">
-            <span class="hero-backdrop" aria-hidden="true"></span>
-            <figure class="hero-photo" id="hero-photo-wrapper" hidden>
-              <img
-                id="hero-photo-img"
-                src="assets/images/myimage.jpg"
-                alt="Portrait of Utkarsh Singh"
-                loading="lazy"
-              />
-            </figure>
-
-            <div class="hero-orbit" id="hero-orbit" aria-hidden="true">
-              <!-- decorative artwork fallback -->
-              <div class="orbit">
-                <div class="planet"></div>
-                <div class="ring"></div>
-              </div>
-            </div>
+          <dl class="hero__stats" id="hero-stats"></dl>
+        </div>
+        <div class="hero__visual" aria-hidden="true">
+          <div class="arm-scaffold">
+            <svg class="arm" viewBox="0 0 320 320" role="presentation">
+              <defs>
+                <linearGradient id="armGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#7dd3fc" />
+                  <stop offset="100%" stop-color="#38bdf8" />
+                </linearGradient>
+              </defs>
+              <circle cx="160" cy="160" r="150" class="arm__halo" />
+              <g class="arm__base">
+                <rect x="150" y="210" width="20" height="70" rx="8" />
+                <circle cx="160" cy="210" r="22" />
+              </g>
+              <g class="arm__segment arm__segment--lower">
+                <rect x="148" y="140" width="24" height="80" rx="12" />
+                <circle cx="160" cy="140" r="18" />
+              </g>
+              <g class="arm__segment arm__segment--upper">
+                <rect x="140" y="80" width="24" height="70" rx="12" />
+                <circle cx="152" cy="80" r="16" />
+              </g>
+              <g class="arm__grip">
+                <rect x="122" y="40" width="56" height="16" rx="8" />
+                <rect x="116" y="32" width="16" height="32" rx="6" />
+                <rect x="166" y="32" width="16" height="32" rx="6" />
+              </g>
+            </svg>
+            <div class="sensor-grid"></div>
+            <div class="data-beam"></div>
           </div>
         </div>
       </section>
 
-      <section class="about section" id="about">
-        <div class="container">
-          <h2 class="section-title">About</h2>
-          <p id="about-paragraph"></p>
+      <section class="section" id="expertise">
+        <div class="section__header">
+          <h2>Core Expertise</h2>
+          <p class="section__lead">
+            Multi-disciplinary engineering across robotics, intelligent control, and experience design.
+          </p>
         </div>
+        <div class="expertise" id="expertise-grid"></div>
       </section>
 
-      <section class="skills section" id="skills">
-        <div class="container">
-          <h2 class="section-title">Skills</h2>
-          <ul class="skill-list" id="skill-list"></ul>
+      <section class="section" id="projects">
+        <div class="section__header">
+          <h2>Selected Projects</h2>
+          <p class="section__lead">Outcome-driven work combining perception, controls, and product thinking.</p>
         </div>
+        <div class="projects" id="project-grid"></div>
       </section>
 
-      <section class="projects section" id="projects">
-        <div class="container">
-          <h2 class="section-title">Projects</h2>
-          <div class="project-grid" id="project-grid"></div>
-        </div>
-      </section>
-
-      <section class="contact section" id="contact">
-        <div class="container">
-          <h2 class="section-title">Get in touch</h2>
-          <div class="contact-grid">
-            <div class="contact-intro">
-              <p id="contact-intro">
-                Let's connect on robotics systems, embedded firmware, or
-                intelligent automation.
-              </p>
-
-              <ul class="contact-highlights">
-                <li>Robotics &amp; automation prototyping</li>
-                <li>Embedded firmware &amp; control systems</li>
-                <li>ML-enabled interfaces &amp; tools</li>
-              </ul>
-
-              <div class="contact-actions">
-                <a
-                  class="btn primary"
-                  id="contact-email"
-                  href="mailto:utkarshsingh2104@outlook.com"
-                  >Send an email</a
-                >
-                <a
-                  class="btn ghost"
-                  id="contact-linkedin"
-                  href="https://www.linkedin.com/in/utkarshware/"
-                  target="_blank"
-                  rel="noopener"
-                  >Connect on LinkedIn</a
-                >
-              </div>
-            </div>
-
-            <div class="contact-card" aria-label="Contact details">
-              <ul class="contact-details">
-                <li>
-                  <span class="contact-details__label">Email</span>
-                  <a
-                    id="contact-email-link"
-                    href="mailto:utkarshsingh2104@outlook.com"
-                    >utkarshsingh2104</a
-                  >
-                </li>
-                <li>
-                  <span class="contact-details__label">Location</span>
-                  <span id="contact-location">Pune, Maharashtra, India</span>
-                </li>
-                <li>
-                  <span class="contact-details__label">Availability</span>
-                  <span id="contact-availability"
-                    >Collaborating with teams in robotics, automation, and
-                    intelligent systems.</span
-                  >
-                </li>
-                <li>
-                  <span class="contact-details__label">Response time</span>
-                  <span id="contact-response"
-                    >Replies within one business day (IST).</span
-                  >
-                </li>
-              </ul>
-            </div>
+      <section class="section" id="about">
+        <div class="about">
+          <div class="about__content">
+            <h2>About Utkarsh</h2>
+            <p id="about-summary"></p>
+            <ul class="about__highlights" id="about-highlights"></ul>
           </div>
+          <div class="about__meta">
+            <div class="meta-card" id="meta-education"></div>
+            <div class="meta-card" id="meta-focus"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--contact" id="contact">
+        <div class="section__header">
+          <h2>Collaborate</h2>
+          <p class="section__lead">Let's co-design reliable robotic or intelligent automation solutions.</p>
+        </div>
+        <div class="contact">
+          <div class="contact__actions">
+            <a class="btn btn--primary" id="contact-email" href="#">Email</a>
+            <a class="btn btn--ghost" id="contact-linkedin" href="#" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+          <dl class="contact__details" id="contact-details"></dl>
+          <ul class="contact__social" id="contact-social"></ul>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="container">
-        <p>
-          &copy; <span id="year"></span>
-          <span id="footer-name">Utkarsh Singh</span>. All rights reserved.
-        </p>
-      </div>
+      <p>&copy; <span id="footer-year"></span> Utkarsh Singh. All rights reserved.</p>
     </footer>
 
-    <!-- dynamic JSON-LD container; script content is populated by script.js -->
-    <script id="person-ld" type="application/ld+json"></script>
-
-    <div class="cursor" id="cursor" aria-hidden="true"></div>
-    <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
-
-    <!-- data and behavior: keep data.js BEFORE script.js -->
     <script src="./data.js"></script>
     <script src="./script.js" defer></script>
   </body>
 </html>
-<!-- To run a local server, use the following command in your terminal: -->
-<!-- python -m http.server 8000 -->
