@@ -67,201 +67,280 @@
       </nav>
     </header>
 
-    <main>
-      <section class="hero" id="hero">
-        <div class="hero__background" aria-hidden="true">
-          <div class="hero__orb hero__orb--one"></div>
-          <div class="hero__orb hero__orb--two"></div>
-          <div class="hero__schematic">
-            <span></span><span></span><span></span>
-          </div>
-          <div class="hero__pulse"></div>
-        </div>
-        <div class="hero__content">
-          <div class="hero__badge">Robotics &amp; Intelligent Automation</div>
-          <h1>
-            Engineering responsive robots and intelligent systems that work
-            reliably in the real world.
-          </h1>
-          <p class="hero__lead" id="hero-lead">
-            I build deeply integrated robotics solutions that merge mechanical
-            design, embedded control, and machine intelligence for industrial
-            and human-centered applications.
+    <main class="page-layout">
+      <aside class="page-rail" aria-label="Profile highlights">
+        <div class="rail-card rail-card--profile">
+          <span class="rail-card__tag">Portfolio</span>
+          <h2>Utkarsh Singh</h2>
+          <p>
+            Robotics engineer delivering dependable automation systems across
+            research labs and production floors.
           </p>
-          <div class="hero__cta">
-            <a class="btn btn--primary" href="#projects">View Projects</a>
-            <a
-              class="btn btn--ghost"
-              id="hero-resume"
-              href="#"
-              target="_blank"
-              rel="noopener"
-              >Download Resume</a
-            >
-          </div>
-          <dl class="hero__stats" id="hero-stats"></dl>
-          <div class="hero__mission" id="hero-mission"></div>
         </div>
-        <div class="hero__visual" aria-hidden="true">
-          <div class="arm-scaffold">
-            <svg class="arm" viewBox="0 0 320 320" role="presentation">
-              <defs>
-                <linearGradient
-                  id="armGradient"
-                  x1="0%"
-                  y1="0%"
-                  x2="100%"
-                  y2="100%"
-                >
-                  <stop offset="0%" stop-color="#7dd3fc" />
-                  <stop offset="100%" stop-color="#38bdf8" />
-                </linearGradient>
-              </defs>
-              <circle cx="160" cy="160" r="150" class="arm__halo" />
-              <g class="arm__base">
-                <rect x="150" y="210" width="20" height="70" rx="8" />
-                <circle cx="160" cy="210" r="22" />
-              </g>
-              <g class="arm__segment arm__segment--lower">
-                <rect x="148" y="140" width="24" height="80" rx="12" />
-                <circle cx="160" cy="140" r="18" />
-              </g>
-              <g class="arm__segment arm__segment--upper">
-                <rect x="140" y="80" width="24" height="70" rx="12" />
-                <circle cx="152" cy="80" r="16" />
-              </g>
-              <g class="arm__grip">
-                <rect x="122" y="40" width="56" height="16" rx="8" />
-                <rect x="116" y="32" width="16" height="32" rx="6" />
-                <rect x="166" y="32" width="16" height="32" rx="6" />
-              </g>
-            </svg>
-            <div class="arm-scan" aria-hidden="true">
-              <span class="arm-scan__ring arm-scan__ring--outer"></span>
-              <span class="arm-scan__ring arm-scan__ring--inner"></span>
+        <div class="rail-card rail-card--focus">
+          <span class="rail-card__tag">Current themes</span>
+          <ul class="rail-card__list">
+            <li>Human-centered cobotics</li>
+            <li>Embedded AI sensing stacks</li>
+            <li>Industrial automation audits</li>
+          </ul>
+        </div>
+        <div class="rail-card rail-card--cta">
+          <span class="rail-card__tag">Next step</span>
+          <p>
+            Share your automation challenge—I'll map the path from discovery to
+            deployment.
+          </p>
+          <a class="btn btn--primary rail-card__action" href="#contact"
+            >Start a collaboration</a
+          >
+        </div>
+      </aside>
+      <div class="page-content">
+        <section class="hero" id="hero">
+          <div class="hero__background" aria-hidden="true">
+            <div class="hero__orb hero__orb--one"></div>
+            <div class="hero__orb hero__orb--two"></div>
+            <div class="hero__schematic">
+              <span></span><span></span><span></span>
             </div>
-            <div class="arm-particles" aria-hidden="true">
-              <span class="arm-particle arm-particle--alpha"></span>
-              <span class="arm-particle arm-particle--beta"></span>
-              <span class="arm-particle arm-particle--gamma"></span>
-            </div>
-            <div class="arm-readout" aria-hidden="true">
-              <span class="arm-readout__label">Operational</span>
-              <span class="arm-readout__signal"></span>
-            </div>
-            <div class="sensor-grid"></div>
-            <div class="data-beam"></div>
+            <div class="hero__pulse"></div>
           </div>
-        </div>
-      </section>
-
-      <section class="section" id="expertise">
-        <div class="section__surface">
-          <div class="section__header">
-            <h2>Core Expertise</h2>
-            <p class="section__lead">
-              Multi-disciplinary engineering across robotics, intelligent
-              control, and experience design.
-            </p>
-          </div>
-          <div class="section__body">
-            <div class="expertise" id="expertise-grid"></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="projects">
-        <div class="section__surface">
-          <div class="section__header">
-            <h2>Selected Projects</h2>
-            <p class="section__lead">
-              Outcome-driven work combining perception, controls, and product
-              thinking.
-            </p>
-          </div>
-          <div class="section__body">
-            <div class="projects" id="project-grid"></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="about">
-        <div class="section__surface">
-          <div class="section__header">
-            <h2>About Utkarsh</h2>
-            <p class="section__lead">
-              Robotics engineer grounding future-ready automation in practical
-              delivery and trusted human experiences.
-            </p>
-          </div>
-          <div class="section__body">
-            <div class="about">
-              <div class="about__content">
-                <p id="about-summary"></p>
-                <ul class="about__highlights" id="about-highlights"></ul>
+          <div class="hero__layout">
+            <div class="hero__content">
+              <div class="hero__badge">
+                Robotics &amp; Intelligent Automation
               </div>
-              <div class="about__meta">
-                <figure class="about__portrait">
-                  <img
-                    src="./assets/images/utkarsh.jpg"
-                    alt="Portrait of Utkarsh Singh"
-                    loading="lazy"
-                  />
-                  <figcaption>Utkarsh Singh</figcaption>
-                </figure>
-                <div class="meta-card" id="meta-education"></div>
-                <div class="meta-card" id="meta-focus"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section--process" id="process">
-        <div class="section__surface">
-          <div class="section__header">
-            <h2>Engineering Process</h2>
-            <p class="section__lead">
-              From opportunity framing to field deployment, every phase is a
-              closed feedback loop with hardware and stakeholders.
-            </p>
-          </div>
-          <div class="section__body">
-            <ol class="process" id="process-timeline"></ol>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section--contact" id="contact">
-        <div class="section__surface">
-          <div class="section__header">
-            <h2>Collaborate</h2>
-            <p class="section__lead">
-              Let's co-design reliable robotic or intelligent automation
-              solutions.
-            </p>
-          </div>
-          <div class="section__body">
-            <div class="contact">
-              <div class="contact__actions">
-                <a class="btn btn--primary" id="contact-email" href="#"
-                  >Email</a
-                >
+              <h1>
+                Engineering responsive robots and intelligent systems that work
+                reliably in the real world.
+              </h1>
+              <p class="hero__lead" id="hero-lead">
+                I build deeply integrated robotics solutions that merge
+                mechanical design, embedded control, and machine intelligence
+                for industrial and human-centered applications.
+              </p>
+              <div class="hero__cta">
+                <a class="btn btn--primary" href="#projects">View Projects</a>
                 <a
                   class="btn btn--ghost"
-                  id="contact-linkedin"
+                  id="hero-resume"
                   href="#"
                   target="_blank"
                   rel="noopener"
-                  >LinkedIn</a
+                  >Download Resume</a
                 >
               </div>
-              <dl class="contact__details" id="contact-details"></dl>
-              <ul class="contact__social" id="contact-social"></ul>
+            </div>
+            <aside class="hero__meta" aria-label="Impact overview">
+              <div class="hero__meta-surface">
+                <span class="hero__meta-label">Impact snapshot</span>
+                <dl class="hero__stats" id="hero-stats"></dl>
+              </div>
+              <div class="hero__meta-surface hero__meta-surface--mission">
+                <span class="hero__meta-label">Mission pillars</span>
+                <div class="hero__mission" id="hero-mission"></div>
+              </div>
+            </aside>
+            <div class="hero__visual" aria-hidden="true">
+              <div class="arm-scaffold">
+                <svg class="arm" viewBox="0 0 320 320" role="presentation">
+                  <defs>
+                    <linearGradient
+                      id="armGradient"
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="100%"
+                    >
+                      <stop offset="0%" stop-color="#7dd3fc" />
+                      <stop offset="100%" stop-color="#38bdf8" />
+                    </linearGradient>
+                  </defs>
+                  <circle cx="160" cy="160" r="150" class="arm__halo" />
+                  <g class="arm__base">
+                    <rect x="150" y="210" width="20" height="70" rx="8" />
+                    <circle cx="160" cy="210" r="22" />
+                  </g>
+                  <g class="arm__segment arm__segment--lower">
+                    <rect x="148" y="140" width="24" height="80" rx="12" />
+                    <circle cx="160" cy="140" r="18" />
+                  </g>
+                  <g class="arm__segment arm__segment--upper">
+                    <rect x="140" y="80" width="24" height="70" rx="12" />
+                    <circle cx="152" cy="80" r="16" />
+                  </g>
+                  <g class="arm__grip">
+                    <rect x="122" y="40" width="56" height="16" rx="8" />
+                    <rect x="116" y="32" width="16" height="32" rx="6" />
+                    <rect x="166" y="32" width="16" height="32" rx="6" />
+                  </g>
+                </svg>
+                <div class="arm-scan" aria-hidden="true">
+                  <span class="arm-scan__ring arm-scan__ring--outer"></span>
+                  <span class="arm-scan__ring arm-scan__ring--inner"></span>
+                </div>
+                <div class="arm-particles" aria-hidden="true">
+                  <span class="arm-particle arm-particle--alpha"></span>
+                  <span class="arm-particle arm-particle--beta"></span>
+                  <span class="arm-particle arm-particle--gamma"></span>
+                </div>
+                <div class="arm-readout" aria-hidden="true">
+                  <span class="arm-readout__label">Operational</span>
+                  <span class="arm-readout__signal"></span>
+                </div>
+                <div class="sensor-grid"></div>
+                <div class="data-beam"></div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        <section class="section" id="expertise">
+          <div class="section__grid">
+            <aside class="section__intro">
+              <span class="section__tag">Capabilities</span>
+              <h2>Core Expertise</h2>
+              <p class="section__lead">
+                Multi-disciplinary engineering across robotics, intelligent
+                control, and experience design.
+              </p>
+              <p class="section__note">
+                From early discovery to field commissioning, I bridge embedded
+                software, mechatronics, and human-centered thinking for each
+                engagement.
+              </p>
+            </aside>
+            <div class="section__content">
+              <div class="section__surface">
+                <div class="expertise" id="expertise-grid"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="projects">
+          <div class="section__grid">
+            <aside class="section__intro">
+              <span class="section__tag">Case studies</span>
+              <h2>Selected Projects</h2>
+              <p class="section__lead">
+                Outcome-driven work combining perception, controls, and product
+                thinking.
+              </p>
+              <p class="section__note">
+                Each project pairs rigorous engineering with business-aware
+                delivery so prototypes become reliable production systems.
+              </p>
+            </aside>
+            <div class="section__content">
+              <div class="section__surface">
+                <div class="projects" id="project-grid"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="about">
+          <div class="section__grid">
+            <aside class="section__intro">
+              <span class="section__tag">Practitioner</span>
+              <h2>About Utkarsh</h2>
+              <p class="section__lead">
+                Robotics engineer grounding future-ready automation in practical
+                delivery and trusted human experiences.
+              </p>
+              <p class="section__note">
+                I work shoulder-to-shoulder with operators, researchers, and
+                product leaders to launch systems that people trust.
+              </p>
+            </aside>
+            <div class="section__content">
+              <div class="section__surface section__surface--about">
+                <div class="about">
+                  <div class="about__content">
+                    <p id="about-summary"></p>
+                    <ul class="about__highlights" id="about-highlights"></ul>
+                  </div>
+                  <div class="about__meta">
+                    <figure class="about__portrait">
+                      <img
+                        src="./assets/images/utkarsh.jpg"
+                        alt="Portrait of Utkarsh Singh"
+                        loading="lazy"
+                      />
+                      <figcaption>Utkarsh Singh</figcaption>
+                    </figure>
+                    <div class="meta-card" id="meta-education"></div>
+                    <div class="meta-card" id="meta-focus"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section section--process" id="process">
+          <div class="section__grid">
+            <aside class="section__intro">
+              <span class="section__tag">Systems thinking</span>
+              <h2>Engineering Process</h2>
+              <p class="section__lead">
+                From opportunity framing to field deployment, every phase is a
+                closed feedback loop with hardware and stakeholders.
+              </p>
+              <p class="section__note">
+                I structure programs with measurable gates, pairing rapid
+                prototyping with validation to keep momentum without sacrificing
+                safety or reliability.
+              </p>
+            </aside>
+            <div class="section__content">
+              <div class="section__surface section__surface--process">
+                <ol class="process" id="process-timeline"></ol>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section section--contact" id="contact">
+          <div class="section__grid">
+            <aside class="section__intro">
+              <span class="section__tag">Collaborate</span>
+              <h2>Let’s Build Together</h2>
+              <p class="section__lead">
+                Let's co-design reliable robotic or intelligent automation
+                solutions.
+              </p>
+              <p class="section__note">
+                Tell me about the context, constraints, and intended impact—I'll
+                respond within two business days with next steps.
+              </p>
+            </aside>
+            <div class="section__content">
+              <div class="section__surface section__surface--contact">
+                <div class="contact">
+                  <div class="contact__actions">
+                    <a class="btn btn--primary" id="contact-email" href="#"
+                      >Email</a
+                    >
+                    <a
+                      class="btn btn--ghost"
+                      id="contact-linkedin"
+                      href="#"
+                      target="_blank"
+                      rel="noopener"
+                      >LinkedIn</a
+                    >
+                  </div>
+                  <dl class="contact__details" id="contact-details"></dl>
+                  <ul class="contact__social" id="contact-social"></ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
 
     <footer class="site-footer">
