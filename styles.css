@@ -205,6 +205,7 @@ p {
   );
   filter: blur(80px);
   opacity: 0.75;
+  animation: heroDrift 32s ease-in-out infinite;
 }
 
 .hero__orb {
@@ -219,6 +220,19 @@ p {
   );
   filter: blur(28px);
   opacity: 0.8;
+  animation: heroPulse 28s ease-in-out infinite;
+}
+.hero__glyph {
+  position: absolute;
+  display: block;
+  width: 84px;
+  height: 84px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+  filter: drop-shadow(0 18px 42px rgba(14, 165, 233, 0.3));
+  animation: heroFloat 22s ease-in-out infinite;
+  mix-blend-mode: screen;
 }
 
 .hero__orb--one {
@@ -243,6 +257,7 @@ p {
   gap: 60px;
   align-items: center;
   padding-top: 60px;
+  z-index: 1;
 }
 
 .hero__copy {
@@ -344,6 +359,69 @@ p {
   line-height: 1.7;
 }
 
+.hero__background {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero__glyph {
+  position: absolute;
+  display: block;
+  width: 84px;
+  height: 84px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+  filter: drop-shadow(0 18px 42px rgba(14, 165, 233, 0.3));
+  animation: heroFloat 22s ease-in-out infinite;
+}
+
+.hero__glyph--arm {
+  top: 18%;
+  left: 6%;
+  background-image: url("./assets/icons/robot-arm.svg");
+  animation-duration: 24s;
+}
+
+.hero__glyph--drone {
+  bottom: 18%;
+  left: 12%;
+  background-image: url("./assets/icons/drone.svg");
+  animation-duration: 28s;
+  animation-delay: -8s;
+}
+
+.hero__glyph--circuit {
+  top: 24%;
+  right: 10%;
+  background-image: url("./assets/icons/circuit-board.svg");
+  animation-duration: 26s;
+  animation-delay: -4s;
+}
+
+.hero__globe {
+  position: absolute;
+  bottom: -160px;
+  right: -120px;
+  width: 440px;
+  height: 440px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.85;
+  transform: translateX(0);
+}
+
+.hero__globe img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 40px 120px rgba(56, 189, 248, 0.3));
+  animation: heroRotate 68s linear infinite;
+  mix-blend-mode: screen;
+}
+
 .hero__note {
   font-size: 15px;
   color: var(--accent);
@@ -366,6 +444,57 @@ p {
   color: var(--accent);
   letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+
+@keyframes heroFloat {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translate3d(14px, -18px, 0) rotate(4deg) scale(1.05);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+    opacity: 0.4;
+  }
+}
+
+@keyframes heroRotate {
+  0% {
+    transform: rotate(0deg) scale(1.02);
+  }
+  100% {
+    transform: rotate(360deg) scale(1.02);
+  }
+}
+
+@keyframes heroDrift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-40px, 30px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes heroPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.72;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.72;
+  }
 }
 
 .section-heading {
@@ -720,6 +849,18 @@ p {
   .nav__links {
     gap: 16px;
   }
+
+  .hero__glyph {
+    width: 72px;
+    height: 72px;
+  }
+
+  .hero__globe {
+    right: -60px;
+    bottom: -140px;
+    width: 340px;
+    height: 340px;
+  }
 }
 
 @media (max-width: 920px) {
@@ -761,6 +902,35 @@ p {
     justify-content: center;
   }
 
+  .hero__glyph {
+    opacity: 0.5;
+    filter: drop-shadow(0 12px 28px rgba(14, 165, 233, 0.24));
+  }
+
+  .hero__glyph--arm {
+    top: 10%;
+    left: 16%;
+  }
+
+  .hero__glyph--drone {
+    left: 10%;
+    bottom: 12%;
+  }
+
+  .hero__glyph--circuit {
+    right: 10%;
+    top: 34%;
+  }
+
+  .hero__globe {
+    right: 50%;
+    bottom: -220px;
+    transform: translateX(50%);
+    width: 300px;
+    height: 300px;
+    opacity: 0.55;
+  }
+
   .about__cards,
   .education__grid,
   .experience__grid,
@@ -791,5 +961,11 @@ p {
   .callout__layout,
   .contact__layout {
     padding: 28px;
+  }
+
+  .hero__globe {
+    width: 240px;
+    height: 240px;
+    bottom: -180px;
   }
 }
