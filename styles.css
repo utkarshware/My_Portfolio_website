@@ -344,6 +344,30 @@ p {
   line-height: 1.7;
 }
 
+.hero__note {
+  font-size: 15px;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+}
+
+.hero__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 12px 0 6px;
+}
+
+.hero__tags span {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.14);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  font-size: 13px;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
 .section-heading {
   display: grid;
   gap: 14px;
@@ -391,6 +415,47 @@ p {
   height: 100%;
 }
 
+.education__layout {
+  display: grid;
+  gap: 48px;
+}
+
+.education__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.education-card {
+  padding: 26px;
+  border-radius: var(--radius-lg);
+  background: var(--surface-soft);
+  border: 1px solid rgba(56, 189, 248, 0.12);
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  gap: 16px;
+}
+
+.education-card__meta {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent);
+  margin-top: 6px;
+}
+
+.education-card ul {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 8px;
+  list-style: disc;
+}
+
+.education-card li {
+  font-size: 15px;
+  color: var(--muted);
+}
+
 .projects__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -420,6 +485,23 @@ p {
   border: 1px solid rgba(56, 189, 248, 0.32);
 }
 
+.project-card__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 4px 0 6px;
+}
+
+.project-card__tech span {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+}
+
 .project-card ul {
   display: grid;
   gap: 8px;
@@ -432,61 +514,46 @@ p {
   font-size: 15px;
 }
 
-.experience {
-  position: relative;
-}
-
-.timeline {
-  position: relative;
+.experience__grid {
   display: grid;
-  gap: 26px;
-  padding-left: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
 }
 
-.timeline::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 8px;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(180deg, rgba(56, 189, 248, 0.4), transparent);
-}
-
-.timeline-item {
-  position: relative;
-  padding: 26px;
+.experience-card {
+  padding: 28px;
   border-radius: var(--radius-lg);
   background: var(--surface);
-  border: 1px solid rgba(56, 189, 248, 0.14);
+  border: 1px solid rgba(56, 189, 248, 0.16);
   box-shadow: var(--shadow-sm);
+  display: grid;
+  gap: 14px;
 }
 
-.timeline-item::before {
-  content: "";
-  position: absolute;
-  top: 32px;
-  left: -32px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 8px rgba(56, 189, 248, 0.12);
-}
-
-.timeline-item__badge {
-  font-size: 13px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 12px;
-  display: inline-block;
-}
-
-.timeline-item__meta {
+.experience-card__meta {
+  font-size: 14px;
   font-weight: 500;
-  color: #f3f6ff;
-  margin-bottom: 10px;
+  color: var(--accent);
+}
+
+.experience-card ul {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 8px;
+  list-style: disc;
+}
+
+.experience-card li {
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.experience-card li strong {
+  display: block;
+  color: #f5f8ff;
+  margin-bottom: 4px;
+  font-weight: 600;
 }
 
 .skills__grid {
@@ -657,6 +724,8 @@ p {
 
 @media (max-width: 920px) {
   .about__cards,
+  .education__grid,
+  .experience__grid,
   .projects__grid,
   .skills__grid,
   .gallery__layout {
@@ -688,19 +757,13 @@ p {
     grid-template-columns: 1fr;
   }
 
-  .timeline {
-    padding-left: 22px;
-  }
-
-  .timeline::before {
-    left: 0;
-  }
-
-  .timeline-item::before {
-    left: -22px;
+  .hero__tags {
+    justify-content: center;
   }
 
   .about__cards,
+  .education__grid,
+  .experience__grid,
   .projects__grid,
   .skills__grid,
   .gallery__layout {
@@ -719,7 +782,6 @@ p {
   }
 
   .project-card,
-  .timeline-item,
   .skills__group,
   .gallery__card,
   .highlight-card {
