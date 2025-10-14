@@ -1029,16 +1029,65 @@ p {
 }
 
 
+/* === Social Icons Fix === */
 .socials {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 18px;
-  margin: 24px 0 0;
+  gap: 16px; /* spacing between icons */
+  margin-top: 24px;
   padding: 0;
   list-style: none;
 }
+
+.socials li {
+  list-style: none;
+}
+
+.socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--social-button, 36px); /* button size */
+  height: var(--social-button, 36px);
+  border-radius: 50%;
+  background: rgba(18, 24, 54, 0.72);
+  border: 1px solid rgba(139, 92, 246, 0.22);
+  color: var(--text);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease,
+              background 0.25s ease, color 0.25s ease;
+}
+
+.socials a svg {
+  width: var(--social-icon, 18px);  /* icon size */
+  height: var(--social-icon, 18px);
+}
+
+.socials a:hover,
+.socials a:focus-visible {
+  transform: translateY(-3px);
+  border-color: rgba(139, 92, 246, 0.55);
+  background: rgba(139, 92, 246, 0.28);
+  color: #f6f7ff;
+  box-shadow: 0 16px 36px rgba(139, 92, 246, 0.28);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  :root {
+    --social-button: 32px;
+    --social-icon: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --social-button: 28px;
+    --social-icon: 14px;
+  }
+}
+
 
 .contact__panel .socials {
   justify-content: flex-start;
