@@ -983,26 +983,47 @@ p {
   padding: 0;
   list-style: none;
   display: grid;
-  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  gap: 18px;
+}
+
+.contact__list li {
+  display: flex;
+  justify-content: center;
 }
 
 .contact__list a {
+  width: 62px;
+  height: 62px;
   display: inline-flex;
   align-items: center;
-  gap: 14px;
-  padding: 10px 12px;
-  border-radius: var(--radius-sm);
-  background: rgba(18, 24, 54, 0.72);
-  border: 1px solid rgba(139, 92, 246, 0.22);
-  color: var(--text);
+  justify-content: center;
+  border-radius: 18px;
+  background: rgba(18, 24, 54, 0.78);
+  border: 1px solid rgba(139, 92, 246, 0.28);
+  color: var(--accent-secondary);
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .contact__list a:hover,
 .contact__list a:focus-visible {
   transform: translateY(-2px);
-  border-color: rgba(139, 92, 246, 0.55);
-  box-shadow: 0 16px 36px rgba(139, 92, 246, 0.28);
+  border-color: rgba(139, 92, 246, 0.6);
+  box-shadow: 0 16px 36px rgba(56, 189, 248, 0.22);
+}
+
+.contact__icon {
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: currentColor;
+}
+
+.contact__icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 .site-footer {
@@ -1132,10 +1153,6 @@ p {
   .contact__cta,
   .social-links--callout {
     justify-content: center;
-  }
-
-  .contact__list a {
-    width: 100%;
   }
 
   .timeline {
