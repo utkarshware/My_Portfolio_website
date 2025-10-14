@@ -1048,6 +1048,11 @@ p {
   gap: 16px;
 }
 
+.contact__cta .btn {
+  border-radius: 14px;
+  padding-inline: 20px;
+}
+
 .contact__panel {
   display: grid;
   gap: 20px;
