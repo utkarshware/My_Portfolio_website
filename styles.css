@@ -694,8 +694,6 @@ p {
   list-style: disc;
   color: var(--accent);
   border-bottom: 1px solid rgba(139, 92, 246, 0.45);
-}
-
 .project-card li {
   color: var(--muted);
   font-size: 15px;
@@ -1109,6 +1107,34 @@ p {
     height: 340px;
   }
 }
+/* ==== AI/Robotics Pattern Backgrounds ==== */
+.pattern {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.9;
+  filter: grayscale(100%) brightness(1.1);
+  transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+.pattern:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* Specific hero patterns */
+.pattern-robot {
+  background-image: url("https://www.svgbackgrounds.com/wp-content/uploads/2021/05/minimal-tech-lines.svg");
+}
+
+.pattern-drone {
+  background-image: url("https://www.svgbackgrounds.com/wp-content/uploads/2021/05/ai-circuit.svg");
+}
+
+.pattern-circuit {
+  background-image: url("https://www.svgbackgrounds.com/wp-content/uploads/2021/05/abstract-tech.svg");
+}
+
 
 @media (max-width: 920px) {
   .about__cards,
@@ -1259,18 +1285,35 @@ p {
     height: 240px;
     bottom: -180px;
   }
-  /* ==== Social Icons Fix ==== */
-  .social-icons i,
-  .social-icons a i,
-  footer i {
-    font-size: 18px; /* Smaller, modern professional size */
-    margin: 0 8px; /* Balanced spacing between icons */
-    transition: transform 0.2s ease, color 0.2s ease;
+}
+/* ==== Responsive adjustments for hero pattern glyphs ==== */
+@media (max-width: 920px) {
+  .hero__glyph {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero__glyph {
+    width: 45px;
+    height: 45px;
+    opacity: 0.6;
   }
 
-  .social-icons i:hover,
-  footer i:hover {
-    transform: scale(1.2); /* Subtle hover effect */
-    color: #0077b5; /* Optional hover color (LinkedIn blue vibe) */
+  /* Subtle repositioning for better visual balance */
+  .hero__glyph--arm.pattern-robot {
+    top: 14%;
+    left: 20%;
+  }
+
+  .hero__glyph--drone.pattern-drone {
+    bottom: 10%;
+    left: 14%;
+  }
+
+  .hero__glyph--circuit.pattern-circuit {
+    top: 30%;
+    right: 14%;
   }
 }
