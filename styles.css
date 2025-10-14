@@ -18,7 +18,8 @@
   --shadow-lg: 0 42px 140px rgba(4, 6, 26, 0.55);
   --shadow-md: 0 28px 90px rgba(12, 16, 46, 0.48);
   --shadow-sm: 0 16px 40px rgba(14, 18, 46, 0.34);
-  --contact-pill: 36px;
+  --social-button: 36px;
+  --social-icon: 18px;
 }
 
 * {
@@ -60,6 +61,18 @@ a {
 a:hover,
 a:focus-visible {
   color: var(--accent);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 img {
@@ -1015,103 +1028,53 @@ p {
   line-height: 1.7;
 }
 
-.contact__list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: 14px;
-}
 
-
-.contact__list a {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 4px 14px;
-  min-height: var(--contact-pill);
-  border-radius: var(--radius-sm);
-  background: rgba(18, 24, 54, 0.72);
-  border: 1px solid rgba(139, 92, 246, 0.22);
-  color: var(--text);
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  line-height: 1.1;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.contact__list a:hover,
-.contact__list a:focus-visible {
-  transform: translateY(-2px);
-  border-color: rgba(139, 92, 246, 0.55);
-  box-shadow: 0 16px 36px rgba(139, 92, 246, 0.28);
-}
-
-.contact__list a:hover .contact__icon,
-.contact__list a:focus-visible .contact__icon {
-  background: rgba(139, 92, 246, 0.28);
-  color: #f6f7ff;
-}
-
-
-
-.contact__icon {
-  width: var(--contact-pill);
-  height: var(--contact-pill);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: rgba(12, 18, 44, 0.9);
-  color: var(--accent-secondary);
-  flex-shrink: 0;
-  transition: background 0.25s ease, color 0.25s ease;
-}
-
-.contact__icon svg {
-  width: calc(var(--contact-pill) / 2);
-  height: calc(var(--contact-pill) / 2);
-}
-
-.contact__label {
-  display: inline-flex;
-  align-items: center;
-  color: inherit;
-  white-space: nowrap;
-}
-
-/* === FIX: Professional Social Icon Size === */
 .socials {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 16px;
-  margin-top: 24px;
+  gap: 18px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact__panel .socials {
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
+.socials li {
+  list-style: none;
 }
 
 .socials a {
-  display: flex;
-  justify-content: center;
+  display: inline-flex;
   align-items: center;
-  width: 36px;
-  height: 36px;
+  justify-content: center;
+  width: var(--social-button);
+  height: var(--social-button);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(18, 24, 54, 0.72);
+  border: 1px solid rgba(139, 92, 246, 0.22);
   color: var(--text);
-  transition: all 0.3s ease;
-  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease,
+    background 0.25s ease, color 0.25s ease;
 }
 
-.socials a i {
-  font-size: 18px;
-  line-height: 1;
-}
-
-.socials a:hover {
-  background: var(--accent);
-  color: #fff;
+.socials a:hover,
+.socials a:focus-visible {
   transform: translateY(-3px);
+  border-color: rgba(139, 92, 246, 0.55);
+  background: rgba(139, 92, 246, 0.28);
+  color: #f6f7ff;
+  box-shadow: 0 16px 36px rgba(139, 92, 246, 0.28);
+}
+
+.socials a svg {
+  width: var(--social-icon);
+  height: var(--social-icon);
 }
 
 .site-footer {
@@ -1263,10 +1226,6 @@ p {
     justify-content: center;
   }
 
-  .contact__list a {
-    width: 100%;
-  }
-
   .timeline {
     padding-left: 0;
   }
@@ -1289,12 +1248,12 @@ p {
 
 @media (max-width: 640px) {
   :root {
-    --contact-pill: 32px;
+    --social-button: 32px;
+    --social-icon: 16px;
   }
 
-  .contact__list a {
-    padding: 4px 12px;
-    gap: 10px;
+  .socials {
+    gap: 14px;
   }
 }
 
