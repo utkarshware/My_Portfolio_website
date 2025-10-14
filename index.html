@@ -43,6 +43,14 @@
 
       <main>
         <section class="hero" id="home">
+          <div class="hero__glow" aria-hidden="true"></div>
+          <div class="hero__orb hero__orb--one" aria-hidden="true"></div>
+          <div class="hero__orb hero__orb--two" aria-hidden="true"></div>
+          <div class="hero__background" aria-hidden="true">
+            <span class="hero__glyph hero__glyph--arm"></span>
+            <span class="hero__glyph hero__glyph--drone"></span>
+            <span class="hero__glyph hero__glyph--circuit"></span>
+          </div>
           <div class="container hero__layout">
             <div class="hero__copy">
               <span class="hero__badge">Robotics &amp; Automation</span>
@@ -94,6 +102,14 @@
                 </div>
               </dl>
             </div>
+            <div class="hero__visual">
+              <figure class="hero__portrait">
+                <img
+                  src="./assets/images/utkarsh.jpg"
+                  alt="Utkarsh Singh smiling in front of lab equipment."
+                />
+              </figure>
+            </div>
           </div>
         </section>
 
@@ -124,6 +140,51 @@
             </div>
             <div class="about__cards">
               <article class="highlight-card">
+                <div class="highlight-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64" role="presentation">
+                    <defs>
+                      <radialGradient
+                        id="intelligentGradient"
+                        cx="50%"
+                        cy="45%"
+                        r="60%"
+                      >
+                        <stop
+                          offset="0"
+                          style="stop-color: var(--accent); stop-opacity: 0.88"
+                        />
+                        <stop
+                          offset="1"
+                          style="stop-color: transparent; stop-opacity: 0"
+                        />
+                      </radialGradient>
+                    </defs>
+                    <circle
+                      cx="32"
+                      cy="32"
+                      r="28"
+                      fill="url(#intelligentGradient)"
+                      opacity="0.85"
+                    />
+                    <g
+                      fill="none"
+                      stroke="var(--accent)"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.6"
+                    >
+                      <path
+                        d="M22 26c0-6.627 4.477-12 10-12s10 5.373 10 12v4c0 6.627-4.477 10-10 10s-10-3.373-10-10Z"
+                      />
+                      <path d="M24 34c2.4 2.2 11.6 2.2 14 0" />
+                      <path d="M24 43.5h16" />
+                      <path d="M26 48h12" />
+                      <path d="M30 22h4" />
+                    </g>
+                    <circle cx="26" cy="28" r="2" fill="var(--accent)" />
+                    <circle cx="38" cy="28" r="2" fill="var(--accent)" />
+                  </svg>
+                </div>
                 <h3>Intelligent Systems</h3>
                 <p>
                   From robotic arms to AR assistants, I design platforms where
@@ -132,6 +193,55 @@
                 </p>
               </article>
               <article class="highlight-card">
+                <div class="highlight-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64" role="presentation">
+                    <defs>
+                      <linearGradient
+                        id="blendGradient"
+                        x1="20%"
+                        y1="15%"
+                        x2="80%"
+                        y2="85%"
+                      >
+                        <stop
+                          offset="0"
+                          style="stop-color: var(--accent); stop-opacity: 0.85"
+                        />
+                        <stop
+                          offset="1"
+                          style="
+                            stop-color: rgba(255, 255, 255, 0);
+                            stop-opacity: 0;
+                          "
+                        />
+                      </linearGradient>
+                    </defs>
+                    <rect
+                      x="8"
+                      y="14"
+                      width="48"
+                      height="36"
+                      rx="10"
+                      fill="url(#blendGradient)"
+                      opacity="0.8"
+                    />
+                    <g
+                      fill="none"
+                      stroke="var(--accent)"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.6"
+                    >
+                      <rect x="12" y="18" width="40" height="28" rx="8" />
+                      <rect x="18" y="24" width="16" height="10" rx="3" />
+                      <path d="M38 28h8" />
+                      <path d="M38 34h6" />
+                      <path d="M22 40h20" />
+                    </g>
+                    <circle cx="19" cy="29" r="1.8" fill="var(--accent)" />
+                    <circle cx="24" cy="29" r="1.8" fill="var(--accent)" />
+                  </svg>
+                </div>
                 <h3>Hardware &amp; Software Blend</h3>
                 <p>
                   I prototype across embedded firmware, cloud back ends, and
@@ -140,6 +250,49 @@
                 </p>
               </article>
               <article class="highlight-card">
+                <div class="highlight-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64" role="presentation">
+                    <defs>
+                      <radialGradient
+                        id="leadershipGradient"
+                        cx="50%"
+                        cy="50%"
+                        r="65%"
+                      >
+                        <stop
+                          offset="0"
+                          style="stop-color: var(--accent); stop-opacity: 0.85"
+                        />
+                        <stop
+                          offset="1"
+                          style="stop-color: transparent; stop-opacity: 0"
+                        />
+                      </radialGradient>
+                    </defs>
+                    <circle
+                      cx="32"
+                      cy="32"
+                      r="26"
+                      fill="url(#leadershipGradient)"
+                      opacity="0.82"
+                    />
+                    <g
+                      fill="none"
+                      stroke="var(--accent)"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.6"
+                    >
+                      <path d="M18 26h10l4 6h14" />
+                      <path d="M18 34h10l4-6h14" />
+                      <circle cx="18" cy="26" r="4" />
+                      <circle cx="46" cy="32" r="4" />
+                      <circle cx="18" cy="34" r="4" />
+                      <path d="M18 22v-4" />
+                      <path d="M46 28v-4" />
+                    </g>
+                  </svg>
+                </div>
                 <h3>Leadership &amp; Ops</h3>
                 <p>
                   From startup ops to student councils, I translate complex
