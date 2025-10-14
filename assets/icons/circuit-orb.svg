@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <radialGradient id="coreGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#f5f8ff" />
+      <stop offset="55%" stop-color="#6cc8ff" />
+      <stop offset="100%" stop-color="#2830a0" />
+    </radialGradient>
+    <linearGradient id="traceGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="88" fill="url(#coreGlow)" opacity="0.88" />
+  <circle cx="100" cy="100" r="52" fill="#0c1338" opacity="0.7" />
+  <path d="M100 16v24M100 160v24M16 100h24M160 100h24" stroke="#a0d9ff" stroke-width="8" stroke-linecap="round" opacity="0.4" />
+  <path d="M60 72h32l12-18h48" fill="none" stroke="url(#traceGradient)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M140 128h-32l-12 18H60" fill="none" stroke="url(#traceGradient)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="60" cy="72" r="9" fill="#fff" opacity="0.8" />
+  <circle cx="140" cy="128" r="9" fill="#fff" opacity="0.8" />
+  <circle cx="92" cy="54" r="7" fill="#38bdf8" />
+  <circle cx="122" cy="146" r="7" fill="#8b5cf6" />
+</svg>

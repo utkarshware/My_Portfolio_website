@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="droneBody" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8be9ff" />
+      <stop offset="60%" stop-color="#3c7bff" />
+      <stop offset="100%" stop-color="#1f2b7a" />
+    </linearGradient>
+    <radialGradient id="rotorGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#7ec8ff" />
+    </radialGradient>
+  </defs>
+  <circle cx="100" cy="100" r="30" fill="url(#droneBody)" stroke="#121b40" stroke-width="6" />
+  <ellipse cx="100" cy="100" rx="16" ry="16" fill="#0c1330" opacity="0.85" />
+  <path d="M46 100h-22" stroke="#7ec8ff" stroke-width="10" stroke-linecap="round" />
+  <path d="M154 100h22" stroke="#7ec8ff" stroke-width="10" stroke-linecap="round" />
+  <path d="M100 46V24" stroke="#7ec8ff" stroke-width="10" stroke-linecap="round" />
+  <path d="M100 154v22" stroke="#7ec8ff" stroke-width="10" stroke-linecap="round" />
+  <circle cx="46" cy="46" r="26" fill="none" stroke="#1d2c74" stroke-width="6" />
+  <circle cx="154" cy="46" r="26" fill="none" stroke="#1d2c74" stroke-width="6" />
+  <circle cx="46" cy="154" r="26" fill="none" stroke="#1d2c74" stroke-width="6" />
+  <circle cx="154" cy="154" r="26" fill="none" stroke="#1d2c74" stroke-width="6" />
+  <circle cx="46" cy="46" r="18" fill="url(#rotorGlow)" opacity="0.9" />
+  <circle cx="154" cy="46" r="18" fill="url(#rotorGlow)" opacity="0.9" />
+  <circle cx="46" cy="154" r="18" fill="url(#rotorGlow)" opacity="0.9" />
+  <circle cx="154" cy="154" r="18" fill="url(#rotorGlow)" opacity="0.9" />
+  <path d="M46 46c14 6 16 22 0 28" fill="none" stroke="#7ec8ff" stroke-width="4" stroke-linecap="round" />
+  <path d="M154 46c14 6 16 22 0 28" fill="none" stroke="#7ec8ff" stroke-width="4" stroke-linecap="round" />
+  <path d="M46 154c14 6 16 22 0 28" fill="none" stroke="#7ec8ff" stroke-width="4" stroke-linecap="round" />
+  <path d="M154 154c14 6 16 22 0 28" fill="none" stroke="#7ec8ff" stroke-width="4" stroke-linecap="round" />
+</svg>

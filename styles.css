@@ -230,14 +230,15 @@ p {
 .hero__glyph {
   position: absolute;
   display: block;
-  width: 84px;
-  height: 84px;
+  width: clamp(160px, 18vw, 220px);
+  height: clamp(160px, 18vw, 220px);
   background-size: contain;
   background-repeat: no-repeat;
-  opacity: 0.7;
-  filter: drop-shadow(0 20px 46px rgba(139, 92, 246, 0.35));
-  animation: heroFloat 22s ease-in-out infinite;
+  opacity: 0.9;
+  filter: drop-shadow(0 28px 58px rgba(139, 92, 246, 0.38));
+  animation: heroFloat 26s ease-in-out infinite;
   mix-blend-mode: screen;
+  transform-origin: center;
 }
 
 .hero__orb--one {
@@ -371,39 +372,27 @@ p {
   z-index: 0;
 }
 
-.hero__glyph {
-  position: absolute;
-  display: block;
-  width: 84px;
-  height: 84px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 0.7;
-  filter: drop-shadow(0 18px 42px rgba(14, 165, 233, 0.3));
-  animation: heroFloat 22s ease-in-out infinite;
-}
-
 .hero__glyph--arm {
   top: 18%;
-  left: 6%;
-  background-image: url("./assets/icons/robot-arm.svg");
-  animation-duration: 24s;
+  left: 2%;
+  background-image: url("./assets/icons/robot-arm-v2.svg");
+  animation-duration: 28s;
 }
 
 .hero__glyph--drone {
-  bottom: 18%;
-  left: 12%;
-  background-image: url("./assets/icons/drone.svg");
-  animation-duration: 28s;
-  animation-delay: -8s;
+  bottom: 12%;
+  left: 14%;
+  background-image: url("./assets/icons/drone-v2.svg");
+  animation-duration: 30s;
+  animation-delay: -6s;
 }
 
 .hero__glyph--circuit {
-  top: 24%;
-  right: 10%;
-  background-image: url("./assets/icons/circuit-board.svg");
-  animation-duration: 26s;
-  animation-delay: -4s;
+  top: 10%;
+  right: 4%;
+  background-image: url("./assets/icons/circuit-orb.svg");
+  animation-duration: 32s;
+  animation-delay: -10s;
 }
 
 .hero__globe {
@@ -901,6 +890,11 @@ p {
   box-shadow: 0 0 12px rgba(139, 92, 246, 0.6);
 }
 
+.callout__points--panel li {
+  color: #e9ecff;
+  font-weight: 500;
+}
+
 .callout__panel {
   display: grid;
   gap: 22px;
@@ -946,8 +940,8 @@ p {
 }
 
 .social-link svg {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
 }
 
 .social-link:hover,
@@ -1082,8 +1076,8 @@ p {
 }
 
 .contact__icon svg {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
 }
 
 .site-footer {
@@ -1125,8 +1119,8 @@ p {
   }
 
   .hero__glyph {
-    width: 72px;
-    height: 72px;
+    width: clamp(140px, 24vw, 200px);
+    height: clamp(140px, 24vw, 200px);
   }
 
   .hero__globe {
