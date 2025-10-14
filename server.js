@@ -7,7 +7,6 @@ const PORT = process.env.PORT || 5173;
 
 app.use(compression());
 app.use((req, _res, next) => {
-  // helpful caching for static assets
   if (/\.(?:svg|png|jpg|jpeg|webp|gif|ico|css|js)$/.test(req.url)) {
     _res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
   }

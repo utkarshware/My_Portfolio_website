@@ -1,6 +1,3 @@
-// data.js
-// Put your content and links here. Edit this file to change the site copy.
-
 window.PORTFOLIO_DATA = {
   meta: {
     title: "Utkarsh Singh — Robotics & Automation Student",
