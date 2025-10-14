@@ -694,6 +694,8 @@ p {
   list-style: disc;
   color: var(--accent);
   border-bottom: 1px solid rgba(139, 92, 246, 0.45);
+}
+
 .project-card li {
   color: var(--muted);
   font-size: 15px;
@@ -1256,5 +1258,19 @@ p {
     width: 240px;
     height: 240px;
     bottom: -180px;
+  }
+  /* ==== Social Icons Fix ==== */
+  .social-icons i,
+  .social-icons a i,
+  footer i {
+    font-size: 18px; /* Smaller, modern professional size */
+    margin: 0 8px; /* Balanced spacing between icons */
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+
+  .social-icons i:hover,
+  footer i:hover {
+    transform: scale(1.2); /* Subtle hover effect */
+    color: #0077b5; /* Optional hover color (LinkedIn blue vibe) */
   }
 }
