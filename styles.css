@@ -1022,11 +1022,13 @@ p {
   gap: 14px;
 }
 
+
 .contact__list a {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 8px;
+  gap: 10px;
+  padding: 4px 12px;
+  min-height: 36px;
   border-radius: var(--radius-sm);
   background: rgba(18, 24, 54, 0.72);
   border: 1px solid rgba(139, 92, 246, 0.22);
@@ -1041,20 +1043,22 @@ p {
   box-shadow: 0 16px 36px rgba(139, 92, 246, 0.28);
 }
 
+
 .contact__icon {
-  width: 22px;
-  height: 22px;
+  width: 36px;
+  height: 36px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 12px;
+  border-radius: 50%;
   background: rgba(12, 18, 44, 0.9);
   color: var(--accent-secondary);
+  flex-shrink: 0;
 }
 
 .contact__icon svg {
-  width: 14px;
-  height: 14px;
+  width: 18px;
+  height: 18px;
 }
 
 .site-footer {
@@ -1227,6 +1231,24 @@ p {
 
   .timeline__content {
     padding: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact__list a {
+    min-height: 32px;
+    padding: 4px 10px;
+    gap: 8px;
+  }
+
+  .contact__icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .contact__icon svg {
+    width: 16px;
+    height: 16px;
   }
 }
 
