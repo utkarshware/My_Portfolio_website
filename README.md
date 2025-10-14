@@ -1,63 +1,72 @@
-# Utkarsh Singh – Portfolio
+# Utkarsh Singh – Robotics & AI Portfolio
 
-Single-page portfolio focused on robotics, automation, and embedded systems. Ships as static assets and includes an Express server for local previews.
-
----
-
-## Highlights
-
-- Data in `data.js` drives every section, including SEO metadata.
-- Responsive layout with light/dark theming and animated glassmorphism details.
-- Project grid with optional imagery, tech badges, and external links.
-- Scroll-aware navigation, progress indicator, and custom cursor for desktop.
+Showcase site for Utkarsh Singh’s robotics, automation, and embedded systems work. The project ships as static HTML/CSS with a lightweight Express helper for local previews.
 
 ---
 
-## Stack
+## Live Site
 
-- HTML5, CSS, vanilla JavaScript
-- Assets stored locally under `assets/icons` and `assets/images`
-- Optional Node.js tooling (`express`, `compression`, `serve-static`)
+- **GitHub Pages:** https://utkarshware.github.io/My_Portfolio_website/
 
 ---
 
-## Structure
+## Features
+
+- Hero section highlighting current studies, focus areas, and key metrics.
+- Detailed timeline covering education, leadership, and project experience.
+- Project gallery with concise case studies across AR, agritech, and robotics prototypes.
+- Skills matrix, collaboration call-to-action, and direct contact/resumé links.
+- Responsive layout tuned for desktop and mobile without external UI frameworks.
+
+---
+
+## Tech Stack
+
+- HTML5 and CSS for structure and styling.
+- Vanilla JavaScript (optional) for dynamic content loading via `data.js`/`script.js`.
+- Node.js + Express (`server.js`) for local static serving with gzip compression.
+
+---
+
+## Project Structure
 
 ```
 My_Portfolio_website/
-├─ assets/             # imagery and icons
-├─ data.js             # content configuration (window.PORTFOLIO_DATA)
-├─ index.html          # markup shell
-├─ script.js           # rendering logic and interactions
-├─ styles.css          # styling and responsive rules
-├─ server.js           # optional Express static server
+├─ assets/             # images and downloadable assets (e.g., résumé PDF)
+├─ data.js             # optional content configuration object
+├─ index.html          # main static page
+├─ script.js           # optional dynamic renderer consuming data.js
+├─ styles.css          # global styles and responsive rules
+├─ server.js           # Express server for local previews
 └─ package.json        # npm scripts and dependencies
 ```
 
+> Icons are no longer required; any imagery should live under `assets/images/` or a relevant subfolder.
+
 ---
 
-## Quick start
+## Getting Started
 
 ### Static preview
 
 1. Clone or download the repository.
-2. Open `index.html` in a modern browser.
+2. Open `index.html` directly in your browser.
 
-### Node.js preview
+### Local server (Node.js)
 
 ```cmd
 npm install
-npm run start
+npm start
 ```
 
-- Serves the site on http://localhost:5173 (set `PORT` to override).
-- Development mode with Nodemon:
+- Serves the site at `http://localhost:5173` by default (override with `PORT`).
+- Development mode with automatic restarts:
 
 ```cmd
 npm run dev
 ```
 
-### Lightweight alternative
+### Alternative lightweight server
 
 ```cmd
 python -m http.server 8000
@@ -66,33 +75,21 @@ start "" "http://localhost:8000"
 
 ---
 
-## Customising content
+## Updating Content
 
-Edit `data.js` to update copy, links, and imagery:
+- **Static approach:** edit the HTML directly in `index.html` and styles in `styles.css`.
+- **Config-driven approach:** populate `window.PORTFOLIO_DATA` in `data.js` and wire up `script.js` if you prefer rendering sections programmatically. (This route is optional and currently unused on the live site.)
+- Update images and downloadable assets under `assets/` and reference them with relative paths.
 
-- `meta`: title, description, résumé link.
-- `profile`: hero headline, biography, portrait.
-- `contact`: email, availability messaging, location, response time.
-- `skills`: technology list rendered as badges.
-- `projects`: case studies with optional media, tech stack, and links.
-- `socials`: social profiles with optional icon overrides.
-- `schema`: JSON-LD Person metadata.
-
-Store images in `assets/images/` and reference them with relative paths. Icons belong in `assets/icons/`.
-
----
-
-## Development notes
-
-- `script.js` hydrates the DOM, manages the nav highlight, theme toggle, and scroll progress bar.
-- `styles.css` defines the aurora-inspired visuals and responsive breakpoints (900px and 720px).
-- Hero portrait gracefully falls back to a decorative orbit when no image is provided.
+Remember to keep biography, project descriptions, and contact details in sync with the live deployment.
 
 ---
 
 ## Deployment
 
-The site is static. Deploy the repository contents to any static host (GitHub Pages, Netlify, Vercel, Cloudflare Pages, etc.). No build step is required.
+The site is static, so any static host works. Current production deployment uses GitHub Pages via the `main` branch at https://utkarshware.github.io/My_Portfolio_website/. To redeploy, push to `main` and Pages will refresh automatically.
+
+For other hosts (Netlify, Vercel, Cloudflare Pages, etc.), point the host to the repository root—no build step is required.
 
 ---
 
