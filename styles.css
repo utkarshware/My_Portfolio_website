@@ -1081,6 +1081,39 @@ p {
   white-space: nowrap;
 }
 
+/* === FIX: Professional Social Icon Size === */
+.socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.socials a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.socials a i {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.socials a:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
 .site-footer {
   padding: 48px 0 60px;
   text-align: center;
